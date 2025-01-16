@@ -10,7 +10,7 @@
 
 </br>
 
-<p><a href="https://github.com/MathysCogne/42_MiniShell/blob/main/subject/en.subject.pdf"><strong>Subject</strong></a></p>
+<p><a href="https://github.com/MathysCogne/42_Cub3D/blob/main/subject/fr.subject.pdf"><strong>Subject</strong></a></p>
 
 </div>
 

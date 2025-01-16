@@ -4,7 +4,17 @@ SRCDIR = src
 OBJDIR = obj
 INCDIR = include
 
-SRC = main.c
+SRC = main.c \
+		parsing/parsing.c \
+			parsing/read_map.c \
+			parsing/process_map.c \
+			parsing/cleanup.c \
+\
+		utils/ft_free.c \
+		utils/init_env.c \
+		utils/ft_is_space.c \
+\
+		debug/debug_parsing.c
 
 
 OBJ = $(SRC:.c=.o)
@@ -65,6 +75,7 @@ $(NAME): $(BUILD)
 
 $(BUILD): $(MINILIBX_DIR) $(LIBFT) $(OBJ)
 	@clear
+	$(V)export DEBUG_MODE=0
 	$(V)$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) $(BONUS_OBJ) $(LIBS) $(MLXFLAGS) -o $(NAME)
 	$(V)echo $(GREEN)"[$(NAME)] Executable created ✅"$(RESET)
 	@touch $@
@@ -102,6 +113,7 @@ $(MINILIBX_DIR):
 	$(V)echo '[$(NAME)] Compiling MiniLibX...'$(RESET)
 	@$(MAKE) -C $(MINILIBX_DIR) > /dev/null 2>&1
 	$(V)echo '[$(NAME)] MiniLibX installed successfully'$(RESET)
+
 #################################
 #             CLEAN             #
 #################################
@@ -123,10 +135,10 @@ fclean: clean
 #             NORME             #
 #################################
 norme:
-	@if norminette | grep "Error" > norminette_errors.txt; then \
+	@if (norminette src || norminette include) | grep "Error" > norminette_errors.txt; then \
 		echo $(RED)"[$(NAME)] Norme KO"$(RESET); \
 		cat norminette_errors.txt | awk 'BEGIN {FS=":"; OFS=":"} \
-		/^src/ || /^libft/ {print "\n" $$0} \
+		/^src/ || /^libft/ || /^include/ {print "\n" $$0} \
 		/^Error/ {sub(/^Error: /, ""); print "  ➜ " $$0}'; \
 	else \
 		echo $(GREEN)"[$(NAME)] Norme ok ✅"$(RESET); \
@@ -138,7 +150,7 @@ norme:
 #################################
 test: all norme
 	$(V)echo $(GREEN)"[$(NAME)] Running $(NAME) with valgrind"$(RESET)
-	$(V)valgrind --leak-check=full ./$(NAME)
+	$(V)valgrind --leak-check=full ./$(NAME) assets/map/map.cub
 
 
 re: fclean all

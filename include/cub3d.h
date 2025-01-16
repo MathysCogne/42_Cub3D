@@ -6,26 +6,44 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/15 18:41:51 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/16 00:57:37 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "error.h"
 # include "ft_printf.h"
+# include "get_next_line.h"
+# include "key.h"
 # include "libft.h"
 # include "libft_extra.h"
+# include "mlx.h"
 # include "struct.h"
+# include <fcntl.h>
 
+# ifndef DEBUG_MODE
+#  define DEBUG_MODE 1
+# endif
 /*******************************/
 /*            DEFINE           */
 /*******************************/
-# define NAME "[CUB3D] "
+# define NAME "[cub3D] "
+
+# define EXTENTION_MAP ".cub"
+
+# define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 720
 
 /*******************************/
 /*            PARSING          */
 /*******************************/
+short	parsing(t_env *env, char *path_map);
+short	read_map(t_env *env, char *path_map);
+short	process_map(t_env *env);
+void	cleanup(t_env *env);
 
 /*******************************/
 /*             GAME            */
@@ -34,6 +52,14 @@
 /*******************************/
 /*            UTILS            */
 /*******************************/
+short	init_env(t_env *env);
+void	ft_free(void *ptr);
+short	ft_is_space(char c);
+
+/*******************************/
+/*          DEBUG MODE         */
+/*******************************/
+void	debug_parsing(t_env *env);
 
 /*******************************/
 /*            COLORS           */

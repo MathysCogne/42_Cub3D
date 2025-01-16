@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 18:32:20 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/16 00:33:55 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/15 22:36:10 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/16 00:18:32 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static short	cub3d(t_env *env, char *path_map)
+short	init_env(t_env *env)
 {
-	if (init_env(env))
-		return (ERROR_INIT_ENV);
-	if (parsing(env, path_map))
-		return (ERROR_PARSING);
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_env	env;
-
-	if (argc != 2 || !argv[1][0])
-	{
-		ft_fprintf(2, RED NAME "Usage: %s [path_map]\n", argv[0]);
+	env->gc = NULL;
+	env->gc = gc_init();
+	env->map = NULL;
+	env->mlx = NULL;
+	env->textures = NULL;
+	if (!env->gc)
 		return (1);
-	}
-	if (cub3d(&env, argv[1]))
-	{
-		cleanup(&env);
-		ft_fprintf(2, RED NAME "Error\n");
+	env->map = malloc(sizeof(t_map));
+	if (!env->map)
 		return (1);
-	}
-	cleanup(&env);
-	ft_fprintf(1, MINT_GREEN NAME "Exit\n");
+	ft_memset(env->map, 0, sizeof(t_map));
+	env->mlx = malloc(sizeof(t_mlx));
+	if (!env->mlx)
+		return (1);
+	ft_memset(env->mlx, 0, sizeof(t_mlx));
+	env->textures = malloc(sizeof(t_textures));
+	if (!env->textures)
+		return (1);
+	ft_memset(env->textures, 0, sizeof(t_textures));
 	return (0);
 }
