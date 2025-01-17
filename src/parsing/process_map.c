@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:20:58 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,13 @@ static int	parse_texture_line(char *line, t_textures *textures)
 
 static int	parse_map_line(char *line, t_env *env, t_map *map)
 {
-	map->map = ft_realloc(map->map, sizeof(char *) * (map->height),
+	map->grid = ft_realloc(map->grid, sizeof(char *) * (map->height),
 			sizeof(char *) * (map->height + 1));
-	if (!map->map)
+	if (!map->grid)
 		return (1);
-	map->map[map->height] = ft_strdup(line);
-	gc_add(env->gc, map->map[map->height]);
-	if (!map->map[map->height])
+	map->grid[map->height] = ft_strdup(line);
+	gc_add(env->gc, map->grid[map->height]);
+	if (!map->grid[map->height])
 		return (1);
 	map->height++;
 	return (0);

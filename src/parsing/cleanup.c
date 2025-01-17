@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:29:38 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	cleanup_map(t_env *env)
 	if (env->map)
 	{
 		ft_free(env->map->file);
-		ft_free(env->map->map);
+		ft_free(env->map->grid);
 		ft_free(env->map);
 	}
 }

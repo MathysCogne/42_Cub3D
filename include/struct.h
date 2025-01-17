@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:24:11 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_player
 typedef struct s_map
 {
 	char		*file;
-	char		**map;
+	char		**grid;
 	size_t		width;
 	size_t		height;
 	t_player	player;

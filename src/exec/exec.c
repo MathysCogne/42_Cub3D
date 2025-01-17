@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:49:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:12:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ short	exec(t_env *env)
 		return (1);
 	// LOOP IN START GAME
 	mlx_loop(env->mlx->id);
+	//
+	// RENDER & RAY CASTING
 	return (0);
 }
