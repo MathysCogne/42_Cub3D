@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:10:47 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,22 @@
 # define STRUCT_H
 
 # include "libft_extra.h"
+
+typedef enum e_texture_type
+{
+	FOG,
+	NO,
+	SO,
+	WE,
+	EA
+}		t_texture_type;
+
+typedef struct s_ray
+{
+	size_t			distance;
+	size_t			angle;
+	t_texture_type	type_t;
+}					t_ray;
 
 typedef struct s_mlx
 {
