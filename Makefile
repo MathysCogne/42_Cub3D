@@ -42,6 +42,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/
 AR = ar
 ARFLAGS = rcs
 
+
 # LIBXFLAGS
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
