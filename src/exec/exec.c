@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_env.c                                         :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 22:36:10 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:42:20 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/17 04:49:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <string.h>
 
-short	init_env(t_env *env)
+short	init_win_mlx(t_mlx *mlx)
 {
-	env->gc = NULL;
-	env->map = NULL;
-	env->mlx = NULL;
-	env->textures = NULL;
-	env->gc = gc_init();
-	if (!env->gc)
+	mlx->id = mlx_init();
+	if (!mlx->id)
 		return (1);
-	env->map = malloc(sizeof(t_map));
-	if (!env->map)
+	mlx->win = mlx_new_window(mlx->id, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
+	if (!mlx->win)
 		return (1);
-	ft_memset(env->map, 0, sizeof(t_map));
-	env->mlx = malloc(sizeof(t_mlx));
-	if (!env->mlx)
+	return (0);
+}
+
+short	exec(t_env *env)
+{
+	if (init_win_mlx(env->mlx))
 		return (1);
-	ft_memset(env->mlx, 0, sizeof(t_mlx));
-	env->textures = malloc(sizeof(t_textures));
-	if (!env->textures)
-		return (1);
-	ft_memset(env->textures, 0, sizeof(t_textures));
+	// LOOP IN START GAME
+	mlx_loop(env->mlx->id);
 	return (0);
 }

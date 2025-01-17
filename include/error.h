@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:37:24 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/15 22:45:26 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:38:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ typedef enum e_error
 {
 	ERROR_INIT_ENV,
 	ERROR_PARSING,
-	ERROR_MLX,
-	ERROR_TEXTURES,
-	ERROR_MAP,
 	ERROR_GAME
-}			t_error;
+}	t_error;
 
 #endif

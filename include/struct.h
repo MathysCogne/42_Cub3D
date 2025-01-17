@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/15 23:14:14 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:24:11 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,16 @@ typedef struct s_mlx
 
 typedef struct textures
 {
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*floor;
-	char		*ceiling;
+	char		*path_no;
+	char		*path_so;
+	char		*path_we;
+	char		*path_ea;
+	void		*t_no;
+	void		*t_so;
+	void		*t_we;
+	void		*t_ea;
+	int			rgb_floor[3];
+	int			rgb_ceiling[3];
 }				t_textures;
 
 typedef struct s_pos

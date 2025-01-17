@@ -10,6 +10,8 @@ SRC = main.c \
 			parsing/process_map.c \
 			parsing/cleanup.c \
 \
+		exec/exec.c \
+\
 		utils/ft_free.c \
 		utils/init_env.c \
 		utils/ft_is_space.c \

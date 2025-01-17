@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/16 00:57:37 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:39:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ short	parsing(t_env *env, char *path_map);
 short	read_map(t_env *env, char *path_map);
 short	process_map(t_env *env);
 void	cleanup(t_env *env);
+
+/*******************************/
+/*             EXEC            */
+/*******************************/
+short	exec(t_env *env);
 
 /*******************************/
 /*             GAME            */

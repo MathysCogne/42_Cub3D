@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:32:20 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/16 00:33:55 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 04:37:44 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static short	cub3d(t_env *env, char *path_map)
 		return (ERROR_INIT_ENV);
 	if (parsing(env, path_map))
 		return (ERROR_PARSING);
+	if (exec(env))
+		return (ERROR_GAME);
 	return (0);
 }
 
