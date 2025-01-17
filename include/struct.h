@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:49:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,17 @@ typedef struct s_player
 	char		dir;
 }				t_player;
 
+typedef struct s_grid
+{
+	char		value;
+	double		angle;
+	double		distance;
+}				t_grid;
+
 typedef struct s_map
 {
 	char		*file;
-	char		**grid;
+	t_grid		**grid;
 	size_t		width;
 	size_t		height;
 	t_player	player;

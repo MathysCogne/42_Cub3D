@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:39:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/17 20:37:53 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "mlx.h"
 # include "struct.h"
 # include <fcntl.h>
+# include <math.h>
 
 # ifndef DEBUG_MODE
 #  define DEBUG_MODE 1
@@ -83,5 +84,13 @@ void	debug_parsing(t_env *env);
 # define DARK_GRAY "\033[38;2;47;52;59m"
 # define PALE_PINK "\033[38;2;245;166;195m"
 # define MINT_GREEN "\033[38;2;136;199;153m"
+
+/*******************************/
+/*             MATH            */
+/*******************************/
+#ifndef M_PI
+#    define M_PI 3.14159265358979323846
+#endif
+
 
 #endif
