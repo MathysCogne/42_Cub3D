@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 22:52:45 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/17 23:43:05 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/17 23:44:30 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#include "cub3d.h"
 
-typedef enum e_key
+size_t	ft_strclen(char *s, char chr)
 {
-	KEY_ESC = 65307,
-	KEY_W = 119,
-	KEY_S = 115,
-	KEY_A = 97,
-	KEY_D = 100,
-	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363
-}	t_key;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (s && s[i] && s[i] != chr)
+		i++;
+	return (i);
+}

@@ -11,10 +11,18 @@ SRC = main.c \
 			parsing/cleanup.c \
 \
 		exec/exec.c \
+			exec/render/render_map_2d.c \
+\
+			exec/mlx/mlx_init.c \
+			exec/mlx/mlx_events.c \
+			exec/mlx/ft_put_pixel_in_img.c \
+\
+			exec/game/move_placer.c \
 \
 		utils/ft_free.c \
 		utils/init_env.c \
 		utils/ft_is_space.c \
+		utils/ft_strclen.c \
 \
 		debug/debug_parsing.c
 

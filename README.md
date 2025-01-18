@@ -28,7 +28,7 @@
 # Compile:
 make
 
-# Start shell:
+# Start game:
 ./cub3d [path_map]
 ```
 

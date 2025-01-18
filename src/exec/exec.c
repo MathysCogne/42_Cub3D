@@ -6,30 +6,19 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 20:05:50 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:09:20 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	init_win_mlx(t_mlx *mlx)
-{
-	mlx->id = mlx_init();
-	if (!mlx->id)
-		return (1);
-	mlx->win = mlx_new_window(mlx->id, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
-	if (!mlx->win)
-		return (1);
-	return (0);
-}
-
 short	exec(t_env *env)
 {
-	if (init_win_mlx(env->mlx))
+	if (ft_mlx_init_win(env->mlx))
 		return (1);
-	// LOOP IN START GAME
+	if (ft_mlx_init_events(env))
+		return (1);
+	render_map_2d(env->map, env->mlx);
 	mlx_loop(env->mlx->id);
-	//
-	// RENDER & RAY CASTING
 	return (0);
 }
