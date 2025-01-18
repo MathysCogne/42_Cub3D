@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 00:05:45 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,21 @@ static int	parse_texture_line(char *line, t_textures *textures)
 	return (0);
 }
 
+short	find_player_pos(t_player *player, char *line, size_t y)
+{
+	size_t	i;
+
+	i = 0;
+	while (line && line[i])
+	{
+		if (ft_strchr("NSEW", line[i]))
+			return (player->pos.y = y, player->dir = line[i], player->pos.x = i,
+				0);
+		i++;
+	}
+	return (0);
+}
+
 static int	parse_map_line(char *line, t_env *env, t_map *map)
 {
 	map->grid = ft_realloc(map->grid, sizeof(char *) * (map->height),
@@ -96,6 +111,9 @@ static int	parse_map_line(char *line, t_env *env, t_map *map)
 	gc_add(env->gc, map->grid[map->height]);
 	if (!map->grid[map->height])
 		return (1);
+	if (map->width < ft_strclen(line, '\n'))
+		map->width = ft_strclen(line, '\n');
+	find_player_pos(&map->player, line, map->height);
 	map->height++;
 	return (0);
 }

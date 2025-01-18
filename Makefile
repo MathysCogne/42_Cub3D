@@ -11,10 +11,14 @@ SRC = main.c \
 			parsing/cleanup.c \
 \
 		exec/exec.c \
+			exec/render/render_2d.c \
+\
+			exec/mlx/mlx_init.c \
 \
 		utils/ft_free.c \
 		utils/init_env.c \
 		utils/ft_is_space.c \
+		utils/ft_strclen.c \
 \
 		debug/debug_parsing.c
 

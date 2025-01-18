@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:39:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:22:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # ifndef DEBUG_MODE
 #  define DEBUG_MODE 1
 # endif
+
 /*******************************/
 /*            DEFINE           */
 /*******************************/
@@ -36,6 +37,8 @@
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
+
+# define RENDER_SIZE 32
 
 /*******************************/
 /*            PARSING          */
@@ -49,6 +52,10 @@ void	cleanup(t_env *env);
 /*             EXEC            */
 /*******************************/
 short	exec(t_env *env);
+// RENDER //
+short	render_map_2d(t_map *map, t_mlx *mlx);
+// MLX //
+short	init_win_mlx(t_mlx *mlx);
 
 /*******************************/
 /*             GAME            */
@@ -60,6 +67,7 @@ short	exec(t_env *env);
 short	init_env(t_env *env);
 void	ft_free(void *ptr);
 short	ft_is_space(char c);
+size_t	ft_strclen(char *s, char chr);
 
 /*******************************/
 /*          DEBUG MODE         */
