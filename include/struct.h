@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 01:31:36 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 22:58:55 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,17 @@ typedef struct s_pos
 	size_t			y;
 }					t_pos;
 
+typedef struct s_pos_player
+{
+	float			x;
+	float			y;
+}					t_pos_player;
+
 typedef struct s_player
 {
-	t_pos			pos;
+	t_pos_player	pos;
 	char			dir;
-	size_t			angle;
+	float			angle;
 }					t_player;
 
 typedef struct s_map

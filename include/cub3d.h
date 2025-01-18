@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 15:22:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:28:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # include "mlx.h"
 # include "struct.h"
 # include <fcntl.h>
+# include <math.h>
+// DEBUG //
+# include <stdio.h>
 
 # ifndef DEBUG_MODE
 #  define DEBUG_MODE 1
@@ -40,6 +43,11 @@
 
 # define RENDER_SIZE 32
 
+# define MOVE_SPEED 0.05
+# define ANGLE_SPEED 2
+
+# define M_PI 3.14159265358979323846
+
 /*******************************/
 /*            PARSING          */
 /*******************************/
@@ -55,11 +63,11 @@ short	exec(t_env *env);
 // RENDER //
 short	render_map_2d(t_map *map, t_mlx *mlx);
 // MLX //
-short	init_win_mlx(t_mlx *mlx);
-
-/*******************************/
-/*             GAME            */
-/*******************************/
+short	ft_mlx_init_win(t_mlx *mlx);
+short	ft_mlx_init_events(t_env *env);
+short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
+// GAME //
+short	handler_move_player(t_env *env, int keycode);
 
 /*******************************/
 /*            UTILS            */

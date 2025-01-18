@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 15:22:47 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 17:09:20 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 short	exec(t_env *env)
 {
-	if (init_win_mlx(env->mlx))
+	if (ft_mlx_init_win(env->mlx))
+		return (1);
+	if (ft_mlx_init_events(env))
 		return (1);
 	render_map_2d(env->map, env->mlx);
 	mlx_loop(env->mlx->id);

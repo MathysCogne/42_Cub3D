@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 15:19:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:58:19 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static short	new_img_mlx(t_mlx *mlx)
 	return (0);
 }
 
-short	init_win_mlx(t_mlx *mlx)
+short	ft_mlx_init_win(t_mlx *mlx)
 {
 	mlx->id = mlx_init();
 	if (!mlx->id)

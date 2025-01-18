@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   ft_put_pixel_in_img.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 22:52:45 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/18 17:29:42 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/18 17:29:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#include "cub3d.h"
 
-typedef enum e_key
+short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color)
 {
-	KEY_ESC = 65307,
-	KEY_W = 119,
-	KEY_S = 115,
-	KEY_A = 97,
-	KEY_D = 100,
-	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363
-}	t_key;
-
-#endif
+	if (!mlx || !mlx->render_pixel_data || pos.x >= WIN_WIDTH
+		|| pos.y >= WIN_HEIGHT)
+		return (1);
+	mlx->render_pixel_data[pos.y * (mlx->size_line / 4) + pos.x] = color;
+	return (0);
+}

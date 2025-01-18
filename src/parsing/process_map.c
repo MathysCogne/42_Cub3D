@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 00:05:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:51:37 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,20 @@ short	find_player_pos(t_player *player, char *line, size_t y)
 	while (line && line[i])
 	{
 		if (ft_strchr("NSEW", line[i]))
-			return (player->pos.y = y, player->dir = line[i], player->pos.x = i,
-				0);
+		{
+			player->pos.y = y;
+			player->pos.x = i;
+			player->dir = line[i];
+			if (player->dir == 'N')
+				player->angle = 0;
+			else if (player->dir == 'S')
+				player->angle = 180;
+			else if (player->dir == 'W')
+				player->angle = 270;
+			else if (player->dir == 'E')
+				player->angle = 90;
+			return (0);
+		}
 		i++;
 	}
 	return (0);

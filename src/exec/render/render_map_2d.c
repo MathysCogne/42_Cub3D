@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_2d.c                                        :+:      :+:    :+:   */
+/*   render_map_2d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:05:40 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 15:22:34 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/18 23:55:16 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <math.h>
 
-static short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color)
-{
-	if (!mlx || !mlx->render_pixel_data || pos.x >= WIN_WIDTH
-		|| pos.y >= WIN_HEIGHT)
-		return (1);
-	mlx->render_pixel_data[pos.y * (mlx->size_line / 4) + pos.x] = color;
-	return (0);
-}
-
-static short	draw_tile_2d(t_mlx *mlx, t_pos start, int color)
+short	draw_tile_2d(t_mlx *mlx, t_pos start, int color)
 {
 	t_pos	pos;
 	size_t	i;
@@ -64,7 +54,7 @@ short	render_map_2d(t_map *map, t_mlx *mlx)
 				draw_tile_2d(mlx, tile_pos, 0x0000FF);
 			else if (map_pos.x == map->player.pos.x
 				&& map_pos.y == map->player.pos.y)
-				draw_tile_2d(mlx, tile_pos, 0xFF0000);
+				draw_tile_2d(mlx, tile_pos, 0x0000F0);
 			map_pos.x++;
 		}
 		map_pos.y++;
