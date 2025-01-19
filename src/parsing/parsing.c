@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:46:46 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/16 00:47:30 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 00:05:18 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,14 @@
 ** 11111111 1111111 111111111111
 */
 
+// TODO: VALID DATA
 short	parsing(t_env *env, char *path_map)
 {
 	if (read_map(env, path_map))
-		return (1);
+		return (env->err = ERR_PARSE_READ, 1);
 	if (process_map(env))
+		return (env->err = ERR_PARSE_PROCESS, 1);
+	if (handler_validate_parsing(env, env->map))
 		return (1);
 	debug_parsing(env);
 	return (0);

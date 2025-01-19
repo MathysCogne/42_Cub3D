@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 17:09:36 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:32:48 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->t_so);
 		ft_mlx_destroy_image(env, env->textures->t_we);
 		ft_mlx_destroy_image(env, env->textures->t_ea);
+		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
 	}
 }

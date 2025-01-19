@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 23:28:15 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:59:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@
 
 # define EXTENTION_MAP ".cub"
 
+# define CARAC_MAP " 01NSEW"
+# define CARAC_PLAYER "NSEW"
+# define CARAC_PLAYER_VOID "0NSEW"
+
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
@@ -55,6 +59,7 @@ short	parsing(t_env *env, char *path_map);
 short	read_map(t_env *env, char *path_map);
 short	process_map(t_env *env);
 void	cleanup(t_env *env);
+short	handler_validate_parsing(t_env *env, t_map *map);
 
 /*******************************/
 /*             EXEC            */
@@ -76,6 +81,9 @@ short	init_env(t_env *env);
 void	ft_free(void *ptr);
 short	ft_is_space(char c);
 size_t	ft_strclen(char *s, char chr);
+short	is_map_line(char *line);
+short	is_texture_line(char *line);
+char	*get_msg_error(size_t err);
 
 /*******************************/
 /*          DEBUG MODE         */
