@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 18:03:09 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:41:31 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,9 @@ static int	parse_map_line(char *line, t_env *env, t_map *map)
 	if (!map->grid)
 		return (1);
 	map->grid[map->height] = ft_strdup(line);
-	gc_add(env->gc, map->grid[map->height]);
 	if (!map->grid[map->height])
 		return (1);
+	gc_add(env->gc, map->grid[map->height]);
 	if (map->width < ft_strclen(line, '\n'))
 		map->width = ft_strclen(line, '\n');
 	find_player_pos(&map->player, line, map->height);
@@ -132,12 +132,15 @@ static int	parse_map_line(char *line, t_env *env, t_map *map)
 
 static int	process_line(char *line, t_env *env, int *parsing_map)
 {
-	if (*parsing_map || is_map_line(line))
+	if (is_texture_line(line))
+		return (parse_texture_line(line, env->textures));
+	else if (*parsing_map || is_map_line(line))
 	{
 		*parsing_map = 1;
 		return (parse_map_line(line, env, env->map));
 	}
-	return (parse_texture_line(line, env->textures));
+	else
+		return (0);
 }
 
 short	process_map(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 19:58:25 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:59:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define EXTENTION_MAP ".cub"
 
 # define CARAC_MAP " 01NSEW"
+# define CARAC_PLAYER "NSEW"
+# define CARAC_PLAYER_VOID "0NSEW"
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
