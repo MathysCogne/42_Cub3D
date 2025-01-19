@@ -1,12 +1,10 @@
 NO ./assets/texture/NO.xpm
 SO ./assets/texture/SO.xpm
 WE ./assets/texture/WE.xpm
-EA      ./assets/texture/EA.xpm
-
+EA ./assets/texture/EA.xpm
 F 220,100,0
 C 225,30,0
-
-
+Ddwa
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001

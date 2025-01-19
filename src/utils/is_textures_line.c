@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   is_textures_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 22:37:24 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 18:36:13 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/19 18:04:03 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/19 18:08:33 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#include "cub3d.h"
 
-typedef enum e_error
+short	is_texture_line(char *line)
 {
-	ERR_INIT_ENV = 1,
-	ERR_PARSE_READ,
-	ERR_PARSE_PROCESS,
-	ERR_PARSE_CARAC,
-	ERR_PARSE_WALL,
-	ERR_PARSE_DATA,
-	ERR_GAME
-}	t_error;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (line[i] && ft_is_space(line[i]))
+		i++;
+	if (!ft_strncmp(&line[i], "NO", 2) || !ft_strncmp(&line[i], "SO", 2)
+		|| !ft_strncmp(&line[i], "WE", 2) || !ft_strncmp(&line[i], "EA", 2)
+		|| !ft_strncmp(&line[i], "F", 1) || !ft_strncmp(&line[i], "C", 1))
+		return (1);
+	return (0);
+}

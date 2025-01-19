@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:32:20 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 04:37:44 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 20:02:28 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static short	cub3d(t_env *env, char *path_map)
 {
 	if (init_env(env))
-		return (ERROR_INIT_ENV);
+		return (env->err = ERR_INIT_ENV, 1);
 	if (parsing(env, path_map))
-		return (ERROR_PARSING);
+		return (1);
 	if (exec(env))
-		return (ERROR_GAME);
+		return (1);
 	return (0);
 }
 
@@ -35,7 +35,10 @@ int	main(int argc, char **argv)
 	if (cub3d(&env, argv[1]))
 	{
 		cleanup(&env);
-		ft_fprintf(2, RED NAME "Error\n");
+		ft_fprintf(2, RED BOLD NAME "Error\n" C_RESET);
+		ft_fprintf(2, NAME "%s\n", get_msg_error(env.err));
+		if (env.err)
+			return (env.err);
 		return (1);
 	}
 	cleanup(&env);

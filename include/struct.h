@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 22:58:55 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 19:58:03 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct s_env
 	t_map			*map;
 	t_textures		*textures;
 	t_mlx			*mlx;
+	int				err;
 }					t_env;
 
 #endif

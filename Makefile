@@ -9,6 +9,7 @@ SRC = main.c \
 			parsing/read_map.c \
 			parsing/process_map.c \
 			parsing/cleanup.c \
+			parsing/validate.c \
 \
 		exec/exec.c \
 			exec/render/render_map_2d.c \
@@ -23,6 +24,9 @@ SRC = main.c \
 		utils/init_env.c \
 		utils/ft_is_space.c \
 		utils/ft_strclen.c \
+		utils/is_map_line.c \
+		utils/is_textures_line.c \
+		utils/get_msg_error.c \
 \
 		debug/debug_parsing.c
 

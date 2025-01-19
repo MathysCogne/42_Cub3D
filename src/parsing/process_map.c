@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 23:51:37 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:03:09 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*get_texture_path(char *line)
 	return (path);
 }
 
-static int	get_rgb(char *line, int *color)
+static short	get_rgb(char *line, int *color)
 {
 	int		i;
 	int		j;
@@ -64,7 +64,7 @@ static int	get_rgb(char *line, int *color)
 	return (0);
 }
 
-static int	parse_texture_line(char *line, t_textures *textures)
+static short	parse_texture_line(char *line, t_textures *textures)
 {
 	size_t	i;
 
@@ -130,20 +130,6 @@ static int	parse_map_line(char *line, t_env *env, t_map *map)
 	return (0);
 }
 
-static int	is_map_line(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (!ft_is_space(line[i]) && !ft_strchr("01NSEW", line[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 static int	process_line(char *line, t_env *env, int *parsing_map)
 {
 	if (*parsing_map || is_map_line(line))
@@ -172,7 +158,10 @@ short	process_map(t_env *env)
 		if (process_line(&line[i], env, &parsing_map))
 			return (1);
 		if (next_line)
+		{
 			i = next_line - line + 1;
+			*next_line = '\n';
+		}
 		else
 			break ;
 	}
