@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/17 20:49:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/19 02:37:37 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,36 @@ typedef struct textures
 
 typedef struct s_pos
 {
-	size_t		x;
-	size_t		y;
+	double		y;
+	double		x;
+	double		angle;
 }				t_pos;
 
 typedef struct s_player
 {
 	t_pos		pos;
-	char		dir;
+	double		dir;
 }				t_player;
 
 typedef struct s_grid
 {
 	char		value;
-	double		angle;
 	double		distance;
+	double		dist_top_ouest;
+	double		dist_top_est;
+	double		dist_bot_ouest;
+	double		dist_bot_est;
+	int			render_south;
+	int			render_north;
+	int			render_est;
+	int			render_ouest;
+	double		offset_right_south; // %
+	double		offset_left_south;
+	double		offset_right_north;
+	double		offset_left_north;
+	double		offset_left_est;
+	double		offset_right_ouest;
+	double		offset_left_ouest;
 }				t_grid;
 
 typedef struct s_map
@@ -66,7 +81,7 @@ typedef struct s_map
 typedef struct s_env
 {
 	t_gc		*gc;
-	t_map		*map;
+	t_map		map;
 	t_textures	*textures;
 	t_mlx		*mlx;
 }				t_env;
