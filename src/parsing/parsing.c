@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:46:46 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 00:05:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:49:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 ** 11111111 1111111 111111111111
 */
 
-// TODO: VALID DATA
 short	parsing(t_env *env, char *path_map)
 {
 	if (read_map(env, path_map))

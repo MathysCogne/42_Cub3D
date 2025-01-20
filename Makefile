@@ -7,9 +7,16 @@ INCDIR = include
 SRC = main.c \
 		parsing/parsing.c \
 			parsing/read_map.c \
-			parsing/process_map.c \
-			parsing/cleanup.c \
-			parsing/validate.c \
+\
+			parsing/process/handler_process.c \
+			parsing/process/process_data_texture.c \
+			parsing/process/process_map.c \
+\
+			parsing/validate/handler_validate.c \
+			parsing/validate/valid_carac.c \
+			parsing/validate/valid_close_wall.c \
+			parsing/validate/valid_data.c \
+			parsing/validate/valid_player.c \
 \
 		exec/exec.c \
 			exec/render/render_map_2d.c \
@@ -20,8 +27,9 @@ SRC = main.c \
 \
 			exec/game/move_placer.c \
 \
-		utils/ft_free.c \
+		utils/cleanup.c \
 		utils/init_env.c \
+		utils/ft_free.c \
 		utils/ft_is_space.c \
 		utils/ft_strclen.c \
 		utils/is_map_line.c \

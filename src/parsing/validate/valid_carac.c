@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   valid_carac.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:06:43 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/20 20:29:09 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/20 20:29:26 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	exec(t_env *env)
+short	valid_carac(t_map *map)
 {
-	if (ft_mlx_init_win(env, env->mlx))
-		return (env->err = ERR_MLX, 1);
-	if (ft_mlx_init_events(env))
-		return (env->err = ERR_MLX, 1);
-	if (render_map_2d(env->map, env->mlx))
-		return (env->err = ERR_GAME, 1);
-	mlx_loop(env->mlx->id);
+	size_t	i;
+	short	is_data_part;
+
+	i = 0;
+	is_data_part = 1;
+	while (map->file[i])
+	{
+		if (is_texture_line(&map->file[i]) && is_data_part)
+		{
+			while (map->file[i] && map->file[i] != '\n')
+				i++;
+		}
+		else if (!is_texture_line(&map->file[i]) && map->file[i] != '\n')
+			is_data_part = 0;
+		if (!ft_strchr(CARAC_MAP, map->file[i]) && map->file[i] != '\n')
+			return (1);
+		i++;
+	}
 	return (0);
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   handler_validate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:06:43 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/19 16:44:00 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/20 20:46:01 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	exec(t_env *env)
+short	handler_validate_parsing(t_env *env, t_map *map)
 {
-	if (ft_mlx_init_win(env, env->mlx))
-		return (env->err = ERR_MLX, 1);
-	if (ft_mlx_init_events(env))
-		return (env->err = ERR_MLX, 1);
-	if (render_map_2d(env->map, env->mlx))
-		return (env->err = ERR_GAME, 1);
-	mlx_loop(env->mlx->id);
+	if (valid_carac(map))
+		return (env->err = ERR_PARSE_CARAC, 1);
+	if (valid_close_wall(map, map->grid))
+		return (env->err = ERR_PARSE_WALL, 1);
+	if (valid_player(map, map->grid))
+		return (env->err = ERR_PARSE_PLAYER, 1);
+	if (handler_valid_data(env, env->textures))
+		return (env->err = ERR_PARSE_DATA, 1);
 	return (0);
 }

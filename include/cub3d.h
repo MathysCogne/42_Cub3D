@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 23:59:15 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:03:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
 
-# define RENDER_SIZE 32
+# define TEXTURE_WIDTH 500  // TODO: A ADAPTER EN FONCTION DES TEXTURES
+# define TEXTURE_HEIGHT 500 //
+
+# define RENDER_SIZE_2D 32
 
 # define MOVE_SPEED 0.05
 # define ANGLE_SPEED 2
@@ -57,26 +60,37 @@
 /*******************************/
 short	parsing(t_env *env, char *path_map);
 short	read_map(t_env *env, char *path_map);
+
 short	process_map(t_env *env);
-void	cleanup(t_env *env);
+short	parse_texture_line(char *line, t_textures *textures);
+short	process_map(t_env *env);
+
 short	handler_validate_parsing(t_env *env, t_map *map);
+short	handler_valid_data(t_env *env, t_textures *textures);
+short	valid_carac(t_map *map);
+short	valid_close_wall(t_map *map, char **grid);
+short	valid_player(t_map *map, char **grid);
 
 /*******************************/
 /*             EXEC            */
 /*******************************/
 short	exec(t_env *env);
-// RENDER //
+
+/* RENDER */
 short	render_map_2d(t_map *map, t_mlx *mlx);
-// MLX //
-short	ft_mlx_init_win(t_mlx *mlx);
+
+/* MLX */
+short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
 short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
-// GAME //
+
+/* GAME */
 short	handler_move_player(t_env *env, int keycode);
 
 /*******************************/
 /*            UTILS            */
 /*******************************/
+void	cleanup(t_env *env);
 short	init_env(t_env *env);
 void	ft_free(void *ptr);
 short	ft_is_space(char c);
