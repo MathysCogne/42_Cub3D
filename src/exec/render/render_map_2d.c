@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:05:40 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 23:29:13 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:48:59 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ short	draw_tile_2d(t_mlx *mlx, t_pos start, int color)
 
 	i = 0;
 	j = 0;
-	while (i < RENDER_SIZE)
+	while (i < RENDER_SIZE_2D)
 	{
 		j = 0;
-		while (j < RENDER_SIZE)
+		while (j < RENDER_SIZE_2D)
 		{
 			pos.x = start.x + j;
 			pos.y = start.y + i;
@@ -46,8 +46,8 @@ short	render_map_2d(t_map *map, t_mlx *mlx)
 		map_pos.x = 0;
 		while (map->grid[map_pos.y][map_pos.x])
 		{
-			tile_pos.x = map_pos.x * RENDER_SIZE;
-			tile_pos.y = map_pos.y * RENDER_SIZE;
+			tile_pos.x = map_pos.x * RENDER_SIZE_2D;
+			tile_pos.y = map_pos.y * RENDER_SIZE_2D;
 			if (map->grid[map_pos.y][map_pos.x] == '1')
 				draw_tile_2d(mlx, tile_pos, 0x00FF00);
 			else if (map->grid[map_pos.y][map_pos.x] == '0')

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 23:53:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:50:18 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ static short	draw_player_2d(t_mlx *mlx, t_pos start, float angle, int color)
 
 	i = 0;
 	j = 0;
-	while (i < RENDER_SIZE / 2)
+	while (i < RENDER_SIZE_2D / 2)
 	{
 		j = 0;
-		while (j < RENDER_SIZE / 2)
+		while (j < RENDER_SIZE_2D / 2)
 		{
 			pos.x = start.x + j;
 			pos.y = start.y + i;
-			dir.x = start.x + cos(angle * M_PI / 180) * RENDER_SIZE * 0.15 + j;
-			dir.y = start.y + sin(angle * M_PI / 180) * RENDER_SIZE * 0.15 + i;
+			dir.x = start.x + cos(angle * M_PI / 180) * RENDER_SIZE_2D * 0.15
+				+ j;
+			dir.y = start.y + sin(angle * M_PI / 180) * RENDER_SIZE_2D * 0.15
+				+ i;
 			ft_put_pixel_in_img(mlx, pos, color);
 			ft_put_pixel_in_img(mlx, dir, color);
 			j++;
@@ -44,8 +46,8 @@ static short	move_player(t_env *env, t_pos_player pos)
 	t_pos	tile_pos;
 
 	render_map_2d(env->map, env->mlx);
-	tile_pos.x = pos.x * RENDER_SIZE;
-	tile_pos.y = pos.y * RENDER_SIZE;
+	tile_pos.x = pos.x * RENDER_SIZE_2D;
+	tile_pos.y = pos.y * RENDER_SIZE_2D;
 	draw_player_2d(env->mlx, tile_pos, env->map->player.angle, 0xFF9900);
 	mlx_put_image_to_window(env->mlx->id, env->mlx->win, env->mlx->render_pixel,
 		0, 0);

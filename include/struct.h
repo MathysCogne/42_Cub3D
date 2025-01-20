@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 19:58:03 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:54:46 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct textures
 	void			*t_so;
 	void			*t_we;
 	void			*t_ea;
+	int				t_width;
+	int				t_height;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;
