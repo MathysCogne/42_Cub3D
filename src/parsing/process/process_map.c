@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:58:21 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:15:58 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static short	find_player_pos(t_player *player, char *line, size_t y)
 			player->pos.x = i;
 			player->dir = line[i];
 			if (player->dir == 'N')
-				player->angle = 0;
+				player->pos.angle_h = 0;
 			else if (player->dir == 'S')
-				player->angle = 180;
+				player->pos.angle_h = 180;
 			else if (player->dir == 'W')
-				player->angle = 270;
+				player->pos.angle_h = 270;
 			else if (player->dir == 'E')
-				player->angle = 90;
+				player->pos.angle_h = 90;
 			return (0);
 		}
 		i++;

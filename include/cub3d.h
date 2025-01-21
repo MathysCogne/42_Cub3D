@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 22:03:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:18:44 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ short	read_map(t_env *env, char *path_map);
 short	process_map(t_env *env);
 short	parse_texture_line(char *line, t_textures *textures);
 short	process_map(t_env *env);
+int		parse_map_line(char *line, t_env *env, t_map *map);
 
 short	handler_validate_parsing(t_env *env, t_map *map);
 short	handler_valid_data(t_env *env, t_textures *textures);
