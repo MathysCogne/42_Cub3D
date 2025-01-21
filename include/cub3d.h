@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/21 21:18:44 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:12:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 
 # define MOVE_SPEED 0.05
 # define ANGLE_SPEED 2
+# define MOUSE_SPEED 0.4
 
 # define M_PI 3.14159265358979323846
 
@@ -87,6 +88,7 @@ short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 
 /* GAME */
 short	handler_move_player(t_env *env, int keycode);
+short	update_player_angle(t_env *env, float angle);
 
 /*******************************/
 /*            UTILS            */
