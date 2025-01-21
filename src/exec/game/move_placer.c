@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_placer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:50:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:17:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static short	move_player(t_env *env, t_pos_player pos)
 	render_map_2d(env->map, env->mlx);
 	tile_pos.x = pos.x * RENDER_SIZE_2D;
 	tile_pos.y = pos.y * RENDER_SIZE_2D;
-	draw_player_2d(env->mlx, tile_pos, env->map->player.angle, 0xFF9900);
+	draw_player_2d(env->mlx, tile_pos, env->map->player.pos.angle_h, 0xFF9900);
 	mlx_put_image_to_window(env->mlx->id, env->mlx->win, env->mlx->render_pixel,
 		0, 0);
 	return (0);
@@ -56,12 +56,12 @@ static short	move_player(t_env *env, t_pos_player pos)
 
 static short	update_player_angle(t_env *env, float angle)
 {
-	env->map->player.angle += angle * ANGLE_SPEED;
-	if (env->map->player.angle >= 360)
-		env->map->player.angle -= 360;
-	else if (env->map->player.angle < 0)
-		env->map->player.angle += 360;
-	printf("New Player angle: %f\n", env->map->player.angle);
+	env->map->player.pos.angle_h += angle * ANGLE_SPEED;
+	if (env->map->player.pos.angle_h >= 360)
+		env->map->player.pos.angle_h -= 360;
+	else if (env->map->player.pos.angle_h < 0)
+		env->map->player.pos.angle_h += 360;
+	printf("New Player angle: %f\n", env->map->player.pos.angle_h);
 	return (0);
 }
 

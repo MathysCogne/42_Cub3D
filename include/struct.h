@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 20:54:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:10:32 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,40 @@ typedef enum e_texture_type
 	NO,
 	SO,
 	WE,
-	EA
+	EA,
+	TOP,
+	BOT
 }					t_texture_type;
+
+typedef struct s_raycasting
+{
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	ray_dir_z;
+	double	next_x;
+	double	next_y;
+	double	next_z;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	side_dist_z;
+}	t_raycasting;
 
 typedef struct s_ray
 {
-	size_t			distance;
-	size_t			angle;
-	t_texture_type	type_t;
-}					t_ray;
+	double	y;
+	double	x;
+	double	z;
+	double	angle_h;
+	double	angle_v;
+	int		index;
+}	t_ray;
+
+typedef struct s_render
+{
+	double			offset_x;
+	double			offset_y;
+	t_texture_type	pole;
+}	t_render;
 
 typedef struct s_mlx
 {
@@ -69,13 +94,14 @@ typedef struct s_pos_player
 {
 	float			x;
 	float			y;
+	float			angle_h;
+	double			angle_v;
 }					t_pos_player;
 
 typedef struct s_player
 {
 	t_pos_player	pos;
 	char			dir;
-	float			angle;
 }					t_player;
 
 typedef struct s_map

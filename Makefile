@@ -27,6 +27,11 @@ SRC = main.c \
 \
 			exec/game/move_placer.c \
 \
+			exec/ray_casting/ray_casting.c \
+			exec/ray_casting/ray_render.c \
+			exec/ray_casting/ray_setter.c \
+			exec/ray_casting/ray_utils.c \
+\
 		utils/cleanup.c \
 		utils/init_env.c \
 		utils/ft_free.c \
