@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 23:32:48 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:37:16 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ static void	cleanup_textures(t_env *env)
 		ft_free(env->textures->path_so);
 		ft_free(env->textures->path_we);
 		ft_free(env->textures->path_ea);
-		ft_mlx_destroy_image(env, env->textures->t_no);
-		ft_mlx_destroy_image(env, env->textures->t_so);
-		ft_mlx_destroy_image(env, env->textures->t_we);
-		ft_mlx_destroy_image(env, env->textures->t_ea);
+		ft_mlx_destroy_image(env, env->textures->no.value);
+		ft_mlx_destroy_image(env, env->textures->so.value);
+		ft_mlx_destroy_image(env, env->textures->we.value);
+		ft_mlx_destroy_image(env, env->textures->ea.value);
+		ft_mlx_destroy_image(env, env->textures->bot.value);
+		ft_mlx_destroy_image(env, env->textures->top.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
 	}

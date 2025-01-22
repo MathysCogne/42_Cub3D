@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/21 23:12:14 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/22 00:48:35 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ short	exec(t_env *env);
 
 /* RENDER */
 short	render_map_2d(t_map *map, t_mlx *mlx);
+short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 
 /* MLX */
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);

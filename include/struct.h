@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/21 21:10:32 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:33:50 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,27 @@ typedef struct s_mlx
 	int				endian;
 }					t_mlx;
 
+typedef struct texture
+{
+	int		width;
+	int		height;
+	void	*value;
+}	t_texture;
+
 typedef struct textures
 {
 	char			*path_no;
 	char			*path_so;
 	char			*path_we;
 	char			*path_ea;
-	void			*t_no;
-	void			*t_so;
-	void			*t_we;
-	void			*t_ea;
-	int				t_width;
-	int				t_height;
+	char			*path_bot;
+	char			*path_top;
+	t_texture		no;
+	t_texture		so;
+	t_texture		we;
+	t_texture		ea;
+	t_texture		top;
+	t_texture		bot;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;

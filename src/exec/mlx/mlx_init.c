@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:02:54 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:37:25 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 static short	valid_and_load_textures(t_env *env, t_textures *textures)
 {
-	textures->t_ea = mlx_xpm_file_to_image(env->mlx->id, textures->path_ea,
-			&textures->t_width, &textures->t_height);
-	textures->t_no = mlx_xpm_file_to_image(env->mlx->id, textures->path_no,
-			&textures->t_width, &textures->t_height);
-	textures->t_so = mlx_xpm_file_to_image(env->mlx->id, textures->path_so,
-			&textures->t_width, &textures->t_height);
-	textures->t_we = mlx_xpm_file_to_image(env->mlx->id, textures->path_we,
-			&textures->t_width, &textures->t_height);
-	if (!textures->t_ea || !textures->t_no || !textures->t_so
-		|| !textures->t_we)
+	textures->ea.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_ea,
+			&textures->ea.width, &textures->ea.height);
+	textures->no.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_no,
+			&textures->no.width, &textures->no.height);
+	textures->so.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_so,
+			&textures->so.width, &textures->so.height);
+	textures->we.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_we,
+			&textures->we.width, &textures->we.height);
+	textures->bot.value = mlx_xpm_file_to_image(env->mlx->id, "./assets/texture/TOP.xpm", // TODO clean !
+			&textures->bot.width, &textures->bot.height);
+	textures->top.value = mlx_xpm_file_to_image(env->mlx->id, "./assets/texture/BOT.xpm", // TODO clean !
+			&textures->top.width, &textures->top.height);
+	if (!textures->ea.value || !textures->no.value || !textures->so.value
+		|| !textures->we.value)
 		return (1);
 	return (0);
 }

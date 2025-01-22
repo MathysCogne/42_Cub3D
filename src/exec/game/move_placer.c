@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/21 22:54:52 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:03:45 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static short	move_player(t_env *env, t_pos_player pos)
 	t_pos	tile_pos;
 
 	render_map_2d(env->map, env->mlx);
+	render_env_3d(env->map, env->mlx, env->textures);
 	tile_pos.x = pos.x * RENDER_SIZE_2D;
 	tile_pos.y = pos.y * RENDER_SIZE_2D;
 	draw_player_2d(env->mlx, tile_pos, env->map->player.pos.angle_h, 0xFF9900);
