@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 09:35:16 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:23:44 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	set_collision(t_ray *ray, char **grid, t_raycasting *collision)
 	collision->ray_dir_y = sin(degree_to_radian(ray->angle_h));
 	if (collision->ray_dir_y == 0)
 		collision->ray_dir_y += 1e-9;
-	collision->ray_dir_z = sin(degree_to_radian(ray->angle_v)) * -1;
+	collision->ray_dir_z = sin(degree_to_radian(ray->angle_v));
 	if (collision->ray_dir_z == 0)
 		collision->ray_dir_z += 1e-9;
 	while (!is_collision(ray, collision, grid))

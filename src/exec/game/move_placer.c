@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/22 01:03:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:12:37 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static short	move_player(t_env *env, t_pos_player pos)
 
 	render_map_2d(env->map, env->mlx);
 	render_env_3d(env->map, env->mlx, env->textures);
-	tile_pos.x = pos.x * RENDER_SIZE_2D;
-	tile_pos.y = pos.y * RENDER_SIZE_2D;
+	tile_pos.x = pos.y * RENDER_SIZE_2D;
+	tile_pos.y = pos.x * RENDER_SIZE_2D;
 	draw_player_2d(env->mlx, tile_pos, env->map->player.pos.angle_h, 0xFF9900);
 	mlx_put_image_to_window(env->mlx->id, env->mlx->win, env->mlx->render_pixel,
 		0, 0);
@@ -70,11 +70,11 @@ static short	update_player_position(t_env *env, float x, float y)
 {
 	t_pos_player	new_pos;
 
-	new_pos.x = env->map->player.pos.x + x * MOVE_SPEED;
-	new_pos.y = env->map->player.pos.y + y * MOVE_SPEED;
+	new_pos.y = env->map->player.pos.y + x * MOVE_SPEED;
+	new_pos.x = env->map->player.pos.x + y * MOVE_SPEED;
 	env->map->player.pos = new_pos;
-	printf("New Player position: %f %f\n", env->map->player.pos.x,
-		env->map->player.pos.y);
+	printf("New Player position: %f %f\n", env->map->player.pos.y,
+		env->map->player.pos.x);
 	return (0);
 }
 
