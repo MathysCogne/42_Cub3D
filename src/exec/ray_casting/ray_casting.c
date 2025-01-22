@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/21 21:11:11 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 00:07:46 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	detroy_render(t_render **render)
 		x = 0;
 		while (x < (int)RESH)
 		{
-			free(render[((int)RESV * y) + x]);
+			free(render[((int)RESH * y) + x]);
 			x++;
 		}
 		y++;
@@ -59,8 +59,8 @@ t_render	**ray_cast(t_player *player, char **grid)
 		x = 0;
 		while (x < (int)RESH)
 		{
-			render[((int)RESV * y) + x] = send_ray(y, x, player, grid);
-			if (!render[((int)RESV * y) + x])
+			render[((int)RESH * y) + x] = send_ray(y, x, player, grid);
+			if (!render[((int)RESH * y) + x])
 				return (0);
 			x++;
 		}

@@ -20,6 +20,7 @@ SRC = main.c \
 \
 		exec/exec.c \
 			exec/render/render_map_2d.c \
+			exec/render/render_map_3d.c \
 \
 			exec/mlx/mlx_init.c \
 			exec/mlx/mlx_events.c \

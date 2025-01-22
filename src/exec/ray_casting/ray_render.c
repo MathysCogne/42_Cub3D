@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/21 21:12:04 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 02:04:43 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ t_render	*get_render(t_ray *ray, char **grid)
 		render->pole = TOP;
 	if (collision.ray_dir_z < 0 && ray->z == 0.0)
 		render->pole = BOT;
-	render->offset_x = fabs(ray->x - floor(ray->x));
+	if (render->pole != EA && render->pole != WE)
+		render->offset_x = fabs(ray->x - floor(ray->x));
+	else
+		render->offset_x = fabs(ray->y - floor(ray->y));
 	if (render->pole != BOT && render->pole != TOP)
 		render->offset_y = fabs(ray->z - floor(ray->z));
 	else

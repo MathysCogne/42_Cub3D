@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:06:43 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:16:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ short	exec(t_env *env)
 		return (env->err = ERR_MLX, 1);
 	if (ft_mlx_init_events(env))
 		return (env->err = ERR_MLX, 1);
+	if (render_env_3d(env->map, env->mlx, env->textures))
+		return (env->err = ERR_GAME, 1);
 	if (render_map_2d(env->map, env->mlx))
 		return (env->err = ERR_GAME, 1);
 	mlx_loop(env->mlx->id);
