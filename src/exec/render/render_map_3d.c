@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 01:32:24 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 22:50:18 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 	int			x;
 	int			y;
 
-	map->player.pos.x = 5;
-	map->player.pos.y = 6;
-	map->player.pos.angle_v = 0;
+	map->player.pos.x = 4;
+	map->player.pos.y = 2;
+	map->player.pos.angle_v = 0.0;
 
 	t_render **render = ray_cast(&map->player, map->grid);
 	if (!render)

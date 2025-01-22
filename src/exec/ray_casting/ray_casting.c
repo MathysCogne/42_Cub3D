@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 00:07:46 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 09:33:27 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_render	*send_ray(int ray_index_v, int ray_index_h, t_player *player, char **gr
 	ray.x = player->pos.x;
 	ray.y = player->pos.y;
 	ray.index = ray_index_v;
-	ray.z = HEIGHT / 2;
+	ray.z = HEIGT_PLAYER;
 	return (get_render(&ray, grid));
 }
 

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 02:04:43 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 09:35:16 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_collision(t_ray *ray, t_raycasting *collision, char **grid)
 		return (1);
 	if (collision->ray_dir_z > 0 && ray->z == HEIGHT)
 		return (1);
-	if (collision->ray_dir_z < 0 && ray->z == 0.0)
+	if (collision->ray_dir_z < 0 && ray->z == 0)
 		return (1);
 	return (0);
 }
@@ -45,7 +45,7 @@ void	set_collision(t_ray *ray, char **grid, t_raycasting *collision)
 	collision->ray_dir_y = sin(degree_to_radian(ray->angle_h));
 	if (collision->ray_dir_y == 0)
 		collision->ray_dir_y += 1e-9;
-	collision->ray_dir_z = sin(degree_to_radian(ray->angle_v));
+	collision->ray_dir_z = sin(degree_to_radian(ray->angle_v)) * -1;
 	if (collision->ray_dir_z == 0)
 		collision->ray_dir_z += 1e-9;
 	while (!is_collision(ray, collision, grid))
@@ -84,7 +84,7 @@ t_render	*get_render(t_ray *ray, char **grid)
 		render->pole = NO;
 	if (collision.ray_dir_z > 0 && ray->z == HEIGHT)
 		render->pole = TOP;
-	if (collision.ray_dir_z < 0 && ray->z == 0.0)
+	if (collision.ray_dir_z < 0 && ray->z == 0)
 		render->pole = BOT;
 	if (render->pole != EA && render->pole != WE)
 		render->offset_x = fabs(ray->x - floor(ray->x));
