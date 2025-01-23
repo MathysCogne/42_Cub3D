@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 23:23:44 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 16:46:25 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int	is_collision(t_ray *ray, t_raycasting *collision, char **grid)
 {
 	if (collision->ray_dir_x > 0
 		&& round(ray->x) == ray->x
-		&& grid[(int)ray->x][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x] == '1')
 		return (1);
 	if (collision->ray_dir_y > 0
 		&& round(ray->y) == ray->y
-		&& grid[(int)ray->x][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x] == '1')
 		return (1);
 	if (collision->ray_dir_x < 0
 		&& round(ray->x) == ray->x
-		&& grid[(int)ray->x - 1][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x - 1] == '1')
 		return (1);
 	if (collision->ray_dir_y < 0
 		&& round(ray->y) == ray->y
-		&& grid[(int)ray->x][(int)ray->y - 1] == '1')
+		&& grid[(int)ray->y - 1][(int)ray->x] == '1')
 		return (1);
 	if (collision->ray_dir_z > 0 && ray->z == HEIGHT)
 		return (1);
@@ -68,19 +68,19 @@ t_render	*get_render(t_ray *ray, char **grid)
 		return (0);
 	if (collision.ray_dir_x > 0
 		&& round(ray->x) == ray->x
-		&& grid[(int)ray->x][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x] == '1')
 		render->pole = EA;
 	if (collision.ray_dir_y > 0
 		&& round(ray->y) == ray->y
-		&& grid[(int)ray->x][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x] == '1')
 		render->pole = SO;
 	if (collision.ray_dir_x < 0
 		&& round(ray->x) == ray->x
-		&& grid[(int)ray->x - 1][(int)ray->y] == '1')
+		&& grid[(int)ray->y][(int)ray->x - 1] == '1')
 		render->pole = WE;
 	if (collision.ray_dir_y < 0
 		&& round(ray->y) == ray->y
-		&& grid[(int)ray->x][(int)ray->y - 1] == '1')
+		&& grid[(int)ray->y - 1][(int)ray->x] == '1')
 		render->pole = NO;
 	if (collision.ray_dir_z > 0 && ray->z == HEIGHT)
 		render->pole = TOP;
