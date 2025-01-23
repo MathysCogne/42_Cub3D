@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 18:03:15 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:11:18 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 
 # define MOVE_SPEED 0.05
 # define ANGLE_SPEED 4
+# define MOUSE_SPEED 0.05
 
 # define ANGLE_X_MAX 360
 # define ANGLE_Y_MAX 35
@@ -91,6 +92,7 @@ short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 
 /* GAME */
 short	handler_move_player(t_env *env, int keycode);
+short	update_player_angle(t_env *env, float angle_h, float angle_v);
 
 /*******************************/
 /*            UTILS            */

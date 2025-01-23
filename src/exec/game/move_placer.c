@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 18:00:02 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:09:56 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static short	move_player(t_env *env, t_pos_player pos)
 	return (0);
 }
 
-static short	update_player_angle(t_env *env, float angle_h, float angle_v)
+short	update_player_angle(t_env *env, float angle_h, float angle_v)
 {
 	env->map->player.pos.angle_h += angle_h * ANGLE_SPEED;
 	env->map->player.pos.angle_v += angle_v * ANGLE_SPEED;
@@ -72,6 +72,7 @@ static short	update_player_angle(t_env *env, float angle_h, float angle_v)
 	if (DEBUG_MODE)
 		printf("New Player angle: %f | %f\n", env->map->player.pos.angle_h,
 			env->map->player.pos.angle_v);
+	move_player(env, env->map->player.pos);
 	return (0);
 }
 
@@ -79,8 +80,10 @@ static short	update_player_position(t_env *env, float x, float y)
 {
 	env->map->player.pos.y = env->map->player.pos.y + y * MOVE_SPEED;
 	env->map->player.pos.x = env->map->player.pos.x + x * MOVE_SPEED;
-	printf("New Player position: %f %f\n", env->map->player.pos.y,
-		env->map->player.pos.x);
+	if (DEBUG_MODE)
+		printf("New Player position: %f %f\n", env->map->player.pos.y,
+			env->map->player.pos.x);
+	move_player(env, env->map->player.pos);
 	return (0);
 }
 
@@ -104,6 +107,5 @@ short	handler_move_player(t_env *env, int keycode)
 		update_player_angle(env, 0, -1);
 	else if (keycode == KEY_BOT)
 		update_player_angle(env, 0, 1);
-	move_player(env, env->map->player.pos);
 	return (0);
 }
