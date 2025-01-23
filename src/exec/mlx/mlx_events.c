@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 14:14:10 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:41:22 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ static int	key_press(int keycode, t_env *env)
 	if (keycode == KEY_ESC)
 		exit_user(env);
 	else if (keycode == KEY_W || keycode == KEY_S || keycode == KEY_A
-		|| keycode == KEY_D || keycode == KEY_TOP || keycode == KEY_BOT)
+		|| keycode == KEY_D)
 		handler_move_player(env, keycode);
-	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT)
+	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT || keycode == KEY_TOP
+		|| keycode == KEY_BOT)
 		handler_move_player(env, keycode);
 	return (0);
 }

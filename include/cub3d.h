@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 13:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:03:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@
 
 # define MOVE_SPEED 0.05
 # define ANGLE_SPEED 4
+
+# define ANGLE_X_MAX 360
+# define ANGLE_Y_MAX 35
 
 # define M_PI 3.14159265358979323846
 
