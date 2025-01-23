@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/21 22:28:36 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:16:35 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define HFVH 90.0
 # define HFVV 60.0
 # define HEIGHT 1.0
+# define HEIGT_PLAYER 0.5
 # ifndef M_PI
 #  define M_PI acos(-1.0)
 # endif

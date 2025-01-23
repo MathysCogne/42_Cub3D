@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/22 00:48:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:37:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define RENDER_SIZE_2D 32
 
 # define MOVE_SPEED 0.05
-# define ANGLE_SPEED 2
+# define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.4
 
 # define M_PI 3.14159265358979323846

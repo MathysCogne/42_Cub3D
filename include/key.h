@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/21 22:53:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:57:16 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ typedef enum e_key
 	KEY_A = 97,
 	KEY_D = 100,
 	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363
+	KEY_RIGHT = 65363,
+	KEY_TOP = 65362,
+	KEY_BOT = 65364
 }	t_key;
 
 typedef enum e_key_mouse

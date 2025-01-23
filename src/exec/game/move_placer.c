@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/22 01:03:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:58:04 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ static short	move_player(t_env *env, t_pos_player pos)
 {
 	t_pos	tile_pos;
 
-	render_map_2d(env->map, env->mlx);
+	//render_map_2d(env->map, env->mlx);
 	render_env_3d(env->map, env->mlx, env->textures);
-	tile_pos.x = pos.x * RENDER_SIZE_2D;
-	tile_pos.y = pos.y * RENDER_SIZE_2D;
+	tile_pos.x = pos.y * RENDER_SIZE_2D;
+	tile_pos.y = pos.x * RENDER_SIZE_2D;
 	draw_player_2d(env->mlx, tile_pos, env->map->player.pos.angle_h, 0xFF9900);
 	mlx_put_image_to_window(env->mlx->id, env->mlx->win, env->mlx->render_pixel,
 		0, 0);
@@ -70,24 +70,20 @@ short	update_player_angle(t_env *env, float angle)
 
 static short	update_player_position(t_env *env, float x, float y)
 {
-	t_pos_player	new_pos;
-
-	new_pos.x = env->map->player.pos.x + x * MOVE_SPEED;
-	new_pos.y = env->map->player.pos.y + y * MOVE_SPEED;
-	env->map->player.pos = new_pos;
-	if (DEBUG_MODE)
-		printf("New Player position: %f %f\n", env->map->player.pos.x,
-			env->map->player.pos.y);
-	move_player(env, env->map->player.pos);
+	env->map->player.pos.y = env->map->player.pos.y + y * MOVE_SPEED;
+	env->map->player.pos.x = env->map->player.pos.x + x * MOVE_SPEED;
+	printf("New Player position: %f %f\n", env->map->player.pos.y,
+		env->map->player.pos.x);
 	return (0);
 }
 
 short	handler_move_player(t_env *env, int keycode)
 {
-	if (keycode == KEY_W)
-		update_player_position(env, 0, -1);
-	else if (keycode == KEY_S)
-		update_player_position(env, 0, 1);
+	printf("%f %f\n", -1 * sin(env->map->player.pos.angle_h * M_PI / 180), cos(env->map->player.pos.angle_h * M_PI / 180));
+	if (keycode == KEY_W || keycode == KEY_TOP)
+		update_player_position(env, -sin(env->map->player.pos.angle_h * M_PI / 180) , cos(env->map->player.pos.angle_h * M_PI / 180));
+	else if (keycode == KEY_S || keycode == KEY_BOT)
+		update_player_position(env, sin(env->map->player.pos.angle_h * M_PI / 180) , -cos(env->map->player.pos.angle_h * M_PI / 180));
 	else if (keycode == KEY_A)
 		update_player_position(env, -1, 0);
 	else if (keycode == KEY_D)

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:05:40 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/22 00:43:29 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:12:37 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ short	render_map_2d(t_map *map, t_mlx *mlx)
 				draw_tile_2d(mlx, tile_pos, 0x00FF00);
 			else if (map->grid[map_pos.y][map_pos.x] == '0')
 				draw_tile_2d(mlx, tile_pos, 0x0000FF);
-			else if (map_pos.x == map->player.pos.x
-				&& map_pos.y == map->player.pos.y)
+			else if (map_pos.x == map->player.pos.y
+				&& map_pos.y == map->player.pos.x)
 				draw_tile_2d(mlx, tile_pos, 0x0000F0);
 			map_pos.x++;
 		}
