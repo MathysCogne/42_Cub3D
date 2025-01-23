@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 08:27:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:59:14 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ static short	update_player_position(t_env *env, float x, float y)
 
 short	handler_move_player(t_env *env, int keycode)
 {
-	if (keycode == KEY_W)
+	if (keycode == KEY_W || keycode == KEY_TOP)
 		update_player_position(env, 0, -1);
-	else if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == KEY_BOT)
 		update_player_position(env, 0, 1);
 	else if (keycode == KEY_A)
 		update_player_position(env, -1, 0);

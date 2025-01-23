@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 22:54:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:14:10 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ static int	exit_user(t_env *env)
 	ft_printf(NAME "Goodbye 👋\n");
 	exit(0);
 }
-
 static int	key_press(int keycode, t_env *env)
 {
 	if (keycode == KEY_ESC)
 		exit_user(env);
 	else if (keycode == KEY_W || keycode == KEY_S || keycode == KEY_A
-		|| keycode == KEY_D)
+		|| keycode == KEY_D || keycode == KEY_TOP || keycode == KEY_BOT)
 		handler_move_player(env, keycode);
 	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT)
 		handler_move_player(env, keycode);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/18 22:52:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:50:09 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ typedef enum e_key
 	KEY_A = 97,
 	KEY_D = 100,
 	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363
+	KEY_RIGHT = 65363,
+	KEY_TOP = 65364,
+	KEY_BOT = 65362
 }	t_key;
 
 #endif
