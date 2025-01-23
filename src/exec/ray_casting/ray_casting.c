@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/22 23:24:31 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 05:08:45 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	detroy_render(t_render **render)
 	int			y;
 
 	y = 0;
-	while (y < (int)RESV)
+	while (y < (int)RESV / 2)
 	{
 		x = 0;
-		while (x < (int)RESH)
+		while (x < ((int)RESH / 2))
 		{
-			free(render[((int)RESH * y) + x]);
+			free(render[(((int)RESH / 2) * y) + x]);
 			x++;
 		}
 		y++;
@@ -36,8 +36,8 @@ t_render	*send_ray(int ray_index_v, int ray_index_h, t_player *player, char **gr
 	t_ray	ray;
 
 	ray.angle_h = normalize_angle(
-			(player->pos.angle_h - (HFVH / 2) + HFVH * (ray_index_h / (RESH - 1))) * -1);
-	ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (ray_index_v / (RESV - 1))) * -1;
+			(player->pos.angle_h - (HFVH / 2) + HFVH * (ray_index_h / ((RESH / 2) - 1))) * -1);
+	ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (ray_index_v / ((RESV / 2) - 1))) * -1;
 	ray.x = player->pos.y;
 	ray.y = player->pos.x;
 	ray.index = ray_index_v;
@@ -50,17 +50,17 @@ t_render	**ray_cast(t_player *player, char **grid)
 	int			x;
 	int			y;
 
-	t_render **render = malloc(sizeof(t_render) * (int)RESH * (int)RESV);
+	t_render **render = malloc(sizeof(t_render) * ((int)RESH / 2) * ((int)RESV / 2));
 	if (!render)
 		return (0);
 	y = 0;
-	while (y < (int)RESV)
+	while (y < (int)RESV / 2)
 	{
 		x = 0;
-		while (x < (int)RESH)
+		while (x < (int)RESH / 2)
 		{
-			render[((int)RESH * y) + x] = send_ray(y, x, player, grid);
-			if (!render[((int)RESH * y) + x])
+			render[((int)RESH / 2 * y) + x] = send_ray(y, x, player, grid);
+			if (!render[((int)RESH / 2 * y) + x])
 				return (0);
 			x++;
 		}
