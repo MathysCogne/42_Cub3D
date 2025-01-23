@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 13:59:14 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:58:04 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static short	update_player_angle(t_env *env, float angle)
 
 static short	update_player_position(t_env *env, float x, float y)
 {
-	env->map->player.pos.y = env->map->player.pos.y + x * MOVE_SPEED;
-	env->map->player.pos.x = env->map->player.pos.x + y * MOVE_SPEED;
+	env->map->player.pos.y = env->map->player.pos.y + y * MOVE_SPEED;
+	env->map->player.pos.x = env->map->player.pos.x + x * MOVE_SPEED;
 	printf("New Player position: %f %f\n", env->map->player.pos.y,
 		env->map->player.pos.x);
 	return (0);
@@ -77,10 +77,11 @@ static short	update_player_position(t_env *env, float x, float y)
 
 short	handler_move_player(t_env *env, int keycode)
 {
+	printf("%f %f\n", -1 * sin(env->map->player.pos.angle_h * M_PI / 180), cos(env->map->player.pos.angle_h * M_PI / 180));
 	if (keycode == KEY_W || keycode == KEY_TOP)
-		update_player_position(env, 0, -1);
+		update_player_position(env, -sin(env->map->player.pos.angle_h * M_PI / 180) , cos(env->map->player.pos.angle_h * M_PI / 180));
 	else if (keycode == KEY_S || keycode == KEY_BOT)
-		update_player_position(env, 0, 1);
+		update_player_position(env, sin(env->map->player.pos.angle_h * M_PI / 180) , -cos(env->map->player.pos.angle_h * M_PI / 180));
 	else if (keycode == KEY_A)
 		update_player_position(env, -1, 0);
 	else if (keycode == KEY_D)
