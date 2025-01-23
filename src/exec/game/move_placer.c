@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   move_placer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
 /*   Updated: 2025/01/23 14:58:04 by achaisne         ###   ########.fr       */
@@ -55,14 +55,16 @@ static short	move_player(t_env *env, t_pos_player pos)
 	return (0);
 }
 
-static short	update_player_angle(t_env *env, float angle)
+short	update_player_angle(t_env *env, float angle)
 {
 	env->map->player.pos.angle_h += angle * ANGLE_SPEED;
 	if (env->map->player.pos.angle_h >= 360)
 		env->map->player.pos.angle_h -= 360;
 	else if (env->map->player.pos.angle_h < 0)
 		env->map->player.pos.angle_h += 360;
-	printf("New Player angle: %f\n", env->map->player.pos.angle_h);
+	if (DEBUG_MODE)
+		printf("New Player angle: %f\n", env->map->player.pos.angle_h);
+	move_player(env, env->map->player.pos);
 	return (0);
 }
 
@@ -90,6 +92,5 @@ short	handler_move_player(t_env *env, int keycode)
 		update_player_angle(env, -1);
 	else if (keycode == KEY_RIGHT)
 		update_player_angle(env, 1);
-	move_player(env, env->map->player.pos);
 	return (0);
 }

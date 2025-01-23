@@ -26,4 +26,13 @@ typedef enum e_key
 	KEY_BOT = 65364
 }	t_key;
 
+typedef enum e_key_mouse
+{
+	KEY_MOUSE_LEFT = 1,
+	KEY_MOUSE_RIGHT,
+	KEY_MOUSE_MIDDLE,
+	KEY_MOUSE_SCROOL_UP,
+	KEY_MOUSE_SCROOL_DOWN
+}	t_key_mouse;
+
 #endif

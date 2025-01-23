@@ -18,6 +18,22 @@ static int	exit_user(t_env *env)
 	ft_printf(NAME "Goodbye 👋\n");
 	exit(0);
 }
+
+static int	move_mouse_event(int pos_x, int pos_y, t_env *env)
+{
+	static int	last_pos_x;
+
+	(void)pos_y;
+	if (!last_pos_x)
+		last_pos_x = pos_x;
+	if (last_pos_x < pos_x)
+		update_player_angle(env, (last_pos_x - pos_x) * MOUSE_SPEED);
+	else if (last_pos_x > pos_x)
+		update_player_angle(env, (last_pos_x - pos_x) * MOUSE_SPEED);
+	last_pos_x = pos_x;
+	return (0);
+}
+
 static int	key_press(int keycode, t_env *env)
 {
 	if (keycode == KEY_ESC)
@@ -34,5 +50,6 @@ short	ft_mlx_init_events(t_env *env)
 {
 	mlx_hook(env->mlx->win, 2, 1L << 0, key_press, env);
 	mlx_hook(env->mlx->win, 17, 1L << 17, exit_user, env);
+	mlx_hook(env->mlx->win, 6, 1L << 6, move_mouse_event, env);
 	return (0);
 }
