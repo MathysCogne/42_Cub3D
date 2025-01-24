@@ -21,6 +21,7 @@ SRC = main.c \
 		exec/exec.c \
 			exec/render/render_map_2d.c \
 			exec/render/render_map_3d.c \
+			exec/render/render_loop.c \
 \
 			exec/mlx/mlx_init.c \
 			exec/mlx/mlx_events.c \
@@ -42,6 +43,7 @@ SRC = main.c \
 		utils/is_textures_line.c \
 		utils/get_msg_error.c \
 		utils/exit_by_user.c \
+		utils/normalize_angle.c \
 \
 		debug/debug_parsing.c
 

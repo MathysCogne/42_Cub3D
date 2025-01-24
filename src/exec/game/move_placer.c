@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 02:44:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:55:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,8 @@ short	update_player_angle(t_env *env, float angle_h, float angle_v)
 {
 	env->map->player.pos.angle_h += angle_h * ANGLE_SPEED;
 	env->map->player.pos.angle_v += angle_v * ANGLE_SPEED;
-	if (env->map->player.pos.angle_h >= ANGLE_X_MAX)
-		env->map->player.pos.angle_h -= ANGLE_X_MAX;
-	else if (env->map->player.pos.angle_h < 0)
-		env->map->player.pos.angle_h += ANGLE_X_MAX;
-	//
-	if (env->map->player.pos.angle_v >= ANGLE_Y_MAX)
-		env->map->player.pos.angle_v = ANGLE_Y_MAX;
-	else if (env->map->player.pos.angle_v <= -ANGLE_Y_MAX)
-		env->map->player.pos.angle_v = -ANGLE_Y_MAX;
-	if (DEBUG_MODE)
-		printf("New Player angle: %f | %f\n", env->map->player.pos.angle_h,
-			env->map->player.pos.angle_v);
+	normalize_angle_horizontal(env->map->player.pos.angle_h);
+	normalize_angle_vertical(env->map->player.pos.angle_v);
 	return (0);
 }
 
@@ -71,9 +61,6 @@ static short	update_player_position(t_env *env, float x, float y)
 		return (0);
 	env->map->player.pos.x = new_x;
 	env->map->player.pos.y = new_y;
-	if (DEBUG_MODE)
-		printf("New player position: (%f, %f)\n", env->map->player.pos.x,
-			env->map->player.pos.y);
 	return (1);
 }
 
@@ -86,9 +73,11 @@ short	handler_move_player(t_env *env)
 		update_player_position(env, sin(env->map->player.pos.angle_h * M_PI
 				/ 180), -cos(env->map->player.pos.angle_h * M_PI / 180));
 	if (env->event->move_left)
-		update_player_position(env, -1, 0);
+		update_player_position(env, cos(env->map->player.pos.angle_h * M_PI
+				/ 180), sin(env->map->player.pos.angle_h * M_PI / 180));
 	if (env->event->move_right)
-		update_player_position(env, 1, 0);
+		update_player_position(env, -cos(env->map->player.pos.angle_h * M_PI
+				/ 180), -sin(env->map->player.pos.angle_h * M_PI / 180));
 	if (env->event->angle_v_left)
 		update_player_angle(env, -1, 0);
 	if (env->event->angle_v_right)

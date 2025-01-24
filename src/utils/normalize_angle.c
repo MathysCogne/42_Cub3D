@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   dwa.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 16:33:49 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/24 17:41:29 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/24 17:43:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
+#include "cub3d.h"
 
-typedef enum e_key
+double	normalize_angle_vertical(double angle)
 {
-	KEY_ESC = 65307,
-	KEY_W = 119,
-	KEY_S = 115,
-	KEY_A = 97,
-	KEY_D = 100,
-	KEY_LEFT = 65361,
-	KEY_RIGHT = 65363,
-	KEY_TOP = 65362,
-	KEY_BOT = 65364
-}	t_key;
+	if (angle < 0)
+		angle += 35;
+	else if (angle >= 35)
+		angle -= 35;
+	return (angle);
+}
 
-typedef enum e_key_mouse
+double	normalize_angle_horizontal(double angle)
 {
-	KEY_MOUSE_LEFT = 1,
-	KEY_MOUSE_MIDDLE,
-	KEY_MOUSE_RIGHT,
-	KEY_MOUSE_SCROOL_UP,
-	KEY_MOUSE_SCROOL_DOWN
-}	t_key_mouse;
-
-#endif
+	if (angle < 0)
+		angle += 360.0;
+	else if (angle >= 360.0)
+		angle -= 360.0;
+	return (angle);
+}

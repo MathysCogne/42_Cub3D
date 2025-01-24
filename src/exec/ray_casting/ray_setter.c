@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ray_setter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:22:00 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/21 20:23:26 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:48:46 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ray_casting.h"
+#include "cub3d.h"
 
 void	set_next_x(t_ray *ray, t_raycasting *raycasting)
 {
