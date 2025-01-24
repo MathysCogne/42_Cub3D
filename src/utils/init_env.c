@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:36:10 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 00:59:12 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:35:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ short	init_env(t_env *env)
 	if (!env->textures)
 		return (1);
 	ft_memset(env->textures, 0, sizeof(t_textures));
-	ft_memset(env->event, 0, sizeof(t_event));
+	// ft_memset(env->event, 0, sizeof(t_event));
 	set_rgb_err(env->textures);
 	return (0);
 }
