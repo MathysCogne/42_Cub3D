@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:03:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:17:52 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_event
 	short			move_back;
 	short			move_right;
 	short			move_left;
+	short			move_sprint;
 	short			angle_v_right;
 	short			angle_v_left;
 	short			angle_h_up;

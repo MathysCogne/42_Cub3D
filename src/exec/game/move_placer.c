@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 17:55:14 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:48:23 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@
 // 	return (0);
 // }
 
-short	update_player_angle(t_env *env, float angle_h, float angle_v)
+short	update_player_angle(t_map *map, float angle_h, float angle_v)
 {
-	env->map->player.pos.angle_h += angle_h * ANGLE_SPEED;
-	env->map->player.pos.angle_v += angle_v * ANGLE_SPEED;
-	normalize_angle_horizontal(env->map->player.pos.angle_h);
-	normalize_angle_vertical(env->map->player.pos.angle_v);
+	map->player.pos.angle_h += angle_h * ANGLE_SPEED;
+	map->player.pos.angle_v += angle_v * ANGLE_SPEED;
+	map->player.pos.angle_h = normalize_angle_h(map->player.pos.angle_h);
+	map->player.pos.angle_v = normalize_angle_v(map->player.pos.angle_v);
 	return (0);
 }
 
@@ -54,9 +54,13 @@ static short	update_player_position(t_env *env, float x, float y)
 {
 	float	new_x;
 	float	new_y;
+	float	speed;
 
-	new_x = env->map->player.pos.x + x * MOVE_SPEED;
-	new_y = env->map->player.pos.y + y * MOVE_SPEED;
+	speed = MOVE_SPEED;
+	if (env->event->move_sprint)
+		speed = SPRINT_SPEED;
+	new_x = env->map->player.pos.x + x * speed;
+	new_y = env->map->player.pos.y + y * speed;
 	if (env->map->grid[(int)floor(new_x)][(int)floor(new_y)] == '1')
 		return (0);
 	env->map->player.pos.x = new_x;
@@ -79,12 +83,12 @@ short	handler_move_player(t_env *env)
 		update_player_position(env, -cos(env->map->player.pos.angle_h * M_PI
 				/ 180), -sin(env->map->player.pos.angle_h * M_PI / 180));
 	if (env->event->angle_v_left)
-		update_player_angle(env, -1, 0);
+		update_player_angle(env->map, -1, 0);
 	if (env->event->angle_v_right)
-		update_player_angle(env, 1, 0);
+		update_player_angle(env->map, 1, 0);
 	if (env->event->angle_h_up)
-		update_player_angle(env, 0, -1);
+		update_player_angle(env->map, 0, -1);
 	if (env->event->angle_h_down)
-		update_player_angle(env, 0, 1);
+		update_player_angle(env->map, 0, 1);
 	return (0);
 }

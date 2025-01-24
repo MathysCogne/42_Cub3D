@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 17:48:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:48:38 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define RENDER_SIZE_2D 32
 
 # define MOVE_SPEED 0.05
+# define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
 
@@ -96,7 +97,7 @@ short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 int		loop_hook_handler(t_env *env);
 
 /* GAME */
-short	update_player_angle(t_env *env, float angle_h, float angle_v);
+short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
 
 /*******************************/
@@ -111,8 +112,8 @@ short	is_map_line(char *line);
 short	is_texture_line(char *line);
 char	*get_msg_error(size_t err);
 int		exit_user(t_env *env);
-double	normalize_angle_horizontal(double angle);
-double	normalize_angle_vertical(double angle);
+double	normalize_angle_h(double angle);
+double	normalize_angle_v(double angle);
 
 /*******************************/
 /*          DEBUG MODE         */
