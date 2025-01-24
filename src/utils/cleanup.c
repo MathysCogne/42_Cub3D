@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/22 01:37:16 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:42:59 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ void	cleanup(t_env *env)
 	cleanup_map(env);
 	cleanup_textures(env);
 	cleanup_mlx(env);
+	ft_free(env->event);
 }
