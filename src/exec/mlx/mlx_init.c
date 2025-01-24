@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 14:13:59 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:03:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// TODO: PARSE RGB OR TEXTURES FOR SKY AND CEIL
 static short	valid_and_load_textures(t_env *env, t_textures *textures)
 {
 	textures->ea.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_ea,
@@ -22,10 +23,12 @@ static short	valid_and_load_textures(t_env *env, t_textures *textures)
 			&textures->so.width, &textures->so.height);
 	textures->we.value = mlx_xpm_file_to_image(env->mlx->id, textures->path_we,
 			&textures->we.width, &textures->we.height);
-	textures->bot.value = mlx_xpm_file_to_image(env->mlx->id, "./assets/texture/BOT.xpm", // TODO clean !
-			&textures->bot.width, &textures->bot.height);
-	textures->top.value = mlx_xpm_file_to_image(env->mlx->id, "./assets/texture/TOP.xpm", // TODO clean !
-			&textures->top.width, &textures->top.height);
+	textures->bot.value = mlx_xpm_file_to_image(env->mlx->id,
+			"./assets/texture/BOT.xpm", &textures->bot.width,
+			&textures->bot.height);
+	textures->top.value = mlx_xpm_file_to_image(env->mlx->id,
+			"./assets/texture/TOP.xpm", &textures->top.width,
+			&textures->top.height);
 	if (!textures->ea.value || !textures->no.value || !textures->so.value
 		|| !textures->we.value)
 		return (1);

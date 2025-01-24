@@ -6,12 +6,14 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 04:31:58 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 01:35:56 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:03:10 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// if (render_map_2d(env->map, env->mlx))
+// return (env->err = ERR_GAME, 1);
 short	exec(t_env *env)
 {
 	if (ft_mlx_init_win(env, env->mlx))
@@ -20,8 +22,6 @@ short	exec(t_env *env)
 		return (env->err = ERR_MLX, 1);
 	if (render_env_3d(env->map, env->mlx, env->textures))
 		return (env->err = ERR_GAME, 1);
-	// if (render_map_2d(env->map, env->mlx))
-	// return (env->err = ERR_GAME, 1);
 	mlx_loop(env->mlx->id);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 16:26:16 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:03:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef struct s_mlx
 {
 	void			*id;
 	void			*win;
-	// ICI POUR LES TESTS, BOUGERAS PEUT ETRE
 	void			*render_pixel;
 	int				*render_pixel_data;
 	int				bits_per_pixel;
