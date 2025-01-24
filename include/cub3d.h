@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 18:11:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 02:44:30 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 # define ANGLE_X_MAX 360
 # define ANGLE_Y_MAX 35
 
+# define TICK_SPEED 200
+
 # define M_PI 3.14159265358979323846
 
 /*******************************/
@@ -89,10 +91,11 @@ short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
 short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
+int		loop_hook_handler(t_env *env);
 
 /* GAME */
-short	handler_move_player(t_env *env, int keycode);
 short	update_player_angle(t_env *env, float angle_h, float angle_v);
+short	handler_move_player(t_env *env);
 
 /*******************************/
 /*            UTILS            */
@@ -105,6 +108,7 @@ size_t	ft_strclen(char *s, char chr);
 short	is_map_line(char *line);
 short	is_texture_line(char *line);
 char	*get_msg_error(size_t err);
+int		exit_user(t_env *env);
 
 /*******************************/
 /*          DEBUG MODE         */

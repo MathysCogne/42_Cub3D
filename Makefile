@@ -41,6 +41,7 @@ SRC = main.c \
 		utils/is_map_line.c \
 		utils/is_textures_line.c \
 		utils/get_msg_error.c \
+		utils/exit_by_user.c \
 \
 		debug/debug_parsing.c
 

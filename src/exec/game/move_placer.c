@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 18:09:56 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 02:44:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,6 @@
 // 	return (0);
 // }
 
-static short	move_player(t_env *env, t_pos_player pos)
-{
-	t_pos	tile_pos;
-
-	// render_map_2d(env->map, env->mlx);
-	render_env_3d(env->map, env->mlx, env->textures);
-	tile_pos.x = pos.y * RENDER_SIZE_2D;
-	tile_pos.y = pos.x * RENDER_SIZE_2D;
-	// draw_player_2d(env->mlx, tile_pos, env->map->player.pos.angle_h,
-	// 0xFF9900);
-	mlx_put_image_to_window(env->mlx->id, env->mlx->win, env->mlx->render_pixel,
-		0, 0);
-	return (0);
-}
-
 short	update_player_angle(t_env *env, float angle_h, float angle_v)
 {
 	env->map->player.pos.angle_h += angle_h * ANGLE_SPEED;
@@ -72,40 +57,45 @@ short	update_player_angle(t_env *env, float angle_h, float angle_v)
 	if (DEBUG_MODE)
 		printf("New Player angle: %f | %f\n", env->map->player.pos.angle_h,
 			env->map->player.pos.angle_v);
-	move_player(env, env->map->player.pos);
 	return (0);
 }
 
 static short	update_player_position(t_env *env, float x, float y)
 {
-	env->map->player.pos.y = env->map->player.pos.y + y * MOVE_SPEED;
-	env->map->player.pos.x = env->map->player.pos.x + x * MOVE_SPEED;
+	float	new_x;
+	float	new_y;
+
+	new_x = env->map->player.pos.x + x * MOVE_SPEED;
+	new_y = env->map->player.pos.y + y * MOVE_SPEED;
+	if (env->map->grid[(int)floor(new_x)][(int)floor(new_y)] == '1')
+		return (0);
+	env->map->player.pos.x = new_x;
+	env->map->player.pos.y = new_y;
 	if (DEBUG_MODE)
-		printf("New Player position: %f %f\n", env->map->player.pos.y,
-			env->map->player.pos.x);
-	move_player(env, env->map->player.pos);
-	return (0);
+		printf("New player position: (%f, %f)\n", env->map->player.pos.x,
+			env->map->player.pos.y);
+	return (1);
 }
 
-short	handler_move_player(t_env *env, int keycode)
+short	handler_move_player(t_env *env)
 {
-	if (keycode == KEY_W)
+	if (env->event->move_forward)
 		update_player_position(env, -sin(env->map->player.pos.angle_h * M_PI
 				/ 180), cos(env->map->player.pos.angle_h * M_PI / 180));
-	else if (keycode == KEY_S)
+	if (env->event->move_back)
 		update_player_position(env, sin(env->map->player.pos.angle_h * M_PI
 				/ 180), -cos(env->map->player.pos.angle_h * M_PI / 180));
-	else if (keycode == KEY_A)
+	if (env->event->move_left)
 		update_player_position(env, -1, 0);
-	else if (keycode == KEY_D)
+	if (env->event->move_right)
 		update_player_position(env, 1, 0);
-	else if (keycode == KEY_LEFT)
+	if (env->event->angle_v_left)
 		update_player_angle(env, -1, 0);
-	else if (keycode == KEY_RIGHT)
+	if (env->event->angle_v_right)
 		update_player_angle(env, 1, 0);
-	else if (keycode == KEY_TOP)
+	if (env->event->angle_h_up)
 		update_player_angle(env, 0, -1);
-	else if (keycode == KEY_BOT)
+	if (env->event->angle_h_down)
 		update_player_angle(env, 0, 1);
 	return (0);
 }

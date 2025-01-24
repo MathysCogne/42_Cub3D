@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/23 14:13:32 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/24 00:59:01 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,47 @@ typedef enum e_texture_type
 	BOT
 }					t_texture_type;
 
+typedef struct s_event
+{
+	short			move_forward;
+	short			move_back;
+	short			move_right;
+	short			move_left;
+	short			angle_v_right;
+	short			angle_v_left;
+	short			angle_h_up;
+	short			angle_h_down;
+}					t_event;
+
 typedef struct s_raycasting
 {
-	double	ray_dir_x;
-	double	ray_dir_y;
-	double	ray_dir_z;
-	double	next_x;
-	double	next_y;
-	double	next_z;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	side_dist_z;
-}	t_raycasting;
+	double			ray_dir_x;
+	double			ray_dir_y;
+	double			ray_dir_z;
+	double			next_x;
+	double			next_y;
+	double			next_z;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			side_dist_z;
+}					t_raycasting;
 
 typedef struct s_ray
 {
-	double	y;
-	double	x;
-	double	z;
-	double	angle_h;
-	double	angle_v;
-	int		index;
-}	t_ray;
+	double			y;
+	double			x;
+	double			z;
+	double			angle_h;
+	double			angle_v;
+	int				index;
+}					t_ray;
 
 typedef struct s_render
 {
 	double			offset_x;
 	double			offset_y;
 	t_texture_type	pole;
-}	t_render;
+}					t_render;
 
 typedef struct s_mlx
 {
@@ -70,10 +82,10 @@ typedef struct s_mlx
 
 typedef struct texture
 {
-	int		width;
-	int		height;
-	void	*value;
-}	t_texture;
+	int				width;
+	int				height;
+	void			*value;
+}					t_texture;
 
 typedef struct textures
 {
@@ -128,6 +140,7 @@ typedef struct s_env
 	t_map			*map;
 	t_textures		*textures;
 	t_mlx			*mlx;
+	t_event			*event;
 	int				err;
 }					t_env;
 
