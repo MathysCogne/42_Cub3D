@@ -6,40 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:48:23 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:13:07 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// static short	draw_player_2d(t_mlx *mlx, t_pos start, float angle, int color)
-// {
-// 	t_pos	pos;
-// 	t_pos	dir;
-// 	size_t	i;
-// 	size_t	j;
-
-// 	i = 0;
-// 	j = 0;
-// 	while (i < RENDER_SIZE_2D / 2)
-// 	{
-// 		j = 0;
-// 		while (j < RENDER_SIZE_2D / 2)
-// 		{
-// 			pos.x = start.x + j;
-// 			pos.y = start.y + i;
-// 			dir.x = start.x + cos(angle * M_PI / 180) * RENDER_SIZE_2D * 0.15
-// 				+ j;
-// 			dir.y = start.y + sin(angle * M_PI / 180) * RENDER_SIZE_2D * 0.15
-// 				+ i;
-// 			ft_put_pixel_in_img(mlx, pos, color);
-// 			ft_put_pixel_in_img(mlx, dir, color);
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
 
 short	update_player_angle(t_map *map, float angle_h, float angle_v)
 {
@@ -65,7 +36,7 @@ static short	update_player_position(t_env *env, float x, float y)
 		return (0);
 	env->map->player.pos.x = new_x;
 	env->map->player.pos.y = new_y;
-	return (1);
+	return (0);
 }
 
 short	handler_move_player(t_env *env)

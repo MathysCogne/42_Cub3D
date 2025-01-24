@@ -28,6 +28,7 @@ SRC = main.c \
 			exec/mlx/ft_put_pixel_in_img.c \
 \
 			exec/game/move_placer.c \
+			exec/game/mini_map.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \

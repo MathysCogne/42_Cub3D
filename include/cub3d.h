@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:48:38 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:16:32 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@
 # define TEXTURE_WIDTH 500  // TODO: A ADAPTER EN FONCTION DES TEXTURES
 # define TEXTURE_HEIGHT 500 //
 
-# define RENDER_SIZE_2D 32
+# define MINIMAP_SIZE 15
+# define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_VOID 0xF092E5
+# define MINIMAP_COLOR_SPAWN 0xF092E5
 
 # define MOVE_SPEED 0.05
 # define SPRINT_SPEED 0.08
@@ -99,6 +102,7 @@ int		loop_hook_handler(t_env *env);
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
+short	handler_mini_map(t_env *env);
 
 /*******************************/
 /*            UTILS            */
