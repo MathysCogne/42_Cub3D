@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 02:44:30 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:48:33 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "libft.h"
 # include "libft_extra.h"
 # include "mlx.h"
+# include "ray_casting.h"
 # include "struct.h"
 # include <fcntl.h>
 # include <math.h>
@@ -52,7 +53,7 @@
 
 # define MOVE_SPEED 0.05
 # define ANGLE_SPEED 4
-# define MOUSE_SPEED 0.05
+# define MOUSE_SPEED 0.02
 
 # define ANGLE_X_MAX 360
 # define ANGLE_Y_MAX 35
@@ -86,6 +87,7 @@ short	exec(t_env *env);
 /* RENDER */
 short	render_map_2d(t_map *map, t_mlx *mlx);
 short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture);
+int		loop_render(t_env *env);
 
 /* MLX */
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
@@ -109,6 +111,8 @@ short	is_map_line(char *line);
 short	is_texture_line(char *line);
 char	*get_msg_error(size_t err);
 int		exit_user(t_env *env);
+double	normalize_angle_horizontal(double angle);
+double	normalize_angle_vertical(double angle);
 
 /*******************************/
 /*          DEBUG MODE         */

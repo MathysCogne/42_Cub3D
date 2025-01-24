@@ -6,11 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/23 16:46:25 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:48:43 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ray_casting.h"
+#include "cub3d.h"
 
 int	is_collision(t_ray *ray, t_raycasting *collision, char **grid)
 {

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 00:59:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:26:16 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_event
 	short			angle_v_left;
 	short			angle_h_up;
 	short			angle_h_down;
+	short			capture_mouse;
 }					t_event;
 
 typedef struct s_raycasting
