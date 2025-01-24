@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/24 17:48:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:43:41 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_render	*send_ray(int ray_index_v, int ray_index_h, t_player *player,
 {
 	t_ray	ray;
 
-	ray.angle_h = normalize_angle_horizontal((player->pos.angle_h - (HFVH / 2)
+	ray.angle_h = normalize_angle_h((player->pos.angle_h - (HFVH / 2)
 				+ HFVH * (ray_index_h / ((RESH / 2) - 1))) * -1);
 	ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (ray_index_v
 				/ ((RESV / 2) - 1))) * -1;

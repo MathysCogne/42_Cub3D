@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:17:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 16:33:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:34:26 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ typedef enum e_key
 	KEY_LEFT = 65361,
 	KEY_RIGHT = 65363,
 	KEY_TOP = 65362,
-	KEY_BOT = 65364
+	KEY_BOT = 65364,
+	KEY_SHIFT = 65505,
+	KEY_CAPSLOCK = 65509
 }	t_key;
 
 typedef enum e_key_mouse
