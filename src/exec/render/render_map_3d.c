@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 23:05:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:12:44 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 	if (!render)
 		return (1);
 	y = 0;
-	while (y < WIN_HEIGHT / 2)
+	while (y < RESV)
 	{
 		x = 0;
-		while (x < WIN_WIDTH / 2)
+		while (x < RESH)
 		{
-			set_pixel(mlx, render[(WIN_WIDTH / 2 * y) + x], x * 2, y * 2,
+			set_pixel(mlx, render[(RESH * y) + x], x * 2, y * 2,
 				texture);
 			x++;
 		}
