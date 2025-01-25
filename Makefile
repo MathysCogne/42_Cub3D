@@ -19,7 +19,6 @@ SRC = main.c \
 			parsing/validate/valid_player.c \
 \
 		exec/exec.c \
-			exec/render/render_map_2d.c \
 			exec/render/render_map_3d.c \
 			exec/render/render_loop.c \
 \
