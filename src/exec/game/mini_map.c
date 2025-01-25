@@ -1,0 +1,110 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mini_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/25 22:04:59 by mcogne--         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+static short	render_tile(t_mlx *mlx, t_pos start, int color, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	t_pos	pixel;
+
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			pixel.x = start.x + j;
+			pixel.y = start.y + i;
+			if (pixel.x >= MINIMAP_SIZE * MINIMAP_RADIUS
+				|| pixel.y >= MINIMAP_SIZE * MINIMAP_RADIUS)
+				return (0);
+			ft_put_pixel_in_img(mlx, pixel, color);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static short	render_background_minimap(t_env *env)
+{
+	size_t	i;
+	size_t	j;
+	t_pos	start;
+
+	i = 0;
+	while (i < MINIMAP_RADIUS)
+	{
+		j = 0;
+		while (j < MINIMAP_RADIUS)
+		{
+			start.x = i * MINIMAP_SIZE;
+			start.y = j * MINIMAP_SIZE;
+			render_tile(env->mlx, start, MINIMAP_COLOR_WALL, MINIMAP_SIZE);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static int	get_color_tile(t_map *map, t_pos map_pos)
+{
+	if (map_pos.y < map->height && map_pos.x < map->width
+		&& map->grid[map_pos.y][map_pos.x])
+	{
+		if (map->grid[map_pos.y][map_pos.x] == '1')
+			return (MINIMAP_COLOR_WALL);
+		else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
+			return (MINIMAP_COLOR_VOID);
+	}
+	return (MINIMAP_COLOR_WALL);
+}
+
+static short	render_minimap(t_mlx *mlx, t_map *map)
+{
+	int		i;
+	int		j;
+	t_pos	map_pos;
+	t_pos	start;
+
+	i = 0;
+	while (i < MINIMAP_RADIUS)
+	{
+		j = 0;
+		while (j < MINIMAP_RADIUS)
+		{
+			start.y = i * MINIMAP_SIZE;
+			start.x = j * MINIMAP_SIZE;
+			map_pos.y = (floor)((map->player.pos.x + i) - MINIMAP_RADIUS / 2);
+			map_pos.x = (floor)((map->player.pos.y + j) - MINIMAP_RADIUS / 2);
+			render_tile(mlx, start, get_color_tile(map, map_pos), MINIMAP_SIZE);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+short	handler_mini_map(t_env *env)
+{
+	t_pos	center;
+
+	center.x = (MINIMAP_RADIUS * MINIMAP_SIZE / 2) - (MINIMAP_SIZE_PLAYER / 2);
+	center.y = (MINIMAP_RADIUS * MINIMAP_SIZE / 2) - (MINIMAP_SIZE_PLAYER / 2);
+	render_background_minimap(env);
+	render_minimap(env->mlx, env->map);
+	render_tile(env->mlx, center, MINIMAP_COLOR_PLAYER, MINIMAP_SIZE_PLAYER);
+	return (0);
+}

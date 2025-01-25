@@ -19,7 +19,6 @@ SRC = main.c \
 			parsing/validate/valid_player.c \
 \
 		exec/exec.c \
-			exec/render/render_map_2d.c \
 			exec/render/render_map_3d.c \
 			exec/render/render_loop.c \
 			exec/render/img_compression.c \
@@ -29,6 +28,7 @@ SRC = main.c \
 			exec/mlx/ft_put_pixel_in_img.c \
 \
 			exec/game/move_placer.c \
+			exec/game/mini_map.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:49:12 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:11:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,5 @@ short	ft_mlx_init_events(t_env *env)
 	mlx_hook(env->mlx->win, 17, 1L << 17, exit_user, env);
 	mlx_hook(env->mlx->win, 6, 1L << 6, move_mouse_event, env);
 	mlx_mouse_hook(env->mlx->win, capture_mouse, env);
-	mlx_loop_hook(env->mlx->id, loop_render, env);
 	return (0);
 }
