@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:48:38 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:12:15 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ short	exec(t_env *env);
 short	render_map_2d(t_map *map, t_mlx *mlx);
 short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int		loop_render(t_env *env);
+void	img_compression(t_mlx *mlx);
 
 /* MLX */
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);

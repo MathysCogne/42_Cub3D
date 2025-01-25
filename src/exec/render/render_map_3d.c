@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/23 17:50:24 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:30:01 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,89 +53,21 @@ static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 	ft_put_pixel_in_img(mlx, pos, color);
 }
 
-int	average_color2(int color1, int color2)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	r = (((color1 >> 16) & 0xFF) + ((color2 >> 16) & 0xFF)) / 2;
-	g = (((color1 >> 8) & 0xFF) + ((color2 >> 8) & 0xFF)) / 2;
-	b = (((color1)&0xFF) + ((color2)&0xFF)) / 2;
-	return ((r << 16) | (g << 8) | b);
-}
-
-int	average_color4(int color1, int color2, int color3, int color4)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	r = (((color1 >> 16) & 0xFF) + ((color2 >> 16) & 0xFF)
-			+ ((color3 >> 16) & 0xFF) + ((color4 >> 16) & 0xFF)) / 4;
-	g = (((color1 >> 8) & 0xFF) + ((color2 >> 8) & 0xFF)
-			+ ((color3 >> 8) & 0xFF) + ((color4 >> 8) & 0xFF)) / 4;
-	b = (((color1)&0xFF) + ((color2)&0xFF) + ((color3)&0xFF) + ((color4)&0xFF))
-		/ 4;
-	return ((r << 16) | (g << 8) | b);
-}
-
-void	img_compression(t_mlx *mlx)
-{
-	t_pos	pos;
-	int		x;
-	int		y;
-	int		color;
-
-	y = 0;
-	while (y + 2 < (int)RESV)
-	{
-		x = 0;
-		while (x + 2 < (int)RESH)
-		{
-			pos.x = x + 1;
-			pos.y = y;
-			color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x + 2]);
-			ft_put_pixel_in_img(mlx, pos, color);
-			pos.x = x;
-			pos.y = y + 1;
-			color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x]);
-			ft_put_pixel_in_img(mlx, pos, color);
-			pos.x = x + 1;
-			pos.y = y + 1;
-			color = average_color4(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x + 2], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x + 2]);
-			ft_put_pixel_in_img(mlx, pos, color);
-			x += 2;
-		}
-		y += 2;
-	}
-}
-
 short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 {
 	int x;
 	int y;
 
-	// map->player.pos.angle_v = 0.0;
-
 	t_render **render = ray_cast(&map->player, map->grid);
 	if (!render)
 		return (1);
 	y = 0;
-	while (y < (int)RESV / 2)
+	while (y < WIN_HEIGHT / 2)
 	{
 		x = 0;
-		while (x < (int)RESH / 2)
+		while (x < WIN_WIDTH / 2)
 		{
-			set_pixel(mlx, render[((int)RESH / 2 * y) + x], x * 2, y * 2,
+			set_pixel(mlx, render[(WIN_WIDTH / 2 * y) + x], x * 2, y * 2,
 				texture);
 			x++;
 		}
