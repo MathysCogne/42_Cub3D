@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 22:08:19 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:16:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define NAME "[cub3D] "
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
-# define WIN_WIDTH 1080/2
-# define WIN_HEIGHT 720/2
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 720
 
 # define TICK_SPEED 200
 
