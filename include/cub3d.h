@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/01/25 14:19:49 by achaisne         ###   ########.fr       */
+=======
+/*   Updated: 2025/01/25 23:11:04 by mcogne--         ###   ########.fr       */
+>>>>>>> a5249eba0c32549f4e7f567738afae40c1c0c8b3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +38,22 @@
 /*******************************/
 /*            DEFINE           */
 /*******************************/
+// ENV
 # define NAME "[cub3D] "
 
-# define EXTENTION_MAP ".cub"
+# define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 720
 
+# define TICK_SPEED 200
+
+// PARSING
+# define EXTENTION_MAP ".cub"
 # define CARAC_MAP " 01NSEW"
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW"
 
+<<<<<<< HEAD
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
@@ -53,16 +65,24 @@
 
 # define RENDER_SIZE_2D 32
 
+=======
+// EVENT - MOVE PLAYER
+>>>>>>> a5249eba0c32549f4e7f567738afae40c1c0c8b3
 # define MOVE_SPEED 0.05
 # define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
 
-# define ANGLE_X_MAX 360
-# define ANGLE_Y_MAX 35
+// MINIMAP
+# define MINIMAP_SIZE 10
+# define MINIMAP_RADIUS 11
+# define MINIMAP_SIZE_PLAYER 5
+# define MINIMAP_COLOR_PLAYER 0xFF0000
+# define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_VOID 0xF092E5
+# define MINIMAP_COLOR_SPAWN 0xF092E5
 
-# define TICK_SPEED 200
-
+// UTILS
 # define M_PI 3.14159265358979323846
 
 /*******************************/
@@ -88,7 +108,6 @@ short	valid_player(t_map *map, char **grid);
 short	exec(t_env *env);
 
 /* RENDER */
-short	render_map_2d(t_map *map, t_mlx *mlx);
 short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int		loop_render(t_env *env);
 void	img_compression(t_mlx *mlx);
@@ -97,11 +116,14 @@ void	img_compression(t_mlx *mlx);
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
 short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
-int		loop_hook_handler(t_env *env);
+int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
+int		ft_get_pixel_color_hud(void *img, int x, int y);
 
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
+short	handler_mini_map(t_env *env);
+short	handler_hud(t_env *env);
 
 /*******************************/
 /*            UTILS            */
