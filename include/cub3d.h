@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 21:16:32 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:08:19 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,37 @@
 /*******************************/
 /*            DEFINE           */
 /*******************************/
+// ENV
 # define NAME "[cub3D] "
-
-# define EXTENTION_MAP ".cub"
-
-# define CARAC_MAP " 01NSEW"
-# define CARAC_PLAYER "NSEW"
-# define CARAC_PLAYER_VOID "0NSEW"
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
 
-# define TEXTURE_WIDTH 500  // TODO: A ADAPTER EN FONCTION DES TEXTURES
-# define TEXTURE_HEIGHT 500 //
+# define TICK_SPEED 200
 
-# define MINIMAP_SIZE 15
-# define MINIMAP_COLOR_WALL 0x0F0324
-# define MINIMAP_COLOR_VOID 0xF092E5
-# define MINIMAP_COLOR_SPAWN 0xF092E5
+// PARSING
+# define EXTENTION_MAP ".cub"
+# define CARAC_MAP " 01NSEW"
+# define CARAC_PLAYER "NSEW"
+# define CARAC_PLAYER_VOID "0NSEW"
 
+// EVENT - MOVE PLAYER
 # define MOVE_SPEED 0.05
 # define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
 
-# define ANGLE_X_MAX 360
-# define ANGLE_Y_MAX 35
+// MINIMAP
+# define MINIMAP_SIZE 10
+# define MINIMAP_RADIUS 11
+# define MINIMAP_SIZE_PLAYER 5
+# define MINIMAP_COLOR_PLAYER 0xFF0000
+# define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_VOID 0xF092E5
+# define MINIMAP_COLOR_SPAWN 0xF092E5
 
-# define TICK_SPEED 200
-
+// UTILS
 # define M_PI 3.14159265358979323846
 
 /*******************************/
