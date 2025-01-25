@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:37:06 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 23:47:59 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:47:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ short	render_weapon(t_env *env)
 		while (x < env->textures->weapon.width)
 		{
 			color = ft_get_pixel_color_hud(env->textures->weapon.value, x, y);
+			if (!color)
+			{
+				x++;
+				continue ;
+			}
 			pos.x = (WIN_WIDTH - env->textures->weapon.width) / 2 + x;
 			pos.y = WIN_HEIGHT - env->textures->weapon.height + y;
 			ft_put_pixel_in_img(env->mlx, pos, color);
