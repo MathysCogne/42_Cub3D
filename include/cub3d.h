@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 12:37:11 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:19:49 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@
 # define CARAC_PLAYER_VOID "0NSEW"
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
-# define WIN_WIDTH 1080/2
-# define WIN_HEIGHT 720/2
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 720
+# define RESH 1080 / 2
+# define RESV 720 / 2
 
 # define TEXTURE_WIDTH 500  // TODO: A ADAPTER EN FONCTION DES TEXTURES
 # define TEXTURE_HEIGHT 500 //

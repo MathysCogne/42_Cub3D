@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 12:30:25 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:46:57 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@
 # define HFVV 60.0
 # define HEIGHT 1.0
 # define HEIGT_PLAYER 0.5
-# ifndef M_PI
-#  define M_PI acos(-1.0)
-# endif
 
 // raycasting
 void		detroy_render(t_render **render);
