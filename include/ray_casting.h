@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/23 10:16:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:30:25 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stdlib.h>
 # include "struct.h"
 
-# define RESH 1080.0
-# define RESV 720.0
 # define HFVH 90.0
 # define HFVV 60.0
 # define HEIGHT 1.0
