@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 18:58:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:40:34 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,14 @@ typedef struct textures
 	char			*path_ea;
 	char			*path_bot;
 	char			*path_top;
+	char			*path_weapon;
 	t_texture		no;
 	t_texture		so;
 	t_texture		we;
 	t_texture		ea;
 	t_texture		top;
 	t_texture		bot;
+	t_texture		weapon;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;

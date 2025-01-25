@@ -26,9 +26,11 @@ SRC = main.c \
 			exec/mlx/mlx_init.c \
 			exec/mlx/mlx_events.c \
 			exec/mlx/ft_put_pixel_in_img.c \
+			exec/mlx/ft_get_pixel_color.c \
 \
 			exec/game/move_placer.c \
-			exec/game/mini_map.c \
+			exec/game/hud_mini_map.c \
+			exec/game/hud.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \

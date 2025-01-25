@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 18:03:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:41:51 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ static short	valid_and_load_textures(t_env *env, t_textures *textures)
 	textures->top.value = mlx_xpm_file_to_image(env->mlx->id,
 			"./assets/texture/TOP.xpm", &textures->top.width,
 			&textures->top.height);
+	textures->weapon.value = mlx_xpm_file_to_image(env->mlx->id,
+			"./assets/texture/weapon.xpm", &textures->weapon.width,
+			&textures->weapon.height);
 	if (!textures->ea.value || !textures->no.value || !textures->so.value
-		|| !textures->we.value)
+		|| !textures->we.value || !textures->bot.value || !textures->top.value
+		|| !textures->weapon.value)
 		return (1);
 	return (0);
 }

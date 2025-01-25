@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 22:16:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:11:04 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ short	valid_player(t_map *map, char **grid);
 short	exec(t_env *env);
 
 /* RENDER */
-short	render_map_2d(t_map *map, t_mlx *mlx);
 short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int		loop_render(t_env *env);
 void	img_compression(t_mlx *mlx);
@@ -99,12 +98,14 @@ void	img_compression(t_mlx *mlx);
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
 short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
-int		loop_hook_handler(t_env *env);
+int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
+int		ft_get_pixel_color_hud(void *img, int x, int y);
 
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
 short	handler_mini_map(t_env *env);
+short	handler_hud(t_env *env);
 
 /*******************************/
 /*            UTILS            */
