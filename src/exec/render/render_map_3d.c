@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 12:30:01 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/25 12:32:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 	ft_put_pixel_in_img(mlx, pos, color);
 }
 
-short	render_env_3d(t_map *map, t_mlx *mlx, t_textures *texture)
+short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 {
 	int x;
 	int y;

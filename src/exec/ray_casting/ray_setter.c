@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_setter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:22:00 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/24 17:48:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:55:56 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,36 +66,29 @@ void	set_next_z(t_ray *ray, t_raycasting *raycasting)
 	}
 }
 
-void	set_ray(t_ray *ray, t_raycasting *raycasting)
+void	set_ray(t_ray *ray, t_raycasting *rc)
 {
-	raycasting->side_dist_x
-		= (raycasting->next_x - ray->x) / raycasting->ray_dir_x;
-	raycasting->side_dist_y
-		= (raycasting->next_y - ray->y) / raycasting->ray_dir_y;
-	raycasting->side_dist_z
-		= (raycasting->next_z - ray->z) / raycasting->ray_dir_z;
-	if (raycasting->side_dist_y < raycasting->side_dist_x && raycasting->side_dist_y < raycasting->side_dist_z)
+	rc->side_dist_x = (rc->next_x - ray->x) / rc->ray_dir_x;
+	rc->side_dist_y = (rc->next_y - ray->y) / rc->ray_dir_y;
+	rc->side_dist_z = (rc->next_z - ray->z) / rc->ray_dir_z;
+	if (rc->side_dist_y < rc->side_dist_x
+		&& rc->side_dist_y < rc->side_dist_z)
 	{
-		ray->x += (raycasting->next_y - ray->y)
-			/ (raycasting->ray_dir_y / raycasting->ray_dir_x);
-		ray->z += (raycasting->next_y - ray->y)
-			/ (raycasting->ray_dir_y / raycasting->ray_dir_z);
-		ray->y = raycasting->next_y;
+		ray->x += rc->ray_dir_x * (rc->next_y - ray->y) / rc->ray_dir_y;
+		ray->z += rc->ray_dir_z * (rc->next_y - ray->y) / rc->ray_dir_y;
+		ray->y = rc->next_y;
 	}
-	else if (raycasting->side_dist_x < raycasting->side_dist_y && raycasting->side_dist_x < raycasting->side_dist_z)
+	else if (rc->side_dist_x < rc->side_dist_y
+		&& rc->side_dist_x < rc->side_dist_z)
 	{
-		ray->y += (raycasting->next_x - ray->x)
-			/ (raycasting->ray_dir_x / raycasting->ray_dir_y);
-		ray->z += (raycasting->next_x - ray->x)
-			/ (raycasting->ray_dir_x / raycasting->ray_dir_z);
-		ray->x = raycasting->next_x;
+		ray->y += rc->ray_dir_y * (rc->next_x - ray->x) / rc->ray_dir_x;
+		ray->z += rc->ray_dir_z * (rc->next_x - ray->x) / rc->ray_dir_x;
+		ray->x = rc->next_x;
 	}
 	else
 	{
-		ray->x += (raycasting->next_z - ray->z)
-			/ (raycasting->ray_dir_z / raycasting->ray_dir_x);
-		ray->y += (raycasting->next_z - ray->z)
-			/ (raycasting->ray_dir_z / raycasting->ray_dir_y);
-		ray->z = raycasting->next_z;
+		ray->x += rc->ray_dir_x * (rc->next_z - ray->z) / rc->ray_dir_z;
+		ray->y += rc->ray_dir_y * (rc->next_z - ray->z) / rc->ray_dir_z;
+		ray->z = rc->next_z;
 	}
 }
