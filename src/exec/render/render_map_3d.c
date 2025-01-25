@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_map_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 12:32:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:05:46 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "ray_casting.h"
-
-static int	get_pixel(t_texture *texture, float offsetx, float offsety)
-{
-	int		pixel_x;
-	int		pixel_y;
-	char	*data;
-	int		offset;
-	int		color;
-
-	pixel_x = (int)(offsetx * texture->width);
-	pixel_y = (int)(offsety * texture->height);
-	int bpp, size_line, endian;
-	data = mlx_get_data_addr(texture->value, &bpp, &size_line, &endian);
-	offset = (pixel_y * size_line) + (pixel_x * (bpp / 8));
-	color = *(int *)(data + offset);
-	return (color);
-}
 
 static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 		t_textures *texture)
@@ -37,17 +19,23 @@ static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 	int		color;
 
 	if (render->pole == NO)
-		color = get_pixel(&texture->no, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->no, render->offset_x,
+				render->offset_y);
 	if (render->pole == SO)
-		color = get_pixel(&texture->so, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->so, render->offset_x,
+				render->offset_y);
 	if (render->pole == EA)
-		color = get_pixel(&texture->ea, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->ea, render->offset_x,
+				render->offset_y);
 	if (render->pole == WE)
-		color = get_pixel(&texture->we, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->we, render->offset_x,
+				render->offset_y);
 	if (render->pole == TOP)
-		color = get_pixel(&texture->top, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->top, render->offset_x,
+				render->offset_y);
 	if (render->pole == BOT)
-		color = get_pixel(&texture->bot, render->offset_x, render->offset_y);
+		color = ft_get_pixel_color(&texture->bot, render->offset_x,
+				render->offset_y);
 	pos.x = x;
 	pos.y = y;
 	ft_put_pixel_in_img(mlx, pos, color);
