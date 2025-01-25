@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/25 14:19:49 by achaisne         ###   ########.fr       */
-=======
-/*   Updated: 2025/01/25 23:11:04 by mcogne--         ###   ########.fr       */
->>>>>>> a5249eba0c32549f4e7f567738afae40c1c0c8b3
+/*   Updated: 2025/01/26 00:39:43 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +40,8 @@
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
+# define RESH 1080 / 2
+# define RESV 720 / 2
 
 # define TICK_SPEED 200
 
@@ -53,21 +51,7 @@
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW"
 
-<<<<<<< HEAD
-# define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
-# define WIN_WIDTH 1080
-# define WIN_HEIGHT 720
-# define RESH 1080 / 2
-# define RESV 720 / 2
-
-# define TEXTURE_WIDTH 500  // TODO: A ADAPTER EN FONCTION DES TEXTURES
-# define TEXTURE_HEIGHT 500 //
-
-# define RENDER_SIZE_2D 32
-
-=======
 // EVENT - MOVE PLAYER
->>>>>>> a5249eba0c32549f4e7f567738afae40c1c0c8b3
 # define MOVE_SPEED 0.05
 # define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
