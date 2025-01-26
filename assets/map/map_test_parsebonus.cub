@@ -1,16 +1,13 @@
 NO ./assets/texture/NO.xpm
 SO ./assets/texture/SO.xpm
 WE ./assets/texture/WE.xpm
-EA      ./assets/texture/EA.xpm
- 
- 
- 
-F 220,100,0
-C 225,30,0
- 
- 
+EA ./assets/texture/EA.xpm
+
+F ./assets/texture/BOT.xpm
+C ./assets/texture/TOP.xpm
+
         1111111111111111111111111
-        1W00000000110000000000001
+        1N00000000110000000000001
         1011000001110000000000001
         1001000000000000000000001
 111111111011000001110000000000001

@@ -27,6 +27,7 @@ SRC = main.c \
 			exec/mlx/mlx_events.c \
 			exec/mlx/ft_put_pixel_in_img.c \
 			exec/mlx/ft_get_pixel_color.c \
+			exec/mlx/mlx_load_textures.c \
 \
 			exec/game/move_placer.c \
 			exec/game/hud_mini_map.c \
@@ -47,6 +48,7 @@ SRC = main.c \
 		utils/get_msg_error.c \
 		utils/exit_by_user.c \
 		utils/normalize_angle.c \
+		utils/rgb_to_hex.c \
 \
 		debug/debug_parsing.c
 

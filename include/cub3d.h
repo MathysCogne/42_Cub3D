@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 00:39:43 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:12:31 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
-# define RESH 1080 / 2
-# define RESV 720 / 2
+# define RESH WIN_WIDTH / 2
+# define RESV WIN_HEIGHT / 2
 
 # define TICK_SPEED 200
 
 // PARSING
 # define EXTENTION_MAP ".cub"
 # define CARAC_MAP " 01NSEW"
+# define CARAC_MAP_NO_SPACE "01NSEW"
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW"
 
@@ -68,6 +69,9 @@
 
 // UTILS
 # define M_PI 3.14159265358979323846
+
+// PATH TEXTURES BONUS
+# define PATH_WEAPON_00 "./assets/texture/weapon.xpm"
 
 /*******************************/
 /*            PARSING          */
@@ -102,6 +106,7 @@ short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
 int		ft_get_pixel_color_hud(void *img, int x, int y);
+short	handler_load_textures(t_env *env, t_textures *textures);
 
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);
@@ -123,6 +128,7 @@ char	*get_msg_error(size_t err);
 int		exit_user(t_env *env);
 double	normalize_angle_h(double angle);
 double	normalize_angle_v(double angle);
+int		rgb_to_hex(int *rgb);
 
 /*******************************/
 /*          DEBUG MODE         */
