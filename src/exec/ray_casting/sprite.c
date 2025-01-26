@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/26 04:47:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/26 11:17:10 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,18 @@ void	set_sprite(t_player *player, t_sprite *sprite)
 	if (fabs(angle_diff) > HFVH / 2)
 		return (0); // TRUE
 
-	// float inv_det = 1.0 / (player->plane_x * player->dir_y - player->dir_x * player->plane_y);
-	// float transform_x = inv_det * (player->dir_y * sprite_dx - player->dir_x * sprite_dy);
-	// float transform_y = inv_det * (-player->plane_y * sprite_dx + player->plane_x * sprite_dy);
-
 	sprite->distance = get_sprite_distance(player, sprite_dy, sprite_dx); // TRUE
-	// sprite->offsetx = (int)((WIN_WIDTH / 2) * (1 + transform_x / transform_y)); <<-------- TODO
+	sprite->offsetx = (int)((WIN_WIDTH / 2) * (1 + angle_diff / HFVH)); // NOT SURE
 	sprite->sprite_height =  (int)(WIN_HEIGHT / sprite->distance); // TRUE
 	sprite->sprite_width =  (int)(WIN_WIDTH / sprite->distance); // TRUE
 }
+
+/**
+ * What to do ?
+ * 
+ * Accept 2 on map. 2 correspond to sprite.
+ * Add distance to the raycasr rendering.
+ * Render raycast
+ * Get array of t_sprite to render.
+ * Render t_sprite
+ */
