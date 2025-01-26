@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 14:55:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:44:35 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 // PARSING
 # define EXTENTION_MAP ".cub"
 # define CARAC_MAP " 01NSEW"
+# define CARAC_MAP_NO_SPACE "01NSEW"
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW"
 
@@ -68,6 +69,9 @@
 
 // UTILS
 # define M_PI 3.14159265358979323846
+
+// PATH TEXTURES BONUS
+# define PATH_WEAPON_00 "./assets/texture/weapon.xpm"
 
 /*******************************/
 /*            PARSING          */
@@ -102,6 +106,7 @@ short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
 int		ft_get_pixel_color_hud(void *img, int x, int y);
+short	handler_load_textures(t_env *env, t_textures *textures);
 
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);

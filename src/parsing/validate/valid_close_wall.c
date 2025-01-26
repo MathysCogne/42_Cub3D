@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:30:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 15:03:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:32:25 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ static short	is_empty_line(char **grid, size_t y)
 	size_t	x;
 
 	x = 0;
+	if (!grid[y][x])
+		return (0);
 	while (grid[y][x])
 	{
-		if (ft_strchr(CARAC_PLAYER_VOID, grid[y][x]))
+		if (ft_strchr(CARAC_MAP_NO_SPACE, grid[y][x]))
 			return (0);
 		x++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:58:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:29:12 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	process_line(char *line, t_env *env, int *parsing_map)
 {
-	if (is_texture_line(line))
+	if (is_texture_line(line) && !*parsing_map)
 		return (parse_texture_line(line, env->textures));
 	else if (*parsing_map || is_map_line(line))
 	{

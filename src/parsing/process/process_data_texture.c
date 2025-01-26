@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:56:06 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:57:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:12:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,14 @@ short	parse_texture_line(char *line, t_textures *textures)
 	else if (ft_strncmp(&line[i], "EA", 2) == 0)
 		textures->path_ea = get_texture_path(&line[i] + 2);
 	else if (ft_strncmp(&line[i], "F", 1) == 0)
+	{
+		textures->path_bot = get_texture_path(&line[i] + 2);
 		return (get_rgb(&line[i] + 1, textures->rgb_floor));
+	}
 	else if (ft_strncmp(&line[i], "C", 1) == 0)
+	{
+		textures->path_top = get_texture_path(&line[i] + 2);
 		return (get_rgb(&line[i] + 1, textures->rgb_ceiling));
+	}
 	return (0);
 }
