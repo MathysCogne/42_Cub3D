@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 11:42:59 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:43:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ static void	cleanup_textures(t_env *env)
 		ft_free(env->textures->path_so);
 		ft_free(env->textures->path_we);
 		ft_free(env->textures->path_ea);
+		ft_free(env->textures->path_bot);
+		ft_free(env->textures->path_top);
 		ft_mlx_destroy_image(env, env->textures->no.value);
 		ft_mlx_destroy_image(env, env->textures->so.value);
 		ft_mlx_destroy_image(env, env->textures->we.value);
 		ft_mlx_destroy_image(env, env->textures->ea.value);
 		ft_mlx_destroy_image(env, env->textures->bot.value);
 		ft_mlx_destroy_image(env, env->textures->top.value);
+		ft_mlx_destroy_image(env, env->textures->door.value);
+		ft_mlx_destroy_image(env, env->textures->weapon.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
 	}

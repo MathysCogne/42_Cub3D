@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 15:09:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:26:21 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ typedef enum e_texture_type
 	WE,
 	EA,
 	TOP,
-	BOT
+	BOT,
+	DOOR_EA,
+	DOOR_WE,
+	DOOR_SN
 }					t_texture_type;
 
 typedef struct s_event
@@ -96,7 +99,6 @@ typedef struct textures
 	char			*path_ea;
 	char			*path_bot;
 	char			*path_top;
-	// char			*path_weapon;
 	t_texture		no;
 	t_texture		so;
 	t_texture		we;
@@ -104,6 +106,7 @@ typedef struct textures
 	t_texture		top;
 	t_texture		bot;
 	t_texture		weapon;
+	t_texture		door;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;

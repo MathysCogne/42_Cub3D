@@ -17,6 +17,7 @@ SRC = main.c \
 			parsing/validate/valid_close_wall.c \
 			parsing/validate/valid_data.c \
 			parsing/validate/valid_player.c \
+			parsing/validate/valid_door.c \
 \
 		exec/exec.c \
 			exec/render/render_map_3d.c \
@@ -32,6 +33,7 @@ SRC = main.c \
 			exec/game/move_placer.c \
 			exec/game/hud_mini_map.c \
 			exec/game/hud.c \
+			exec/game/door.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \
