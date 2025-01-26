@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 16:12:31 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:49:13 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,23 @@
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
-# define RESH WIN_WIDTH / 2
-# define RESV WIN_HEIGHT / 2
+# define RESH 540
+# define RESV 360
 
 # define TICK_SPEED 200
 
 // PARSING
 # define EXTENTION_MAP ".cub"
-# define CARAC_MAP " 01NSEW"
-# define CARAC_MAP_NO_SPACE "01NSEW"
+# define CARAC_MAP " 01NSEW9"
+# define CARAC_MAP_NO_SPACE "01NSEW9"
 # define CARAC_PLAYER "NSEW"
-# define CARAC_PLAYER_VOID "0NSEW"
+# define CARAC_PLAYER_VOID "0NSEW9"
+# define CARAC_DOOR '9'
+# define CARAC_DOOR_OPEN '8'
 
 // EVENT - MOVE PLAYER
 # define MOVE_SPEED 0.05
+# define MOVE_COLISION "19"
 # define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
@@ -64,6 +67,8 @@
 # define MINIMAP_SIZE_PLAYER 5
 # define MINIMAP_COLOR_PLAYER 0xFF0000
 # define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_DOOR 0xF052E5
+# define MINIMAP_COLOR_DOOR_OPEN 0xF072E5
 # define MINIMAP_COLOR_VOID 0xF092E5
 # define MINIMAP_COLOR_SPAWN 0xF092E5
 
@@ -72,6 +77,7 @@
 
 // PATH TEXTURES BONUS
 # define PATH_WEAPON_00 "./assets/texture/weapon.xpm"
+# define PATH_DOOR_00 "./assets/texture/door.xpm"
 
 /*******************************/
 /*            PARSING          */
@@ -89,6 +95,7 @@ short	handler_valid_data(t_env *env, t_textures *textures);
 short	valid_carac(t_map *map);
 short	valid_close_wall(t_map *map, char **grid);
 short	valid_player(t_map *map, char **grid);
+short	valid_door(t_map *map, char **grid);
 
 /*******************************/
 /*             EXEC            */
@@ -113,6 +120,7 @@ short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
 short	handler_mini_map(t_env *env);
 short	handler_hud(t_env *env);
+short	handler_door(t_env *env);
 
 /*******************************/
 /*            UTILS            */

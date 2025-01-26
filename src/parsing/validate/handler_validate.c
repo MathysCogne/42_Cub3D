@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:44:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 20:46:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:40:27 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ short	handler_validate_parsing(t_env *env, t_map *map)
 		return (env->err = ERR_PARSE_PLAYER, 1);
 	if (handler_valid_data(env, env->textures))
 		return (env->err = ERR_PARSE_DATA, 1);
+	if (valid_door(map, map->grid))
+		return (env->err = ERR_PARSE_DOOR, 1);
 	return (0);
 }

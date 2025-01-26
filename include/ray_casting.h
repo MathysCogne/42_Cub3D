@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 14:46:57 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:58:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define HFVV 60.0
 # define HEIGHT 1.0
 # define HEIGT_PLAYER 0.5
+
+# define WALL_DOOR "19"
 
 // raycasting
 void		detroy_render(t_render **render);

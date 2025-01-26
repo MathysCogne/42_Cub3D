@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/26 16:12:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:32:25 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,15 @@ static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 				render->offset_y);
 	if (render->pole == TOP || render->pole == BOT)
 		color = set_pixel_rgb_or_texture(render, texture);
+	if (render->pole == DOOR_EA || render->pole == DOOR_WE
+		|| render->pole == DOOR_SN)
+		color = ft_get_pixel_color(&texture->door, render->offset_x,
+				render->offset_y);
+	if (color == (int)0xFF000000)
+		// TODO A SUPR LORSQUE ON AURAS PHOTOSHOP LA TETX DES PORTES
+		color = ft_get_pixel_color(&texture->we,
+									render->offset_x,  //
+									render->offset_y); //
 	pos.x = x;
 	pos.y = y;
 	ft_put_pixel_in_img(mlx, pos, color);

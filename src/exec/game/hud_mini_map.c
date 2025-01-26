@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_map.c                                         :+:      :+:    :+:   */
+/*   hud_mini_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 22:04:59 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:32:33 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ static int	get_color_tile(t_map *map, t_pos map_pos)
 	{
 		if (map->grid[map_pos.y][map_pos.x] == '1')
 			return (MINIMAP_COLOR_WALL);
+		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR)
+			return (MINIMAP_COLOR_DOOR);
+		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR_OPEN)
+			return (MINIMAP_COLOR_DOOR_OPEN);
 		else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
 			return (MINIMAP_COLOR_VOID);
 	}
