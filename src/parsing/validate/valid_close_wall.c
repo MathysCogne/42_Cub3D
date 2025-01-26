@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:30:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 20:31:17 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:03:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ static short	is_not_wall_adjacent(char **grid, size_t y, size_t x)
 	return (0);
 }
 
+static short	is_empty_line(char **grid, size_t y)
+{
+	size_t	x;
+
+	x = 0;
+	while (grid[y][x])
+	{
+		if (ft_strchr(CARAC_PLAYER_VOID, grid[y][x]))
+			return (0);
+		x++;
+	}
+	return (1);
+}
+
 short	valid_close_wall(t_map *map, char **grid)
 {
 	size_t	y;
@@ -33,6 +47,8 @@ short	valid_close_wall(t_map *map, char **grid)
 	y = 1;
 	while (y < map->height)
 	{
+		if (is_empty_line(grid, y))
+			return (1);
 		x = 0;
 		while (grid[y][x])
 		{
