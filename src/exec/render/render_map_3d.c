@@ -6,19 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/26 16:09:47 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:12:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static int	rgb_to_hex(int *rgb)
-{
-	int	hex;
-
-	hex = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
-	return (hex);
-}
 
 static int	set_pixel_rgb_or_texture(t_render *render, t_textures *texture)
 {

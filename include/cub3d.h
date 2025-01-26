@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 15:44:35 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:12:31 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ char	*get_msg_error(size_t err);
 int		exit_user(t_env *env);
 double	normalize_angle_h(double angle);
 double	normalize_angle_v(double angle);
+int		rgb_to_hex(int *rgb);
 
 /*******************************/
 /*          DEBUG MODE         */

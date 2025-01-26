@@ -48,6 +48,7 @@ SRC = main.c \
 		utils/get_msg_error.c \
 		utils/exit_by_user.c \
 		utils/normalize_angle.c \
+		utils/rgb_to_hex.c \
 \
 		debug/debug_parsing.c
 
