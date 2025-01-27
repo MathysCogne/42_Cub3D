@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/26 17:32:25 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 04:00:27 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 		}
 		y++;
 	}
-	detroy_render(render);
+	if (map->sprites_size > 0)
+		render_sprites(map, render, mlx, texture);
 	img_compression(mlx);
+	detroy_render(render);
 	return (0);
 }

@@ -1,0 +1,70 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render_sprites.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
+/*   Updated: 2025/01/27 04:00:47 by achaisne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture)
+{
+	t_pos	pos;
+	float	i;
+	float	j;
+	int		x;
+	int		y;
+	int		color;
+	float	ratio_h;
+	float	ratio_w;
+
+	ratio_h = (float)texture->height / sprites->sprite_height;
+	ratio_w = (float)texture->width / sprites->sprite_width;
+	y = 0;
+	i = 0;
+	while (y < sprites->sprite_height)
+	{
+		x = 0;
+		j = 0;
+		while (x < sprites->sprite_width)
+		{
+			color = ft_get_pixel_color(texture, j / texture->width, i / texture->height);
+			if (color != 0xff000000)
+			{
+				pos.y = (sprites->offsety + y) * 2;
+				pos.x = (sprites->offsetx + x) * 2;
+				ft_put_pixel_in_img(mlx, pos, color);
+			}
+			j += ratio_w;
+			x++;
+		}
+		i += ratio_h;
+		y++;
+	}
+}
+
+int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture)
+{
+	t_sprite	*sprites;
+	int			i;
+
+	sprites = get_sprites(map, &texture->sprite);
+	if (!sprites)
+		return (1);
+	i = 0;
+	while (i < map->sprites_size)
+	{
+		if (sprites[i].render)
+		{
+			draw_sprite(mlx, &sprites[i], &texture->sprite);
+		}
+		i++;
+	}
+	free(sprites);
+	return (0);
+}

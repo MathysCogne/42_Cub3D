@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 17:26:21 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:21:01 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum e_texture_type
 	EA,
 	TOP,
 	BOT,
+	MONSTER
 	DOOR_EA,
 	DOOR_WE,
 	DOOR_SN
@@ -70,6 +71,7 @@ typedef struct s_render
 {
 	double			offset_x;
 	double			offset_y;
+	double			distance;
 	t_texture_type	pole;
 }					t_render;
 
@@ -99,6 +101,8 @@ typedef struct textures
 	char			*path_ea;
 	char			*path_bot;
 	char			*path_top;
+	char			*path_weapon;
+	char			*path_sprite;
 	t_texture		no;
 	t_texture		so;
 	t_texture		we;
@@ -106,6 +110,7 @@ typedef struct textures
 	t_texture		top;
 	t_texture		bot;
 	t_texture		weapon;
+	t_texture		sprite;
 	t_texture		door;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
@@ -125,6 +130,17 @@ typedef struct s_pos_player
 	double			angle_v;
 }					t_pos_player;
 
+typedef struct s_prite
+{
+	t_pos	pos;
+	int		render;
+	int		offsetx;
+	int		offsety;
+	double	distance;
+	int		sprite_height;
+	int		sprite_width;
+}	t_sprite;
+
 typedef struct s_player
 {
 	t_pos_player	pos;
@@ -138,6 +154,7 @@ typedef struct s_map
 	size_t			width;
 	size_t			height;
 	t_player		player;
+	int				sprites_size;
 }					t_map;
 
 typedef struct s_env

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 18:49:13 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:16:31 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
 # define WIN_WIDTH 1080
 # define WIN_HEIGHT 720
-# define RESH 540
-# define RESV 360
+# define RESH WIN_WIDTH / 2
+# define RESV WIN_HEIGHT / 2
 
 # define TICK_SPEED 200
 
 // PARSING
 # define EXTENTION_MAP ".cub"
-# define CARAC_MAP " 01NSEW9"
-# define CARAC_MAP_NO_SPACE "01NSEW9"
+# define CARAC_MAP " 012NSEW9"
+# define CARAC_MAP_NO_SPACE "012NSEW9"
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW9"
 # define CARAC_DOOR '9'
@@ -106,6 +106,7 @@ short	exec(t_env *env);
 short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int		loop_render(t_env *env);
 void	img_compression(t_mlx *mlx);
+int		render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture);
 
 /* MLX */
 short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
@@ -121,6 +122,9 @@ short	handler_move_player(t_env *env);
 short	handler_mini_map(t_env *env);
 short	handler_hud(t_env *env);
 short	handler_door(t_env *env);
+
+/* SPRITES */
+t_sprite	*get_sprites(t_map *map, t_texture *texture);
 
 /*******************************/
 /*            UTILS            */
