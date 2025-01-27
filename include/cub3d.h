@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 02:16:31 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:25:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,52 +76,56 @@
 # define M_PI 3.14159265358979323846
 
 // PATH TEXTURES BONUS
-# define PATH_WEAPON_00 "./assets/texture/weapon.xpm"
+# define PATH_WEAPON_ON "./assets/texture/weapon_00.xpm"
+# define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
 # define PATH_DOOR_00 "./assets/texture/door.xpm"
 
 /*******************************/
 /*            PARSING          */
 /*******************************/
-short	parsing(t_env *env, char *path_map);
-short	read_map(t_env *env, char *path_map);
+short		parsing(t_env *env, char *path_map);
+short		read_map(t_env *env, char *path_map);
 
-short	process_map(t_env *env);
-short	parse_texture_line(char *line, t_textures *textures);
-short	process_map(t_env *env);
-int		parse_map_line(char *line, t_env *env, t_map *map);
+short		process_map(t_env *env);
+short		parse_texture_line(char *line, t_textures *textures);
+short		process_map(t_env *env);
+int			parse_map_line(char *line, t_env *env, t_map *map);
 
-short	handler_validate_parsing(t_env *env, t_map *map);
-short	handler_valid_data(t_env *env, t_textures *textures);
-short	valid_carac(t_map *map);
-short	valid_close_wall(t_map *map, char **grid);
-short	valid_player(t_map *map, char **grid);
-short	valid_door(t_map *map, char **grid);
+short		handler_validate_parsing(t_env *env, t_map *map);
+short		handler_valid_data(t_env *env, t_textures *textures);
+short		valid_carac(t_map *map);
+short		valid_close_wall(t_map *map, char **grid);
+short		valid_player(t_map *map, char **grid);
+short		valid_door(t_map *map, char **grid);
 
 /*******************************/
 /*             EXEC            */
 /*******************************/
-short	exec(t_env *env);
+short		exec(t_env *env);
 
 /* RENDER */
-short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
-int		loop_render(t_env *env);
-void	img_compression(t_mlx *mlx);
-int		render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture);
+short		render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
+int			loop_render(t_env *env);
+void		img_compression(t_mlx *mlx);
+int			render_sprites(t_map *map, t_render **render, t_mlx *mlx,
+				t_textures *texture);
 
 /* MLX */
-short	ft_mlx_init_win(t_env *env, t_mlx *mlx);
-short	ft_mlx_init_events(t_env *env);
-short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
-int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
-int		ft_get_pixel_color_hud(void *img, int x, int y);
-short	handler_load_textures(t_env *env, t_textures *textures);
+short		ft_mlx_init_win(t_env *env, t_mlx *mlx);
+short		ft_mlx_init_events(t_env *env);
+short		ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
+int			ft_get_pixel_color(t_texture *texture, float offsetx,
+				float offsety);
+int			ft_get_pixel_color_hud(void *img, int x, int y);
+short		handler_load_textures(t_env *env, t_textures *textures);
 
 /* GAME */
-short	update_player_angle(t_map *map, float angle_h, float angle_v);
-short	handler_move_player(t_env *env);
-short	handler_mini_map(t_env *env);
-short	handler_hud(t_env *env);
-short	handler_door(t_env *env);
+short		update_player_angle(t_map *map, float angle_h, float angle_v);
+short		handler_move_player(t_env *env);
+short		handler_mini_map(t_env *env);
+short		handler_hud(t_env *env);
+short		handler_door(t_env *env);
+short		handler_waepon(t_env *env);
 
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_texture *texture);
@@ -129,23 +133,23 @@ t_sprite	*get_sprites(t_map *map, t_texture *texture);
 /*******************************/
 /*            UTILS            */
 /*******************************/
-void	cleanup(t_env *env);
-short	init_env(t_env *env);
-void	ft_free(void *ptr);
-short	ft_is_space(char c);
-size_t	ft_strclen(char *s, char chr);
-short	is_map_line(char *line);
-short	is_texture_line(char *line);
-char	*get_msg_error(size_t err);
-int		exit_user(t_env *env);
-double	normalize_angle_h(double angle);
-double	normalize_angle_v(double angle);
-int		rgb_to_hex(int *rgb);
+void		cleanup(t_env *env);
+short		init_env(t_env *env);
+void		ft_free(void *ptr);
+short		ft_is_space(char c);
+size_t		ft_strclen(char *s, char chr);
+short		is_map_line(char *line);
+short		is_texture_line(char *line);
+char		*get_msg_error(size_t err);
+int			exit_user(t_env *env);
+double		normalize_angle_h(double angle);
+double		normalize_angle_v(double angle);
+int			rgb_to_hex(int *rgb);
 
 /*******************************/
 /*          DEBUG MODE         */
 /*******************************/
-void	debug_parsing(t_env *env);
+void		debug_parsing(t_env *env);
 
 /*******************************/
 /*            COLORS           */

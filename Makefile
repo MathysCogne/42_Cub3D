@@ -5,9 +5,9 @@ OBJDIR = obj
 INCDIR = include
 
 SRC = main.c \
+\
 		parsing/parsing.c \
 			parsing/read_map.c \
-\
 			parsing/process/handler_process.c \
 			parsing/process/process_data_texture.c \
 			parsing/process/process_map.c \
@@ -32,8 +32,9 @@ SRC = main.c \
 			exec/mlx/mlx_load_textures.c \
 \
 			exec/game/move_placer.c \
+			exec/game/handler_hud.c \
 			exec/game/hud_mini_map.c \
-			exec/game/hud.c \
+			exec/game/hud_weapon.c \
 			exec/game/door.c \
 \
 			exec/ray_casting/ray_casting.c \

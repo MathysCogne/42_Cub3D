@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 18:06:59 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:12:50 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_event
 	short			angle_h_up;
 	short			angle_h_down;
 	short			capture_mouse;
+	short			click_right;
+	short			click_left;
 }					t_event;
 
 typedef struct s_raycasting
@@ -101,15 +103,14 @@ typedef struct textures
 	char			*path_ea;
 	char			*path_bot;
 	char			*path_top;
-	char			*path_weapon;
-	char			*path_sprite;
 	t_texture		no;
 	t_texture		so;
 	t_texture		we;
 	t_texture		ea;
 	t_texture		top;
 	t_texture		bot;
-	t_texture		weapon;
+	t_texture		weapon_off;
+	t_texture		weapon_on;
 	t_texture		sprite;
 	t_texture		door;
 	int				rgb_floor[3];
