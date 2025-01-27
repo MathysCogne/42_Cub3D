@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   process_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 14:50:08 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:29:22 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static short	get_count_sprites(t_map *map, char *line)
+{
+	size_t	i;
+
+	i = 0;
+	while (line && line[i])
+	{
+		if (line[i] == '2')
+			map->sprites_size++;
+		i++;
+	}
+	return (0);
+}
 
 static short	find_player_pos(t_player *player, char *line, size_t y)
 {
@@ -52,6 +66,7 @@ int	parse_map_line(char *line, t_env *env, t_map *map)
 	if (map->width < ft_strclen(line, '\n'))
 		map->width = ft_strclen(line, '\n');
 	find_player_pos(&map->player, line, map->height);
+	get_count_sprites(map, line);
 	map->height++;
 	return (0);
 }

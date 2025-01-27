@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 18:09:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:18:16 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ short	ft_mlx_init_win(t_env *env, t_mlx *mlx)
 		return (1);
 	if (new_img_mlx(mlx))
 		return (1);
-	ft_printf(RED "COUCUO\n");
 	return (0);
 }
