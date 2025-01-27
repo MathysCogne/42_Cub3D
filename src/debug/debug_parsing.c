@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:40:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:33:21 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:38:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	debug_parsing(t_env *env)
 		ft_printf("  SO -> %s\n", env->textures->path_so);
 		ft_printf("  WE -> %s\n", env->textures->path_we);
 		ft_printf("  EA -> %s\n\n", env->textures->path_ea);
+		ft_printf("  FL -> %s\n", env->textures->path_bot);
+		ft_printf("  CE -> %s\n", env->textures->path_top);
 		debug_print_rgb("FL", env->textures->rgb_floor);
 		debug_print_rgb("CE", env->textures->rgb_ceiling);
 		debug_matrix_map(env->map);

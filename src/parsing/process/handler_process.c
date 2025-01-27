@@ -36,7 +36,7 @@ int	get_sprites_size(t_map *map)
 
 static int	process_line(char *line, t_env *env, int *parsing_map)
 {
-	if (is_texture_line(line))
+	if (is_texture_line(line) && !*parsing_map)
 		return (parse_texture_line(line, env->textures));
 	else if (*parsing_map || is_map_line(line))
 	{

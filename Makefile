@@ -17,6 +17,7 @@ SRC = main.c \
 			parsing/validate/valid_close_wall.c \
 			parsing/validate/valid_data.c \
 			parsing/validate/valid_player.c \
+			parsing/validate/valid_door.c \
 \
 		exec/exec.c \
 			exec/render/render_map_3d.c \
@@ -28,10 +29,12 @@ SRC = main.c \
 			exec/mlx/mlx_events.c \
 			exec/mlx/ft_put_pixel_in_img.c \
 			exec/mlx/ft_get_pixel_color.c \
+			exec/mlx/mlx_load_textures.c \
 \
 			exec/game/move_placer.c \
 			exec/game/hud_mini_map.c \
 			exec/game/hud.c \
+			exec/game/door.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \
@@ -50,6 +53,7 @@ SRC = main.c \
 		utils/get_msg_error.c \
 		utils/exit_by_user.c \
 		utils/normalize_angle.c \
+		utils/rgb_to_hex.c \
 \
 		debug/debug_parsing.c
 

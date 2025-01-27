@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 19:13:07 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:46:50 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ static short	update_player_position(t_env *env, float x, float y)
 		speed = SPRINT_SPEED;
 	new_x = env->map->player.pos.x + x * speed;
 	new_y = env->map->player.pos.y + y * speed;
-	if (env->map->grid[(int)floor(new_x)][(int)floor(new_y)] == '1')
-		return (0);
-	env->map->player.pos.x = new_x;
-	env->map->player.pos.y = new_y;
+	if (!ft_strchr(MOVE_COLISION, env->map->grid
+			[(int)floor(env->map->player.pos.x)][(int)floor(new_y)]))
+		env->map->player.pos.y = new_y;
+	if (!ft_strchr(MOVE_COLISION, env->map->grid[(int)floor(new_x)]
+			[(int)floor(env->map->player.pos.y)]))
+		env->map->player.pos.x = new_x;
 	return (0);
 }
 

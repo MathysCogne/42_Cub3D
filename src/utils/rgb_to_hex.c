@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_textures_line.c                                 :+:      :+:    :+:   */
+/*   rgb_to_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 18:04:03 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 15:27:11 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/26 16:12:42 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/26 16:12:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	is_texture_line(char *line)
+int	rgb_to_hex(int *rgb)
 {
-	size_t	i;
+	int	hex;
 
-	i = 0;
-	while (line[i] && ft_is_space(line[i]))
-		i++;
-	if (line[i] == '\n' || !line[i])
-		return (1);
-	if (!ft_strncmp(&line[i], "NO", 2) || !ft_strncmp(&line[i], "SO", 2)
-		|| !ft_strncmp(&line[i], "WE", 2) || !ft_strncmp(&line[i], "EA", 2)
-		|| !ft_strncmp(&line[i], "F", 1) || !ft_strncmp(&line[i], "C", 1))
-		return (1);
-	return (0);
+	hex = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+	return (hex);
 }

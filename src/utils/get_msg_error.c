@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 18:34:44 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:50:47 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 17:41:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*get_msg_error(size_t err)
 		return ("Error occurred while loading data (RGB or Path Textures).");
 	if (err == ERR_PARSE_PLAYER)
 		return ("Invalid Map: No or more than one players present in the map.");
+	if (err == ERR_PARSE_DOOR)
+		return ("Invalid Map: Door is not enclosed by walls.");
 	if (err == ERR_MLX)
 		return ("Error occurred while mlx functions core.");
 	if (err == ERR_GAME)

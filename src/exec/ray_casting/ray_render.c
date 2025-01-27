@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ray_render.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
 /*   Updated: 2025/01/26 14:27:41 by achaisne         ###   ########.fr       */
@@ -14,17 +14,17 @@
 
 int	is_collision(t_ray *ray, t_raycasting *rc, char **grid)
 {
-	if (rc->ray_dir_x > 0 && round(ray->x) == ray->x
-		&& grid[(int)ray->y][(int)ray->x] == '1')
+	if (rc->ray_dir_x > 0 && round(ray->x) == ray->x && ft_strchr(WALL_DOOR,
+			grid[(int)ray->y][(int)ray->x]))
 		return (1);
-	if (rc->ray_dir_y > 0 && round(ray->y) == ray->y
-		&& grid[(int)ray->y][(int)ray->x] == '1')
+	if (rc->ray_dir_y > 0 && round(ray->y) == ray->y && ft_strchr(WALL_DOOR,
+			grid[(int)ray->y][(int)ray->x]))
 		return (1);
-	if (rc->ray_dir_x < 0 && round(ray->x) == ray->x
-		&& grid[(int)ray->y][(int)ray->x - 1] == '1')
+	if (rc->ray_dir_x < 0 && round(ray->x) == ray->x && ft_strchr(WALL_DOOR,
+			grid[(int)ray->y][(int)ray->x - 1]))
 		return (1);
-	if (rc->ray_dir_y < 0 && round(ray->y) == ray->y
-		&& grid[(int)ray->y - 1][(int)ray->x] == '1')
+	if (rc->ray_dir_y < 0 && round(ray->y) == ray->y && ft_strchr(WALL_DOOR,
+			grid[(int)ray->y - 1][(int)ray->x]))
 		return (1);
 	if (rc->ray_dir_z > 0 && ray->z == HEIGHT)
 		return (1);
@@ -55,7 +55,8 @@ void	set_collision(t_ray *ray, char **grid, t_raycasting *rc)
 
 void	set_offset(t_render *render, t_ray *ray)
 {
-	if (render->pole != EA && render->pole != WE)
+	if (render->pole != EA && render->pole != WE && render->pole != DOOR_EA
+		&& render->pole != DOOR_WE)
 		render->offset_x = fabs(ray->x - floor(ray->x));
 	else
 		render->offset_x = fabs(ray->y - floor(ray->y));
@@ -63,6 +64,23 @@ void	set_offset(t_render *render, t_ray *ray)
 		render->offset_y = fabs(ray->z - floor(ray->z));
 	else
 		render->offset_y = fabs(ray->y - floor(ray->y));
+}
+
+void	set_pole_door(t_render *render, t_raycasting *rc, t_ray *ray,
+		char **grid)
+{
+	if (rc->ray_dir_x > 0 && round(ray->x) == ray->x
+		&& grid[(int)ray->y][(int)ray->x] == '9')
+		render->pole = DOOR_EA;
+	if (rc->ray_dir_y > 0 && round(ray->y) == ray->y
+		&& grid[(int)ray->y][(int)ray->x] == '9')
+		render->pole = DOOR_SN;
+	if (rc->ray_dir_x < 0 && round(ray->x) == ray->x
+		&& grid[(int)ray->y][(int)ray->x - 1] == '9')
+		render->pole = DOOR_WE;
+	if (rc->ray_dir_y < 0 && round(ray->y) == ray->y && grid[(int)ray->y
+		- 1][(int)ray->x] == '9')
+		render->pole = DOOR_SN;
 }
 
 void	set_pole(t_render *render, t_raycasting *rc, t_ray *ray, char **grid)
@@ -76,13 +94,14 @@ void	set_pole(t_render *render, t_raycasting *rc, t_ray *ray, char **grid)
 	if (rc->ray_dir_x < 0 && round(ray->x) == ray->x
 		&& grid[(int)ray->y][(int)ray->x - 1] == '1')
 		render->pole = WE;
-	if (rc->ray_dir_y < 0 && round(ray->y) == ray->y
-		&& grid[(int)ray->y - 1][(int)ray->x] == '1')
+	if (rc->ray_dir_y < 0 && round(ray->y) == ray->y && grid[(int)ray->y
+		- 1][(int)ray->x] == '1')
 		render->pole = NO;
 	if (rc->ray_dir_z > 0 && ray->z == HEIGHT)
 		render->pole = TOP;
 	if (rc->ray_dir_z < 0 && ray->z == 0)
 		render->pole = BOT;
+	set_pole_door(render, rc, ray, grid);
 }
 
 t_render	*get_render(t_ray *ray, char **grid, t_player *player)

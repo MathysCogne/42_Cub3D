@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 19:11:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:16:14 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ static int	key_press(int keycode, t_env *env)
 		env->event->angle_h_down = 1;
 	else if (keycode == KEY_SHIFT || keycode == KEY_CAPSLOCK)
 		env->event->move_sprint = 1;
+	else if (keycode == KEY_SPACE)
+		handler_door(env);
 	return (0);
 }
 

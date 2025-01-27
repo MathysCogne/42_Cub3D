@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
 /*   Updated: 2025/01/27 02:16:31 by achaisne         ###   ########.fr       */
@@ -47,12 +47,16 @@
 
 // PARSING
 # define EXTENTION_MAP ".cub"
-# define CARAC_MAP " 012NSEW"
+# define CARAC_MAP " 012NSEW9"
+# define CARAC_MAP_NO_SPACE "012NSEW9"
 # define CARAC_PLAYER "NSEW"
-# define CARAC_PLAYER_VOID "0NSEW"
+# define CARAC_PLAYER_VOID "0NSEW9"
+# define CARAC_DOOR '9'
+# define CARAC_DOOR_OPEN '8'
 
 // EVENT - MOVE PLAYER
 # define MOVE_SPEED 0.05
+# define MOVE_COLISION "19"
 # define SPRINT_SPEED 0.08
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
@@ -63,11 +67,17 @@
 # define MINIMAP_SIZE_PLAYER 5
 # define MINIMAP_COLOR_PLAYER 0xFF0000
 # define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_DOOR 0xF052E5
+# define MINIMAP_COLOR_DOOR_OPEN 0xF072E5
 # define MINIMAP_COLOR_VOID 0xF092E5
 # define MINIMAP_COLOR_SPAWN 0xF092E5
 
 // UTILS
 # define M_PI 3.14159265358979323846
+
+// PATH TEXTURES BONUS
+# define PATH_WEAPON_00 "./assets/texture/weapon.xpm"
+# define PATH_DOOR_00 "./assets/texture/door.xpm"
 
 /*******************************/
 /*            PARSING          */
@@ -85,6 +95,7 @@ short	handler_valid_data(t_env *env, t_textures *textures);
 short	valid_carac(t_map *map);
 short	valid_close_wall(t_map *map, char **grid);
 short	valid_player(t_map *map, char **grid);
+short	valid_door(t_map *map, char **grid);
 
 /*******************************/
 /*             EXEC            */
@@ -103,12 +114,14 @@ short	ft_mlx_init_events(t_env *env);
 short	ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
 int		ft_get_pixel_color(t_texture *texture, float offsetx, float offsety);
 int		ft_get_pixel_color_hud(void *img, int x, int y);
+short	handler_load_textures(t_env *env, t_textures *textures);
 
 /* GAME */
 short	update_player_angle(t_map *map, float angle_h, float angle_v);
 short	handler_move_player(t_env *env);
 short	handler_mini_map(t_env *env);
 short	handler_hud(t_env *env);
+short	handler_door(t_env *env);
 
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_texture *texture);
@@ -127,6 +140,7 @@ char	*get_msg_error(size_t err);
 int		exit_user(t_env *env);
 double	normalize_angle_h(double angle);
 double	normalize_angle_v(double angle);
+int		rgb_to_hex(int *rgb);
 
 /*******************************/
 /*          DEBUG MODE         */

@@ -25,6 +25,9 @@ typedef enum e_texture_type
 	TOP,
 	BOT,
 	MONSTER
+	DOOR_EA,
+	DOOR_WE,
+	DOOR_SN
 }					t_texture_type;
 
 typedef struct s_event
@@ -108,6 +111,7 @@ typedef struct textures
 	t_texture		bot;
 	t_texture		weapon;
 	t_texture		sprite;
+	t_texture		door;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;

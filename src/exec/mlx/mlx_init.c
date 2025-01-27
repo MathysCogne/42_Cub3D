@@ -44,7 +44,7 @@ static short	valid_and_load_textures(t_env *env, t_textures *textures)
 
 static short	new_img_mlx(t_mlx *mlx)
 {
-	mlx->render_pixel = mlx_new_image(mlx->id, WIN_WIDTH, WIN_HEIGHT);
+	mlx->render_pixel = mlx_new_imagsprite_dxe(mlx->id, WIN_WIDTH, WIN_HEIGHT);
 	if (!mlx->render_pixel)
 		return (1);
 	mlx->render_pixel_data = (int *)mlx_get_data_addr(mlx->render_pixel,
@@ -62,7 +62,7 @@ short	ft_mlx_init_win(t_env *env, t_mlx *mlx)
 	mlx->win = mlx_new_window(mlx->id, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
 	if (!mlx->win)
 		return (1);
-	if (valid_and_load_textures(env, env->textures))
+	if (handler_load_textures(env, env->textures))
 		return (1);
 	if (new_img_mlx(mlx))
 		return (1);

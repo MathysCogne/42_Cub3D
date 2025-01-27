@@ -25,13 +25,13 @@ static short	find_player_pos(t_player *player, char *line, size_t y)
 			player->pos.y = i + 0.5;
 			player->dir = line[i];
 			if (player->dir == 'N')
-				player->pos.angle_h = 0;
-			else if (player->dir == 'S')
-				player->pos.angle_h = 180;
-			else if (player->dir == 'W')
-				player->pos.angle_h = 270;
-			else if (player->dir == 'E')
 				player->pos.angle_h = 90;
+			else if (player->dir == 'S')
+				player->pos.angle_h = 270;
+			else if (player->dir == 'W')
+				player->pos.angle_h = 180;
+			else if (player->dir == 'E')
+				player->pos.angle_h = 0;
 			return (0);
 		}
 		i++;
