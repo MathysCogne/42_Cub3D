@@ -6,28 +6,29 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 18:16:14 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:26:12 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	capture_mouse(int keycode, int h, int v, t_env *env)
+static int	click_mouse_event(int keycode, int h, int v, t_env *env)
 {
 	(void)h, (void)v;
-	if (keycode == KEY_MOUSE_LEFT || keycode == KEY_MOUSE_RIGHT)
+	if (keycode && !env->event->capture_mouse)
 	{
-		if (!env->event->capture_mouse)
-		{
-			env->event->capture_mouse = 1;
-			mlx_mouse_hide(env->mlx->id, env->mlx->win);
-		}
-		else
-		{
-			env->event->capture_mouse = 0;
-			mlx_mouse_show(env->mlx->id, env->mlx->win);
-		}
+		env->event->capture_mouse = 1;
+		mlx_mouse_hide(env->mlx->id, env->mlx->win);
 	}
+	if (keycode == KEY_MOUSE_RIGHT)
+	{
+		if (!env->event->click_left)
+			env->event->click_left = 1;
+		else
+			env->event->click_left = 0;
+	}
+	if (keycode == KEY_MOUSE_LEFT)
+		env->event->click_right = 1;
 	return (0);
 }
 
@@ -112,6 +113,6 @@ short	ft_mlx_init_events(t_env *env)
 	mlx_hook(env->mlx->win, 3, 1L << 1, key_release, env);
 	mlx_hook(env->mlx->win, 17, 1L << 17, exit_user, env);
 	mlx_hook(env->mlx->win, 6, 1L << 6, move_mouse_event, env);
-	mlx_mouse_hook(env->mlx->win, capture_mouse, env);
+	mlx_mouse_hook(env->mlx->win, click_mouse_event, env);
 	return (0);
 }

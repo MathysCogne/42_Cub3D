@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 16:52:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:25:37 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static short	valid_texures(t_textures *textures)
 	if ((textures->rgb_floor[0] == -1 && !textures->bot.value)
 		|| (textures->rgb_ceiling[0] == -1 && !textures->top.value))
 		return (1);
-	if (!textures->weapon.value || !textures->door.value)
+	if (!textures->weapon_off.value || !textures->weapon_on.value
+		|| !textures->door.value)
 		return (1);
 	return (0);
 }
@@ -39,8 +40,12 @@ static short	load_textures(t_env *env, t_textures *textures)
 			textures->path_bot, &textures->bot.width, &textures->bot.height);
 	textures->top.value = mlx_xpm_file_to_image(env->mlx->id,
 			textures->path_top, &textures->top.width, &textures->top.height);
-	textures->weapon.value = mlx_xpm_file_to_image(env->mlx->id, PATH_WEAPON_00,
-			&textures->weapon.width, &textures->weapon.height);
+	textures->weapon_off.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_WEAPON_OFF, &textures->weapon_off.width,
+			&textures->weapon_off.height);
+	textures->weapon_on.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_WEAPON_ON, &textures->weapon_on.width,
+			&textures->weapon_on.height);
 	textures->door.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_00,
 			&textures->door.width, &textures->door.height);
 	return (0);
