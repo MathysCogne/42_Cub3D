@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 02:21:01 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:06:59 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef enum e_texture_type
 	EA,
 	TOP,
 	BOT,
-	MONSTER
+	MONSTER,
 	DOOR_EA,
 	DOOR_WE,
 	DOOR_SN
@@ -132,14 +132,14 @@ typedef struct s_pos_player
 
 typedef struct s_prite
 {
-	t_pos	pos;
-	int		render;
-	int		offsetx;
-	int		offsety;
-	double	distance;
-	int		sprite_height;
-	int		sprite_width;
-}	t_sprite;
+	t_pos			pos;
+	int				render;
+	int				offsetx;
+	int				offsety;
+	double			distance;
+	int				sprite_height;
+	int				sprite_width;
+}					t_sprite;
 
 typedef struct s_player
 {

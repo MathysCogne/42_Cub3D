@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/27 04:00:47 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:05:20 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture)
 		j = 0;
 		while (x < sprites->sprite_width)
 		{
-			color = ft_get_pixel_color(texture, j / texture->width, i / texture->height);
-			if (color != 0xff000000)
+			color = ft_get_pixel_color(texture, j / texture->width, i
+					/ texture->height);
+			if (color != (int)0xff000000)
 			{
 				pos.y = (sprites->offsety + y) * 2;
 				pos.x = (sprites->offsetx + x) * 2;
@@ -48,11 +49,13 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture)
 	}
 }
 
-int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture)
+int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
+		t_textures *texture)
 {
-	t_sprite	*sprites;
-	int			i;
+	t_sprite *sprites;
+	int i;
 
+	(void)render;
 	sprites = get_sprites(map, &texture->sprite);
 	if (!sprites)
 		return (1);
