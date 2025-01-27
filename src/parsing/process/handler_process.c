@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   handler_process.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:58:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/26 15:18:35 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	get_sprites_size(t_map *map)
+{
+	int			count_sprite;
+	size_t		i;
+	size_t		j;
+
+	count_sprite = 0;
+	i = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			if (map->grid[i][j] == '2')
+				count_sprite++;
+			j++;
+		}
+		i++;
+	}
+	return (count_sprite);
+}
 
 static int	process_line(char *line, t_env *env, int *parsing_map)
 {
@@ -50,5 +72,6 @@ short	process_map(t_env *env)
 		else
 			break ;
 	}
+	env->map->sprites_size = get_sprites_size(env->map);
 	return (0);
 }

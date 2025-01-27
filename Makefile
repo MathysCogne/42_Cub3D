@@ -22,6 +22,7 @@ SRC = main.c \
 			exec/render/render_map_3d.c \
 			exec/render/render_loop.c \
 			exec/render/img_compression.c \
+			exec/render/render_sprites.c \
 \
 			exec/mlx/mlx_init.c \
 			exec/mlx/mlx_events.c \
@@ -36,6 +37,8 @@ SRC = main.c \
 			exec/ray_casting/ray_render.c \
 			exec/ray_casting/ray_setter.c \
 			exec/ray_casting/ray_utils.c \
+\
+			exec/sprites/sprites.c \
 \
 		utils/cleanup.c \
 		utils/init_env.c \
@@ -70,7 +73,7 @@ LIBS = $(MLX) $(LIBFT)
 
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/X11 -I$(LIBFT_INCLUDE)
+CFLAGS = -Wall -Werror -Wextra -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/X11 -I$(LIBFT_INCLUDE)
 AR = ar
 ARFLAGS = rcs
 

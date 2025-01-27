@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:14:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 22:41:51 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 00:44:23 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ static short	valid_and_load_textures(t_env *env, t_textures *textures)
 	textures->weapon.value = mlx_xpm_file_to_image(env->mlx->id,
 			"./assets/texture/weapon.xpm", &textures->weapon.width,
 			&textures->weapon.height);
+	textures->sprite.value = mlx_xpm_file_to_image(env->mlx->id,
+			"./assets/texture/monster.xpm", &textures->sprite.width,
+			&textures->sprite.height);
 	if (!textures->ea.value || !textures->no.value || !textures->so.value
 		|| !textures->we.value || !textures->bot.value || !textures->top.value
 		|| !textures->weapon.value)

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 14:05:23 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/26 14:27:41 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	set_pole(t_render *render, t_raycasting *rc, t_ray *ray, char **grid)
 		render->pole = BOT;
 }
 
-t_render	*get_render(t_ray *ray, char **grid)
+t_render	*get_render(t_ray *ray, char **grid, t_player *player)
 {
 	t_render		*render;
 	t_raycasting	rc;
@@ -96,5 +96,6 @@ t_render	*get_render(t_ray *ray, char **grid)
 		return (0);
 	set_pole(render, &rc, ray, grid);
 	set_offset(render, ray);
+	render->distance = sqrt(pow(ray->z - HEIGT_PLAYER, 2) + pow(ray->x - player->pos.x, 2) + pow(ray->y - player->pos.y, 2));
 	return (render);
 }
