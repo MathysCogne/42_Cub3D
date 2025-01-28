@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 22:33:48 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 08:51:59 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef enum e_texture_type
 {
-	FOG,
+	NONE,
 	NO,
 	SO,
 	WE,
@@ -46,8 +46,19 @@ typedef struct s_event
 	short			click_left;
 }					t_event;
 
+typedef struct s_ray
+{
+	double			y;
+	double			x;
+	double			z;
+	double			angle_h;
+	double			angle_v;
+	int				index;
+}					t_ray;
+
 typedef struct s_raycasting
 {
+	t_ray			ray;
 	double			ray_dir_x;
 	double			ray_dir_y;
 	double			ray_dir_z;
@@ -58,16 +69,6 @@ typedef struct s_raycasting
 	double			side_dist_y;
 	double			side_dist_z;
 }					t_raycasting;
-
-typedef struct s_ray
-{
-	double			y;
-	double			x;
-	double			z;
-	double			angle_h;
-	double			angle_v;
-	int				index;
-}					t_ray;
 
 typedef struct s_render
 {
@@ -131,8 +132,8 @@ typedef struct s_pos
 
 typedef struct s_pos_player
 {
-	float			y;
 	float			x;
+	float			y;
 	float			angle_h;
 	double			angle_v;
 }					t_pos_player;
@@ -144,8 +145,8 @@ typedef struct s_prite
 	int				offsetx;
 	int				offsety;
 	double			distance;
-	int				sprite_height;
-	int				sprite_width;
+	double			sprite_height;
+	double			sprite_width;
 }					t_sprite;
 
 typedef struct s_player

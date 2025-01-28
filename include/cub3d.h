@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:06:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 09:36:06 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@
 # define PATH_WEAPON_ON "./assets/texture/weapon_00.xpm"
 # define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
 # define PATH_DOOR_00 "./assets/texture/door.xpm"
+# define PATH_SPRITE "./assets/texture/monster.xpm"
 
 # define PATH_BORDER_MAP "./assets/texture/HUD/border_map.xpm"
 # define PATH_CARD_ID "./assets/texture/HUD/card_id.xpm"
@@ -129,7 +130,7 @@ short		exec(t_env *env);
 /* RENDER */
 short		render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int			loop_render(t_env *env);
-void		img_compression(t_mlx *mlx);
+void		bi_interpolation_decompression(t_mlx *mlx);
 int			render_sprites(t_map *map, t_render **render, t_mlx *mlx,
 				t_textures *texture);
 

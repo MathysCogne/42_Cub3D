@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/26 16:10:39 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 05:38:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ t_render	**ray_cast(t_player *player, char **grid);
 // utils
 double		degree_to_radian(double degree);
 // ray render
-t_render	*get_render(t_ray *ray, char **grid, t_player *player);
+t_render	*get_render(t_player *player, t_raycasting *rc, char **grid);
 // ray setter
-void		set_next_x(t_ray *ray, t_raycasting *raycasting);
-void		set_next_y(t_ray *ray, t_raycasting *raycasting);
-void		set_next_z(t_ray *ray, t_raycasting *raycasting);
-void		set_ray(t_ray *ray, t_raycasting *raycasting);
+void		set_next_x(t_raycasting *raycasting);
+void		set_next_y(t_raycasting *raycasting);
+void		set_next_z(t_raycasting *raycasting);
+void		set_ray(t_raycasting *raycasting);
+// texture setter
+void		set_texture_door(t_render *render, t_raycasting *rc, char **grid);
+void		set_texture_classic(t_render *render, t_raycasting *rc,	char **grid);
 
 #endif

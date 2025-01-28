@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   process_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 21:25:07 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static short	get_count_sprites(t_map *map, char *line)
+static void set_sprites_size(t_map *map, char *line)
 {
 	size_t	i;
 
@@ -23,7 +23,6 @@ static short	get_count_sprites(t_map *map, char *line)
 			map->sprites_size++;
 		i++;
 	}
-	return (0);
 }
 
 static void	init_player_stats(t_map *map)
@@ -33,18 +32,18 @@ static void	init_player_stats(t_map *map)
 	map->player.stamina = START_STAMINA;
 }
 
-static short	find_player_pos(t_player *player, char *line, size_t y)
+static short	find_player_pos(t_player *player, char *line, size_t x)
 {
-	size_t	i;
+	size_t	y;
 
-	i = 0;
-	while (line && line[i])
+	y = 0;
+	while (line && line[y])
 	{
-		if (ft_strchr("NSEW", line[i]))
+		if (ft_strchr("NSEW", line[y]))
 		{
+			player->pos.y = x + 0.5;
 			player->pos.x = y + 0.5;
-			player->pos.y = i + 0.5;
-			player->dir = line[i];
+			player->dir = line[y];
 			if (player->dir == 'N')
 				player->pos.angle_h = 90;
 			else if (player->dir == 'S')
@@ -55,7 +54,7 @@ static short	find_player_pos(t_player *player, char *line, size_t y)
 				player->pos.angle_h = 0;
 			return (0);
 		}
-		i++;
+		y++;
 	}
 	return (0);
 }
@@ -74,7 +73,7 @@ int	parse_map_line(char *line, t_env *env, t_map *map)
 		map->width = ft_strclen(line, '\n');
 	find_player_pos(&map->player, line, map->height);
 	init_player_stats(map);
-	get_count_sprites(map, line);
+	set_sprites_size(map, line);
 	map->height++;
 	return (0);
 }

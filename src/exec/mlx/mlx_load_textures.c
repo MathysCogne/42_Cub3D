@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_load_textures.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 22:52:22 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:32:09 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ static short	load_textures(t_env *env, t_textures *textures)
 			&textures->weapon_on.height);
 	textures->door.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_00,
 			&textures->door.width, &textures->door.height);
+		textures->sprite.value = mlx_xpm_file_to_image(env->mlx->id, PATH_SPRITE,
+			&textures->sprite.width, &textures->sprite.height);
 	return (0);
 }
 
