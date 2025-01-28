@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 19:25:37 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:52:22 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,32 @@ static short	valid_texures(t_textures *textures)
 	if (!textures->weapon_off.value || !textures->weapon_on.value
 		|| !textures->door.value)
 		return (1);
+	if (!textures->hud_border_map.value || !textures->hud_card_id.value
+		|| !textures->hud_pv.value || !textures->hud_pv_rod.value
+		|| !textures->hud_stamina.value || !textures->hud_stamina_rod.value)
+		return (ft_printf("HERE\n"), 1);
+	return (0);
+}
+
+static short	load_textures_hud(t_env *env, t_textures *textures)
+{
+	textures->hud_border_map.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_BORDER_MAP, &textures->hud_border_map.width,
+			&textures->hud_border_map.height);
+	textures->hud_card_id.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_CARD_ID, &textures->hud_card_id.width,
+			&textures->hud_card_id.height);
+	textures->hud_pv.value = mlx_xpm_file_to_image(env->mlx->id, PATH_PV,
+			&textures->hud_pv.width, &textures->hud_pv.height);
+	textures->hud_pv_rod.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_PV_ROD, &textures->hud_pv_rod.width,
+			&textures->hud_pv_rod.height);
+	textures->hud_stamina.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_STAMINA, &textures->hud_stamina.width,
+			&textures->hud_stamina.height);
+	textures->hud_stamina_rod.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_STAMINA_ROD, &textures->hud_stamina_rod.width,
+			&textures->hud_stamina_rod.height);
 	return (0);
 }
 
@@ -54,6 +80,8 @@ static short	load_textures(t_env *env, t_textures *textures)
 short	handler_load_textures(t_env *env, t_textures *textures)
 {
 	if (load_textures(env, textures))
+		return (1);
+	if (load_textures_hud(env, textures))
 		return (1);
 	if (valid_texures(textures))
 		return (1);

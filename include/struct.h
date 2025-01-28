@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 19:12:50 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:33:48 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,12 @@ typedef struct textures
 	t_texture		weapon_on;
 	t_texture		sprite;
 	t_texture		door;
+	t_texture		hud_border_map;
+	t_texture		hud_card_id;
+	t_texture		hud_pv;
+	t_texture		hud_pv_rod;
+	t_texture		hud_stamina;
+	t_texture		hud_stamina_rod;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;
@@ -146,6 +152,9 @@ typedef struct s_player
 {
 	t_pos_player	pos;
 	char			dir;
+	size_t			bullets;
+	size_t			pv;
+	float			stamina;
 }					t_player;
 
 typedef struct s_map
