@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 10:03:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:47:00 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **render)
 {
 	t_pos	pos;
-	float	i;
-	float	j;
+	double	i;
+	double	j;
 	int		x;
 	int		y;
 	int		color;
-	float	ratio_h;
-	float	ratio_w;
+	double	ratio_h;
+	double	ratio_w;
 
 	(void)render;
-	ratio_h = (float)texture->height / sprites->sprite_height;
-	ratio_w = (float)texture->width / sprites->sprite_width;
+	ratio_h = (double)texture->height / sprites->sprite_height;
+	ratio_w = (double)texture->width / sprites->sprite_width;
 	y = 0;
 	i = 0;
 	while (y < sprites->sprite_height)
@@ -57,14 +57,14 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **r
 	}
 }
 
-int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
-		t_textures *texture)
+int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture)
 {
 	t_sprite *sprites;
 	int i;
 
 	(void)render;
 	sprites = get_sprites(map, &texture->sprite);
+	sort_sprites(sprites, map);
 	if (!sprites)
 		return (1);
 	i = 0;

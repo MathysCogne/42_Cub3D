@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 10:01:19 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:26:48 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,9 @@ typedef struct s_pos
 
 typedef struct s_pos_player
 {
-	float			x;
-	float			y;
-	float			angle_h;
+	double			x;
+	double			y;
+	double			angle_h;
 	double			angle_v;
 }					t_pos_player;
 
@@ -145,6 +145,7 @@ typedef struct s_prite
 	int				render;
 	int				offsetx;
 	int				offsety;
+	double			angle_diff;
 	double			distance;
 	double			sprite_height;
 	double			sprite_width;
@@ -157,7 +158,7 @@ typedef struct s_player
 	char			dir;
 	size_t			bullets;
 	size_t			pv;
-	float			stamina;
+	double			stamina;
 }					t_player;
 
 typedef struct s_map

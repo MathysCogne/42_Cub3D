@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_pixel_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 23:04:03 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/25 23:14:09 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:17:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_get_pixel_color_hud(void *img, int x, int y)
 	return (color);
 }
 
-int	ft_get_pixel_color(t_texture *texture, float offsetx, float offsety)
+int	ft_get_pixel_color(t_texture *texture, double offsetx, double offsety)
 {
 	int		pixel_x;
 	int		pixel_y;

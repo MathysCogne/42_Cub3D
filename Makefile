@@ -50,6 +50,7 @@ SRC = main.c \
 			exec/ray_casting/texture_setter.c \
 \
 			exec/sprites/sprites.c \
+			exec/sprites/sort_sprites.c \
 \
 		utils/cleanup.c \
 		utils/init_env.c \

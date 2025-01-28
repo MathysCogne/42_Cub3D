@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 22:05:59 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:17:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ short	regen_stamina(t_env *env)
 	return (0);
 }
 
-short	action_sprint(t_map *map, float x, float y)
+short	action_sprint(t_map *map, double x, double y)
 {
-	float	new_x;
-	float	new_y;
-	float	spent;
+	double	new_x;
+	double	new_y;
+	double	spent;
 
 	if (map->player.stamina <= SPRINT_MIN_COST)
 		return (1);

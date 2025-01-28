@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 10:17:32 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:46:27 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,16 +140,16 @@ int			render_sprites(t_map *map, t_render **render, t_mlx *mlx,
 short		ft_mlx_init_win(t_env *env, t_mlx *mlx);
 short		ft_mlx_init_events(t_env *env);
 short		ft_put_pixel_in_img(t_mlx *mlx, t_pos pos, int color);
-int			ft_get_pixel_color(t_texture *texture, float offsetx,
-				float offsety);
+int			ft_get_pixel_color(t_texture *texture, double offsetx,
+				double offsety);
 int			ft_get_pixel_color_hud(void *img, int x, int y);
 short		handler_load_textures(t_env *env, t_textures *textures);
 
 /* GAME */
-short		update_player_angle(t_map *map, float angle_h, float angle_v);
+short		update_player_angle(t_map *map, double angle_h, double angle_v);
 short		handler_move_player(t_env *env);
 short		handler_action_weapon(t_env *env);
-short		action_sprint(t_map *map, float x, float y);
+short		action_sprint(t_map *map, double x, double y);
 short		regen_stamina(t_env *env);
 
 /* HUD */
@@ -167,6 +167,7 @@ short		helper_mlx_put_height_start_hud_to_win(t_env *env,
 
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_texture *texture);
+void		sort_sprites(t_sprite *sprites, t_map *map);
 
 /*******************************/
 /*            UTILS            */
