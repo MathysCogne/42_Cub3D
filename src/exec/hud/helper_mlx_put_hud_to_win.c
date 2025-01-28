@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:01:44 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:05:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:57:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ short	helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos)
 		while (x < texture.width)
 		{
 			color = ft_get_pixel_color_hud(texture.value, x, y);
-			if (color && color != 0x201E26)
-			{
-				pos_p.x = pos.x + x;
-				pos_p.y = pos.y + y;
+			pos_p.x = pos.x + x;
+			pos_p.y = pos.y + y;
+			if (!env->event->menu_start || env->event->menu_died)
 				ft_put_pixel_in_img(env->mlx, pos_p, color);
-			}
+			else if (color && color != 0x201E26)
+				ft_put_pixel_in_img(env->mlx, pos_p, color);
 			x++;
 		}
 		y++;
