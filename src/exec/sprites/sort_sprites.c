@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_sprites.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 14:37:08 by achaisne          #+#    #+#             */
+/*   Updated: 2025/01/28 14:48:05 by achaisne         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
+
+void	sort_sprites(t_sprite *sprites, t_map *map)
+{
+	int			i;
+	t_sprite	buffer;
+	int			trigger;
+
+	trigger = 0;
+	while (!trigger)
+	{
+		i = 0;
+		trigger = 1;
+		while (i < map->sprites_size - 1)
+		{
+			if (sprites[i].distance < sprites[i + 1].distance)
+			{
+				buffer = sprites[i];
+				sprites[i] = sprites[i + 1];
+				sprites[i + 1] = buffer;
+				trigger = 0;
+			}
+			i++;
+		}
+	}
+}

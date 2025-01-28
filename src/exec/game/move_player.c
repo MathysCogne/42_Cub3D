@@ -6,13 +6,13 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:17:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	update_player_angle(t_map *map, float angle_h, float angle_v)
+short	update_player_angle(t_map *map, double angle_h, double angle_v)
 {
 	map->player.pos.angle_h += angle_h * ANGLE_SPEED;
 	map->player.pos.angle_v += angle_v * ANGLE_SPEED;
@@ -21,11 +21,11 @@ short	update_player_angle(t_map *map, float angle_h, float angle_v)
 	return (0);
 }
 
-static short	update_player_position(t_env *env, float x, float y)
+static short	update_player_position(t_env *env, double x, double y)
 {
-	float	new_x;
-	float	new_y;
-	float	speed;
+	double	new_x;
+	double	new_y;
+	double	speed;
 
 	speed = MOVE_SPEED;
 	if (env->event->move_sprint && !action_sprint(env->map, x, y))
