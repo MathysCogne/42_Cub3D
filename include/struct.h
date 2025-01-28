@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 08:51:59 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:01:19 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct textures
 	t_texture		weapon_off;
 	t_texture		weapon_on;
 	t_texture		sprite;
+	t_texture		musk;
 	t_texture		door;
 	t_texture		hud_border_map;
 	t_texture		hud_card_id;
@@ -147,6 +148,7 @@ typedef struct s_prite
 	double			distance;
 	double			sprite_height;
 	double			sprite_width;
+	int				value;
 }					t_sprite;
 
 typedef struct s_player
