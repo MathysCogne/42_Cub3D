@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 05:45:09 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture)
 		sprite->sprite_width = texture->width / sprite->distance;
 		sprite->distance = get_sprite_distance(sprite_dy, sprite_dx);
 		sprite->offsetx = (RESH / 2) - sprite->sprite_width / 2 + (tan(degree_to_radian(angle_diff))) * (RESH / 2);
-		sprite->offsety = (RESV / 2) - sprite->sprite_height / 2;
+		sprite->offsety = (RESV / 2) - sprite->sprite_height / 2 - ((RESH / 2) / (sprite->distance + 1));
 	}
 }
 

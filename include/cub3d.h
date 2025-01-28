@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 04:23:25 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 06:07:36 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ short		exec(t_env *env);
 /* RENDER */
 short		render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture);
 int			loop_render(t_env *env);
-void		img_compression(t_mlx *mlx);
+void		bi_interpolation_decompression(t_mlx *mlx);
 int			render_sprites(t_map *map, t_render **render, t_mlx *mlx,
 				t_textures *texture);
 

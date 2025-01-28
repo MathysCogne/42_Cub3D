@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:04:30 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/25 12:30:53 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 06:10:10 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,37 @@ int	average_color4(int color1, int color2, int color3, int color4)
 	return ((r << 16) | (g << 8) | b);
 }
 
-void	img_compression(t_mlx *mlx)
+void	set_pixel(int x, int y, t_mlx *mlx)
 {
 	t_pos	pos;
+	int		color;
+
+	pos.x = x + 1;
+	pos.y = y;
+	color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
+				/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
+				/ 4) + x + 2]);
+	ft_put_pixel_in_img(mlx, pos, color);
+	pos.x = x;
+	pos.y = y + 1;
+	color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
+				/ 4) + x], mlx->render_pixel_data[(y + 2)
+			* (mlx->size_line / 4) + x]);
+	ft_put_pixel_in_img(mlx, pos, color);
+	pos.x = x + 1;
+	pos.y = y + 1;
+	color = average_color4(mlx->render_pixel_data[y * (mlx->size_line
+				/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
+				/ 4) + x + 2], mlx->render_pixel_data[(y + 2)
+			* (mlx->size_line / 4) + x], mlx->render_pixel_data[(y + 2)
+			* (mlx->size_line / 4) + x + 2]);
+	ft_put_pixel_in_img(mlx, pos, color);
+}
+
+void	bi_interpolation_decompression(t_mlx *mlx)
+{
 	int		x;
 	int		y;
-	int		color;
 
 	y = 0;
 	while (y + 2 < WIN_HEIGHT)
@@ -52,26 +77,7 @@ void	img_compression(t_mlx *mlx)
 		x = 0;
 		while (x + 2 < WIN_WIDTH)
 		{
-			pos.x = x + 1;
-			pos.y = y;
-			color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x + 2]);
-			ft_put_pixel_in_img(mlx, pos, color);
-			pos.x = x;
-			pos.y = y + 1;
-			color = average_color2(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x]);
-			ft_put_pixel_in_img(mlx, pos, color);
-			pos.x = x + 1;
-			pos.y = y + 1;
-			color = average_color4(mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x], mlx->render_pixel_data[y * (mlx->size_line
-						/ 4) + x + 2], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x], mlx->render_pixel_data[(y + 2)
-					* (mlx->size_line / 4) + x + 2]);
-			ft_put_pixel_in_img(mlx, pos, color);
+			set_pixel(x, y, mlx);
 			x += 2;
 		}
 		y += 2;
