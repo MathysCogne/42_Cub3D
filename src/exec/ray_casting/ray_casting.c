@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:37:07 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid)
 				+ HFVH * (ind_h / (((double)RESH) - 1))) * -1);
 	rc.ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (ind_v
 				/ (((double)RESV) - 1))) * -1;
-	rc.ray.x = player->pos.y;
-	rc.ray.y = player->pos.x;
+	rc.ray.x = player->pos.x;
+	rc.ray.y = player->pos.y;
 	rc.ray.index = ind_v;
 	rc.ray.z = HEIGT_PLAYER;
 	set_collision(&rc, grid);

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:02 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	string_door(t_mlx *mlx, t_map *map, t_pos_player pos)
 {
 	short	door;
 
-	door = player_adjacent_door(map->grid, (int)pos.x, (int)pos.y);
+	door = player_adjacent_door(map->grid, (int)pos.y, (int)pos.x);
 	if (door == 8)
 		mlx_string_put(mlx->id, mlx->win, WIN_WIDTH * 0.8 / 2, WIN_HEIGHT
 			* 0.075, COLOR_TXT_INFO, TXT_DOOR_CLOSE);

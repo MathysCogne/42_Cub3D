@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ static short	render_minimap(t_mlx *mlx, t_map *map)
 		{
 			start.y = i * MINIMAP_SIZE;
 			start.x = j * MINIMAP_SIZE;
-			map_pos.y = (floor)((map->player.pos.x + i) - MINIMAP_RADIUS / 2);
-			map_pos.x = (floor)((map->player.pos.y + j) - MINIMAP_RADIUS / 2);
+			map_pos.y = (floor)((map->player.pos.y + i) - MINIMAP_RADIUS / 2);
+			map_pos.x = (floor)((map->player.pos.x + j) - MINIMAP_RADIUS / 2);
 			render_tile(mlx, start, get_color_tile(map, map_pos), MINIMAP_SIZE);
 			j++;
 		}

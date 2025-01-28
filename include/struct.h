@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 08:51:59 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,8 @@ typedef struct s_pos
 
 typedef struct s_pos_player
 {
-	float			y;
 	float			x;
+	float			y;
 	float			angle_h;
 	double			angle_v;
 }					t_pos_player;
@@ -145,8 +145,8 @@ typedef struct s_prite
 	int				offsetx;
 	int				offsety;
 	double			distance;
-	int				sprite_height;
-	int				sprite_width;
+	double			sprite_height;
+	double			sprite_width;
 }					t_sprite;
 
 typedef struct s_player

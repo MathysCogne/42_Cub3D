@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:35:38 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static short	find_player_pos(t_player *player, char *line, size_t x)
 	{
 		if (ft_strchr("NSEW", line[y]))
 		{
-			player->pos.x = x + 0.5;
-			player->pos.y = y + 0.5;
+			player->pos.y = x + 0.5;
+			player->pos.x = y + 0.5;
 			player->dir = line[y];
 			if (player->dir == 'N')
 				player->pos.angle_h = 90;
