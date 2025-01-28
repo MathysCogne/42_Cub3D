@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:39:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:04:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:10:32 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	put_card_id(t_env *env)
 
 short	handler_hud_stats_player(t_env *env)
 {
-	env->map->player.pv = 0;
 	put_card_id(env);
 	put_pv(env, env->map->player);
 	put_stamina(env, env->map->player);
