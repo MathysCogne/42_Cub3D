@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 10:04:58 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:14:33 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture, char val
 		angle_diff -= 360.0;
 	if (angle_diff < -180.0)
 		angle_diff += 360.0;
-	if (fabs(angle_diff) > HFVH / 2)
-	{
+	if (fabs(angle_diff) > HFVH / 1.90)
 		sprite->render = 0;
-	}
 	else
 	{
 		sprite->render = 1;
