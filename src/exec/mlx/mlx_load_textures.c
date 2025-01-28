@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:32:09 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 09:58:36 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ static short	load_textures(t_env *env, t_textures *textures)
 			&textures->weapon_on.height);
 	textures->door.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_00,
 			&textures->door.width, &textures->door.height);
-		textures->sprite.value = mlx_xpm_file_to_image(env->mlx->id, PATH_SPRITE,
+	textures->sprite.value = mlx_xpm_file_to_image(env->mlx->id, PATH_SPRITE,
 			&textures->sprite.width, &textures->sprite.height);
+	textures->musk.value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK,
+			&textures->musk.width, &textures->musk.height);
 	return (0);
 }
 

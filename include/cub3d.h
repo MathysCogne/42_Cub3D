@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 09:36:06 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:06:07 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define WIN_HEIGHT 720
 # define RESH WIN_WIDTH / 2
 # define RESV WIN_HEIGHT / 2
+# define VERTICAL_FIX RESV * 3 / 180
 
 # define TICK_SPEED 200
 
@@ -60,8 +61,8 @@
 
 // PARSING
 # define EXTENTION_MAP ".cub"
-# define CARAC_MAP " 012NSEW9"
-# define CARAC_MAP_NO_SPACE "012NSEW9"
+# define CARAC_MAP " 0123NSEW9"
+# define CARAC_MAP_NO_SPACE "0123NSEW9"
 # define CARAC_PLAYER "NSEW"
 # define CARAC_PLAYER_VOID "0NSEW9"
 # define CARAC_DOOR '9'
@@ -96,6 +97,7 @@
 # define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
 # define PATH_DOOR_00 "./assets/texture/door.xpm"
 # define PATH_SPRITE "./assets/texture/monster.xpm"
+# define PATH_MUSK "./assets/texture/musk.xpm"
 
 # define PATH_BORDER_MAP "./assets/texture/HUD/border_map.xpm"
 # define PATH_CARD_ID "./assets/texture/HUD/card_id.xpm"

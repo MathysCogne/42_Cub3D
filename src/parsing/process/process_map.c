@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:02:24 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void set_sprites_size(t_map *map, char *line)
 	i = 0;
 	while (line && line[i])
 	{
-		if (line[i] == '2')
+		if (line[i] == '2' || line[i] == '3')
 			map->sprites_size++;
 		i++;
 	}
