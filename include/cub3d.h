@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:06:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 04:23:25 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define NAME "[cub3D] "
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
-# define WIN_WIDTH 1080
-# define WIN_HEIGHT 720
+# define WIN_WIDTH 540
+# define WIN_HEIGHT 360
 # define RESH WIN_WIDTH / 2
 # define RESV WIN_HEIGHT / 2
 
@@ -95,6 +95,7 @@
 # define PATH_WEAPON_ON "./assets/texture/weapon_00.xpm"
 # define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
 # define PATH_DOOR_00 "./assets/texture/door.xpm"
+# define PATH_SPRITE "./assets/texture/monster.xpm"
 
 # define PATH_BORDER_MAP "./assets/texture/HUD/border_map.xpm"
 # define PATH_CARD_ID "./assets/texture/HUD/card_id.xpm"

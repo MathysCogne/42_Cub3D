@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/27 18:05:20 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 02:48:53 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture)
+void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **render)
 {
 	t_pos	pos;
 	float	i;
@@ -23,6 +23,7 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture)
 	float	ratio_h;
 	float	ratio_w;
 
+	(void)render;
 	ratio_h = (float)texture->height / sprites->sprite_height;
 	ratio_w = (float)texture->width / sprites->sprite_width;
 	y = 0;
@@ -64,7 +65,7 @@ int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
 	{
 		if (sprites[i].render)
 		{
-			draw_sprite(mlx, &sprites[i], &texture->sprite);
+			draw_sprite(mlx, &sprites[i], &texture->sprite, render);
 		}
 		i++;
 	}

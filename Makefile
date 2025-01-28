@@ -47,6 +47,7 @@ SRC = main.c \
 			exec/ray_casting/ray_render.c \
 			exec/ray_casting/ray_setter.c \
 			exec/ray_casting/ray_utils.c \
+			exec/ray_casting/texture_setter.c \
 \
 			exec/sprites/sprites.c \
 \
