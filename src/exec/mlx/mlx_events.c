@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 19:26:12 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:17:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ static int	click_mouse_event(int keycode, int h, int v, t_env *env)
 			env->event->click_left = 0;
 	}
 	if (keycode == KEY_MOUSE_LEFT)
+	{
+		handler_action_weapon(env);
 		env->event->click_right = 1;
+	}
 	return (0);
 }
 

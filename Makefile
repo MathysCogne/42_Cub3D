@@ -31,11 +31,17 @@ SRC = main.c \
 			exec/mlx/ft_get_pixel_color.c \
 			exec/mlx/mlx_load_textures.c \
 \
-			exec/game/move_placer.c \
-			exec/game/handler_hud.c \
-			exec/game/hud_mini_map.c \
-			exec/game/hud_weapon.c \
-			exec/game/door.c \
+			exec/game/move_player.c \
+			exec/game/action_door.c \
+			exec/game/action_shoot.c \
+			exec/game/sprint_player.c \
+\
+			exec/hud/handler_hud.c \
+			exec/hud/hud_mini_map.c \
+			exec/hud/hud_weapon.c \
+			exec/hud/hud_string.c \
+			exec/hud/hud_stats_player.c \
+			exec/hud/helper_mlx_put_hud_to_win.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \
@@ -55,6 +61,7 @@ SRC = main.c \
 		utils/exit_by_user.c \
 		utils/normalize_angle.c \
 		utils/rgb_to_hex.c \
+		utils/player_adjacent_door.c \
 \
 		debug/debug_parsing.c
 

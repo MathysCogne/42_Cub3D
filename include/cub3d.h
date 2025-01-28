@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 19:25:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:06:08 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,19 @@
 
 # define TICK_SPEED 200
 
+// GAME
+# define MOVE_SPEED 0.05
+# define SPRINT_SPEED 0.09
+# define MOVE_COLISION "19"
+# define ANGLE_SPEED 4
+# define MOUSE_SPEED 0.02
+
+# define START_BULLETS 20
+# define START_PV 10
+# define START_STAMINA 5
+# define REGEN_STAMINA 0.05
+# define SPRINT_MIN_COST 0.1
+
 // PARSING
 # define EXTENTION_MAP ".cub"
 # define CARAC_MAP " 012NSEW9"
@@ -53,24 +66,27 @@
 # define CARAC_PLAYER_VOID "0NSEW9"
 # define CARAC_DOOR '9'
 # define CARAC_DOOR_OPEN '8'
-
-// EVENT - MOVE PLAYER
-# define MOVE_SPEED 0.05
-# define MOVE_COLISION "19"
-# define SPRINT_SPEED 0.08
-# define ANGLE_SPEED 4
-# define MOUSE_SPEED 0.02
+# define CARAC_DOOR_CO "98"
 
 // MINIMAP
 # define MINIMAP_SIZE 10
 # define MINIMAP_RADIUS 11
 # define MINIMAP_SIZE_PLAYER 5
 # define MINIMAP_COLOR_PLAYER 0xFF0000
-# define MINIMAP_COLOR_WALL 0x0F0324
+# define MINIMAP_COLOR_WALL 0x0000000
 # define MINIMAP_COLOR_DOOR 0xF052E5
 # define MINIMAP_COLOR_DOOR_OPEN 0xF072E5
 # define MINIMAP_COLOR_VOID 0xF092E5
 # define MINIMAP_COLOR_SPAWN 0xF092E5
+
+// HUD
+# define COLOR_TXT_INFO 0xFFFFFF
+# define COLOR_TXT_RED 0xFF0000
+# define TXT_DOOR_OPEN "USE 'SPACE' FOR OPEN A DOOR"
+# define TXT_DOOR_CLOSE "USE 'SPACE' FOR CLOSE A DOOR"
+# define TXT_NO_BULLETS "NO AMMUNITION !"
+# define TXT_LOW_PV "LOW LIFE !"
+# define TXT_LOW_STAMINA "LOW STAMINA !"
 
 // UTILS
 # define M_PI 3.14159265358979323846
@@ -79,6 +95,13 @@
 # define PATH_WEAPON_ON "./assets/texture/weapon_00.xpm"
 # define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
 # define PATH_DOOR_00 "./assets/texture/door.xpm"
+
+# define PATH_BORDER_MAP "./assets/texture/HUD/border_map.xpm"
+# define PATH_CARD_ID "./assets/texture/HUD/card_id.xpm"
+# define PATH_PV "./assets/texture/HUD/pv.xpm"
+# define PATH_PV_ROD "./assets/texture/HUD/pv_rod.xpm"
+# define PATH_STAMINA "./assets/texture/HUD/stamina.xpm"
+# define PATH_STAMINA_ROD "./assets/texture/HUD/stamina_rod.xpm"
 
 /*******************************/
 /*            PARSING          */
@@ -122,10 +145,22 @@ short		handler_load_textures(t_env *env, t_textures *textures);
 /* GAME */
 short		update_player_angle(t_map *map, float angle_h, float angle_v);
 short		handler_move_player(t_env *env);
+short		handler_action_weapon(t_env *env);
+short		action_sprint(t_map *map, float x, float y);
+short		regen_stamina(t_env *env);
+
+/* HUD */
 short		handler_mini_map(t_env *env);
 short		handler_hud(t_env *env);
 short		handler_door(t_env *env);
 short		handler_waepon(t_env *env);
+short		handler_put_strings(t_env *env);
+short		handler_hud_stats_player(t_env *env);
+short		helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos);
+short		helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
+				t_pos pos, int width_max);
+short		helper_mlx_put_height_start_hud_to_win(t_env *env,
+				t_texture texture, t_pos pos, int height_start);
 
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_texture *texture);
@@ -145,6 +180,9 @@ int			exit_user(t_env *env);
 double		normalize_angle_h(double angle);
 double		normalize_angle_v(double angle);
 int			rgb_to_hex(int *rgb);
+short		player_adjacent_door(char **grid, size_t y, size_t x);
+short		player_adjacent_close_door(char **grid, size_t y, size_t x);
+short		player_adjacent_open_door(char **grid, size_t y, size_t x);
 
 /*******************************/
 /*          DEBUG MODE         */

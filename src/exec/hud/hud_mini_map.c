@@ -6,11 +6,13 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 18:32:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 23:36:23 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+#define BORDER 19
 
 static short	render_tile(t_mlx *mlx, t_pos start, int color, size_t size)
 {
@@ -18,16 +20,16 @@ static short	render_tile(t_mlx *mlx, t_pos start, int color, size_t size)
 	size_t	j;
 	t_pos	pixel;
 
-	i = 0;
-	while (i < size)
+	i = BORDER;
+	while (i < size + BORDER)
 	{
-		j = 0;
-		while (j < size)
+		j = BORDER;
+		while (j < size + BORDER)
 		{
 			pixel.x = start.x + j;
 			pixel.y = start.y + i;
-			if (pixel.x >= MINIMAP_SIZE * MINIMAP_RADIUS
-				|| pixel.y >= MINIMAP_SIZE * MINIMAP_RADIUS)
+			if (pixel.x - BORDER >= MINIMAP_SIZE * MINIMAP_RADIUS || pixel.y
+				- BORDER >= MINIMAP_SIZE * MINIMAP_RADIUS)
 				return (0);
 			ft_put_pixel_in_img(mlx, pixel, color);
 			j++;
@@ -43,11 +45,11 @@ static short	render_background_minimap(t_env *env)
 	size_t	j;
 	t_pos	start;
 
-	i = 0;
-	while (i < MINIMAP_RADIUS)
+	i = BORDER;
+	while (i < MINIMAP_RADIUS + BORDER)
 	{
-		j = 0;
-		while (j < MINIMAP_RADIUS)
+		j = BORDER;
+		while (j < MINIMAP_RADIUS + BORDER)
 		{
 			start.x = i * MINIMAP_SIZE;
 			start.y = j * MINIMAP_SIZE;
@@ -84,10 +86,10 @@ static short	render_minimap(t_mlx *mlx, t_map *map)
 	t_pos	start;
 
 	i = 0;
-	while (i < MINIMAP_RADIUS)
+	while (i < MINIMAP_RADIUS + 0)
 	{
 		j = 0;
-		while (j < MINIMAP_RADIUS)
+		while (j < MINIMAP_RADIUS + 0)
 		{
 			start.y = i * MINIMAP_SIZE;
 			start.x = j * MINIMAP_SIZE;
@@ -104,11 +106,15 @@ static short	render_minimap(t_mlx *mlx, t_map *map)
 short	handler_mini_map(t_env *env)
 {
 	t_pos	center;
+	t_pos	pos_border;
 
 	center.x = (MINIMAP_RADIUS * MINIMAP_SIZE / 2) - (MINIMAP_SIZE_PLAYER / 2);
 	center.y = (MINIMAP_RADIUS * MINIMAP_SIZE / 2) - (MINIMAP_SIZE_PLAYER / 2);
 	render_background_minimap(env);
 	render_minimap(env->mlx, env->map);
 	render_tile(env->mlx, center, MINIMAP_COLOR_PLAYER, MINIMAP_SIZE_PLAYER);
+	pos_border.x = 10;
+	pos_border.y = 10;
+	helper_mlx_put_hud_to_win(env, env->textures->hud_border_map, pos_border);
 	return (0);
 }

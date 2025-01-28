@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 18:29:22 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:25:07 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ static short	get_count_sprites(t_map *map, char *line)
 		i++;
 	}
 	return (0);
+}
+
+static void	init_player_stats(t_map *map)
+{
+	map->player.bullets = START_BULLETS;
+	map->player.pv = START_PV;
+	map->player.stamina = START_STAMINA;
 }
 
 static short	find_player_pos(t_player *player, char *line, size_t y)
@@ -66,6 +73,7 @@ int	parse_map_line(char *line, t_env *env, t_map *map)
 	if (map->width < ft_strclen(line, '\n'))
 		map->width = ft_strclen(line, '\n');
 	find_player_pos(&map->player, line, map->height);
+	init_player_stats(map);
 	get_count_sprites(map, line);
 	map->height++;
 	return (0);
