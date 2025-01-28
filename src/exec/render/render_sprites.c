@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   render_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 14:47:00 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 23:50:59 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **render)
+void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture,
+		t_render **render)
 {
 	t_pos	pos;
 	double	i;
@@ -36,14 +37,12 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **r
 		{
 			color = ft_get_pixel_color(texture, j / texture->width, i
 					/ texture->height);
-			if (color != (int)0xff000000
-				&& sprites->distance > 0.5
-				&& (sprites->offsety + y) >= 0
-				&& (sprites->offsety + y) < RESV
-				&& (sprites->offsetx + x) >= 0
-				&& (sprites->offsetx + x) < RESH
-				&& (sprites->offsety + y) * RESH + (sprites->offsetx + x) < RESH * RESV
-				&& sprites->distance < render[(sprites->offsety + y) * RESH + (sprites->offsetx + x)]->distance)
+			if (color != (int)0xff000000 && sprites->distance > 0.5
+				&& (sprites->offsety + y) >= 0 && (sprites->offsety + y) < RESV
+				&& (sprites->offsetx + x) >= 0 && (sprites->offsetx + x) < RESH
+				&& (sprites->offsety + y) * RESH + (sprites->offsetx + x) < RESH
+				* RESV && sprites->distance < render[(sprites->offsety + y)
+				* RESH + (sprites->offsetx + x)]->distance)
 			{
 				pos.y = (sprites->offsety + y) * 2;
 				pos.x = (sprites->offsetx + x) * 2;
@@ -57,13 +56,14 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture, t_render **r
 	}
 }
 
-int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture)
+int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
+		t_textures *texture)
 {
-	t_sprite *sprites;
-	int i;
+	t_sprite	*sprites;
+	int			i;
 
 	(void)render;
-	sprites = get_sprites(map, &texture->sprite);
+	sprites = get_sprites(map, &texture->monster[0]);
 	sort_sprites(sprites, map);
 	if (!sprites)
 		return (1);
@@ -73,9 +73,11 @@ int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *textur
 		if (sprites[i].render)
 		{
 			if (sprites[i].value == '2')
-				draw_sprite(mlx, &sprites[i], &texture->sprite, render);
+				draw_sprite(mlx, &sprites[i],
+					&texture->monster[get_id_monsters(map)], render);
 			else if (sprites[i].value == '3')
-				draw_sprite(mlx, &sprites[i], &texture->musk, render);
+				draw_sprite(mlx, &sprites[i], &texture->musk[get_id_musk(map)],
+					render);
 		}
 		i++;
 	}

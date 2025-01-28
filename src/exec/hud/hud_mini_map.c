@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_mini_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 23:53:08 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ static int	get_color_tile(t_map *map, t_pos map_pos)
 		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR_OPEN)
 			return (MINIMAP_COLOR_DOOR_OPEN);
 		else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
+			return (MINIMAP_COLOR_VOID);
+		else if (ft_strchr(CARAC_ENNEMY, map->grid[map_pos.y][map_pos.x]))
+			return (MINIMAP_COLOR_ENNEMY);
+		else
 			return (MINIMAP_COLOR_VOID);
 	}
 	return (MINIMAP_COLOR_WALL);

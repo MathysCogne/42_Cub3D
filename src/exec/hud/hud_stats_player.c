@@ -6,13 +6,19 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:39:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 01:10:32 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:10:50 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	put_stamina(t_env *env, t_player player)
+static void	check_status_life_player(t_env *env, t_map *map)
+{
+	if (map->player.pv <= 0)
+		env->event->menu_died = 1;
+}
+
+static void	put_stamina(t_env *env, t_player player)
 {
 	t_pos	pos;
 	int		width_to_print;
@@ -29,7 +35,7 @@ void	put_stamina(t_env *env, t_player player)
 		pos, width_to_print);
 }
 
-void	put_pv(t_env *env, t_player player)
+static void	put_pv(t_env *env, t_player player)
 {
 	t_pos	pos;
 	int		height_to_print;
@@ -44,7 +50,7 @@ void	put_pv(t_env *env, t_player player)
 		height_to_print);
 }
 
-void	put_card_id(t_env *env)
+static void	put_card_id(t_env *env)
 {
 	t_pos	pos;
 	char	*ammo;
@@ -60,6 +66,7 @@ void	put_card_id(t_env *env)
 
 short	handler_hud_stats_player(t_env *env)
 {
+	check_status_life_player(env, env->map);
 	put_card_id(env);
 	put_pv(env, env->map->player);
 	put_stamina(env, env->map->player);

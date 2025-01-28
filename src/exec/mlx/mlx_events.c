@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:45:00 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 20:17:06 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:49:41 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ static int	key_release(int keycode, t_env *env)
 
 static int	key_press(int keycode, t_env *env)
 {
+	if (!env->event->menu_start && keycode)
+		env->event->menu_start = 1;
 	if (keycode == KEY_ESC)
 		exit_user(env);
 	else if (keycode == KEY_W)

@@ -6,11 +6,18 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:36:53 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 22:06:22 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 20:49:16 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	action_player_render(t_env *env)
+{
+	handler_action_hands_fights(env);
+	regen_stamina(env);
+	handler_move_player(env);
+}
 
 int	loop_render(t_env *env)
 {
@@ -21,8 +28,7 @@ int	loop_render(t_env *env)
 			/ 2);
 	if (tick_count > TICK_SPEED)
 	{
-		regen_stamina(env);
-		handler_move_player(env);
+		action_player_render(env);
 		render_map_3d(env->map, env->mlx, env->textures);
 		mlx_put_image_to_window(env->mlx->id, env->mlx->win,
 			env->mlx->render_pixel, 0, 0);
