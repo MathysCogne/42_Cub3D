@@ -6,11 +6,20 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:45:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 21:11:42 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:47:55 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	menu_happy_end(t_env *env)
+{
+	t_pos	pos;
+
+	pos.x = 0;
+	pos.y = 0;
+	helper_mlx_put_hud_to_win(env, env->textures->menu_happy_end, pos);
+}
 
 static void	menu_start(t_env *env)
 {
@@ -36,5 +45,7 @@ short	handler_menu(t_env *env)
 		menu_died(env);
 	if (!env->event->menu_start)
 		menu_start(env);
+	if (env->event->menu_happy_end)
+		menu_happy_end(env);
 	return (0);
 }
