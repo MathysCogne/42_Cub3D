@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 23:49:52 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum e_texture_type
 	EA,
 	TOP,
 	BOT,
+	BOT_BLOOD,
 	MONSTER,
 	DOOR_EA,
 	DOOR_WE,
@@ -112,6 +113,7 @@ typedef struct textures
 	t_texture		ea;
 	t_texture		top;
 	t_texture		bot;
+	t_texture		bot_blood;
 	t_texture		weapon_off;
 	t_texture		weapon_on;
 	t_texture		musk[5];

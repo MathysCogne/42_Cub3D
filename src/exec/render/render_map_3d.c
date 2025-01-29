@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 14:36:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:01:46 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,9 @@ static void	set_pixel(t_mlx *mlx, t_render *render, int x, int y,
 		|| render->pole == DOOR_SN)
 		color = ft_get_pixel_color(&texture->door, render->offset_x,
 				render->offset_y);
-	if (color == (int)0xFF000000)
-		// TODO A SUPR LORSQUE ON AURAS PHOTOSHOP LA TETX DES PORTES
-		color = ft_get_pixel_color(&texture->we,
-									render->offset_x,  //
-									render->offset_y); //
+	if (render->pole == BOT_BLOOD)
+		color = ft_get_pixel_color(&texture->bot_blood, render->offset_x,
+				render->offset_y);
 	pos.x = x;
 	pos.y = y;
 	ft_put_pixel_in_img(mlx, pos, color);
@@ -87,8 +85,8 @@ short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 		}
 		y++;
 	}
-	if (map->sprites_size > 0)
-		render_sprites(map, render, mlx, texture);
+	if (map->sprites_size > 0 && !render_sprites(map, render, mlx, texture))
+		return (detroy_render(render), 1);
 	bi_interpolation_decompression(mlx);
 	detroy_render(render);
 	return (0);

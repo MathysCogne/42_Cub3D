@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 07:38:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	set_offset(t_render *render, t_ray *ray)
 		render->offset_x = fabs(ray->x - floor(ray->x));
 	else
 		render->offset_x = fabs(ray->y - floor(ray->y));
-	if (render->pole != BOT && render->pole != TOP)
+	if (render->pole != BOT && render->pole != TOP && render->pole != BOT_BLOOD)
 		render->offset_y = fabs(ray->z - floor(ray->z));
 	else
 		render->offset_y = fabs(ray->y - floor(ray->y));

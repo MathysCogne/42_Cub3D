@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 23:50:59 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:39:41 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,15 @@ void	draw_sprite(t_mlx *mlx, t_sprite *sprites, t_texture *texture,
 	}
 }
 
-int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
-		t_textures *texture)
+int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *texture)
 {
 	t_sprite	*sprites;
 	int			i;
 
-	(void)render;
 	sprites = get_sprites(map, &texture->monster[0]);
 	sort_sprites(sprites, map);
 	if (!sprites)
-		return (1);
+		return (0);
 	i = 0;
 	while (i < map->sprites_size)
 	{
@@ -82,5 +80,5 @@ int	render_sprites(t_map *map, t_render **render, t_mlx *mlx,
 		i++;
 	}
 	free(sprites);
-	return (0);
+	return (1);
 }

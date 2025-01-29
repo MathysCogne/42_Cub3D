@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 05:38:52 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:17:59 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void		detroy_render(t_render **render);
 t_render	**ray_cast(t_player *player, char **grid);
 // utils
 double		degree_to_radian(double degree);
+double		trigo_opposite_side(double angle, double len);
 // ray render
 t_render	*get_render(t_player *player, t_raycasting *rc, char **grid);
 // ray setter

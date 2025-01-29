@@ -55,6 +55,7 @@ SRC = main.c \
 \
 			exec/sprites/sprites.c \
 			exec/sprites/sort_sprites.c \
+			exec/sprites/sprites_shot.c \
 \
 		utils/cleanup.c \
 		utils/init_env.c \

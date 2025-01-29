@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 23:47:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:26:56 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@
 # define PATH_START "./assets/texture/MENU/start.xpm"
 # define PATH_DIED "./assets/texture/MENU/died.xpm"
 
+# define PATH_BOT_BLOOD "./assets/texture/BOT_BLOOD.xpm"
+
 /*******************************/
 /*            PARSING          */
 /*******************************/
@@ -196,6 +198,7 @@ short		helper_mlx_put_height_start_hud_to_win(t_env *env,
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_texture *texture);
 void		sort_sprites(t_sprite *sprites, t_map *map);
+t_pos		is_sprites_shot(t_map *map, t_texture *texture);
 
 /*******************************/
 /*            UTILS            */

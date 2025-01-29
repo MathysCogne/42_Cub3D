@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action_shoot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:13:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 21:04:30 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:35:49 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 
 static short	piou_piou(t_env *env, t_map *map)
 {
-	(void)env;
+	t_pos	pos;
+
 	if (map->player.bullets > 0)
 	{
-		ft_printf(MINT_GREEN NAME "Piou Piou..\n");
+		pos = is_sprites_shot(map, env->textures->monster);
+		if (pos.x != 0 && pos.y != 0)
+		{
+			map->grid[pos.y][pos.x] = '4';
+			map->sprites_size--;
+		}
 		map->player.bullets--;
 	}
 	else
