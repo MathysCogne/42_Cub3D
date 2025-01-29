@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 16:55:39 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:41:30 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static short	valid_texures(t_textures *textures)
 		|| !textures->hud_pv.value || !textures->hud_pv_rod.value
 		|| !textures->hud_stamina.value || !textures->hud_stamina_rod.value
 		|| !textures->menu_start.value || !textures->menu_end.value
-		|| !textures->hud_bam.value)
+		|| !textures->menu_happy_end.value || !textures->hud_bam.value)
 		return (1);
 	if (!textures->monster[0].value || !textures->monster[1].value
 		|| !textures->monster[2].value || !textures->monster[3].value)
@@ -90,6 +90,9 @@ static short	load_textures_hud(t_env *env, t_textures *textures)
 			&textures->menu_start.width, &textures->menu_start.height);
 	textures->menu_end.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DIED,
 			&textures->menu_end.width, &textures->menu_end.height);
+	textures->menu_happy_end.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_END, &textures->menu_happy_end.width,
+			&textures->menu_happy_end.height);
 	textures->hud_bam.value = mlx_xpm_file_to_image(env->mlx->id, PATH_BAM,
 			&textures->hud_bam.width, &textures->hud_bam.height);
 	return (0);

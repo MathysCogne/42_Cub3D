@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:37:06 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 20:49:28 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:46:01 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 short	handler_hud(t_env *env)
 {
-	if (!env->event->menu_start || env->event->menu_died)
+	if (!env->event->menu_start || env->event->menu_died
+		|| env->event->menu_happy_end)
 		handler_menu(env);
 	else
 	{

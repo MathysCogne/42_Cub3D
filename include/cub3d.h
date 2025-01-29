@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 11:11:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:19:46 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,14 +126,14 @@
 # define PATH_BAM "./assets/texture/HUD/bam.xpm"
 
 # define PATH_START "./assets/texture/MENU/start.xpm"
-# define PATH_DIED "./assets/texture/MENU/died.xpm"
+# define PATH_DIED "./assets/texture/MENU/menu_died.xpm"
+# define PATH_END "./assets/texture/MENU/died.xpm"
 
 # define PATH_BOT_BLOOD "./assets/texture/BOT_BLOOD.xpm"
 # define PATH_DOOR_NO "./assets/texture/doors/NO.xpm"
 # define PATH_DOOR_SO "./assets/texture/doors/SO.xpm"
 # define PATH_DOOR_EA "./assets/texture/doors/EA.xpm"
 # define PATH_DOOR_WE "./assets/texture/doors/WE.xpm"
-
 
 /*******************************/
 /*            PARSING          */
@@ -201,7 +201,8 @@ short		helper_mlx_put_height_start_hud_to_win(t_env *env,
 
 /* SPRITES */
 t_sprite	*get_sprites(t_map *map, t_textures *textures);
-void		sort_sprites(t_sprite *sprites, t_map *map, int (*compare)(int, int));
+void		sort_sprites(t_sprite *sprites, t_map *map, int (*compare)(int,
+					int));
 t_pos		is_sprites_shot(t_map *map, t_textures *textures);
 
 /*******************************/

@@ -6,16 +6,18 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:39:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 17:04:15 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:43:13 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	check_status_life_player(t_env *env, t_map *map)
+static void	check_status_game(t_env *env, t_map *map)
 {
 	if (map->player.pv <= 0)
 		env->event->menu_died = 1;
+	if (map->sprites_size == 0 && map->player.pv > 0)
+		env->event->menu_happy_end = 1;
 }
 
 static void	put_stamina(t_env *env, t_player player)
@@ -69,7 +71,7 @@ static void	put_card_id(t_env *env)
 
 short	handler_hud_stats_player(t_env *env)
 {
-	check_status_life_player(env, env->map);
+	check_status_game(env, env->map);
 	put_card_id(env);
 	put_pv(env, env->map->player);
 	put_stamina(env, env->map->player);

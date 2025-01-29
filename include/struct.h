@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 10:28:36 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:45:12 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_event
 	short			click_left;
 	short			menu_start;
 	short			menu_died;
+	short			menu_happy_end;
 }					t_event;
 
 typedef struct s_ray
@@ -119,6 +120,7 @@ typedef struct textures
 	// menu
 	t_texture		menu_start;
 	t_texture		menu_end;
+	t_texture		menu_happy_end;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;
