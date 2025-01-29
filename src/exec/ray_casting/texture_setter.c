@@ -6,13 +6,14 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 05:11:33 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 11:02:00 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:04:14 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_texture_door(t_render *render, t_raycasting *rc, char **grid, t_textures *textures)
+void	set_texture_door(t_render *render, t_raycasting *rc,
+							char **grid, t_textures *textures)
 {
 	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '9')
@@ -28,7 +29,8 @@ void	set_texture_door(t_render *render, t_raycasting *rc, char **grid, t_texture
 		render->texture = &textures->door_no;
 }
 
-void	set_texture_classic(t_render *render, t_raycasting *rc,	char **grid, t_textures *textures)
+void	set_texture_classic(t_render *render, t_raycasting *rc,
+								char **grid, t_textures *textures)
 {
 	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '1')

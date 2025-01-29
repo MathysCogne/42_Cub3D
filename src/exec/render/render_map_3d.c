@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:41:33 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:05:35 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static int	set_pixel_rgb_or_texture(t_render *render, t_textures *textures)
 		return (0);
 }
 
-static void	set_pixel(t_mlx *mlx, t_render *render, t_pos pos, t_textures *textures)
+static void	set_pixel(t_mlx *mlx, t_render *render,
+						t_pos pos, t_textures *textures)
 {
 	int		color;
 

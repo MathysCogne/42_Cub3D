@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:57:54 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:03:21 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	set_collision(t_raycasting *rc, char **grid)
 	}
 }
 
-t_render	*send_ray(t_pos *pos, t_player *player, char **grid, t_textures *textures)
+t_render	*send_ray(t_pos *pos, t_player *player,
+						char **grid, t_textures *textures)
 {
 	t_raycasting	rc;
 
@@ -101,7 +102,8 @@ t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 		pos.x = 0;
 		while (pos.x < RESH)
 		{
-			render[(RESH * pos.y) + pos.x] = send_ray(&pos, player, grid, textures);
+			render[(RESH * pos.y) + pos.x]
+				= send_ray(&pos, player, grid, textures);
 			if (!render[(RESH * pos.y) + pos.x])
 				return (0);
 			pos.x++;
