@@ -24,6 +24,7 @@ SRC = main.c \
 			exec/render/render_loop.c \
 			exec/render/img_compression.c \
 			exec/render/render_sprites.c \
+			exec/render/render_anim_sprites.c \
 \
 			exec/mlx/mlx_init.c \
 			exec/mlx/mlx_events.c \
@@ -35,13 +36,16 @@ SRC = main.c \
 			exec/game/action_door.c \
 			exec/game/action_shoot.c \
 			exec/game/sprint_player.c \
+			exec/game/action_hands_fights.c \
 \
 			exec/hud/handler_hud.c \
 			exec/hud/hud_mini_map.c \
 			exec/hud/hud_weapon.c \
 			exec/hud/hud_string.c \
 			exec/hud/hud_stats_player.c \
+			exec/hud/hud_menu.c \
 			exec/hud/helper_mlx_put_hud_to_win.c \
+			exec/hud/hud_bam_comics.c \
 \
 			exec/ray_casting/ray_casting.c \
 			exec/ray_casting/ray_render.c \
@@ -51,6 +55,7 @@ SRC = main.c \
 \
 			exec/sprites/sprites.c \
 			exec/sprites/sort_sprites.c \
+			exec/sprites/sprites_shot.c \
 \
 		utils/cleanup.c \
 		utils/init_env.c \
@@ -126,7 +131,7 @@ all: $(NAME)
 $(NAME): $(BUILD)
 
 $(BUILD): $(MINILIBX_DIR) $(LIBFT) $(OBJ)
-	@clear
+#@clear
 	$(V)export DEBUG_MODE=0
 	$(V)$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) $(BONUS_OBJ) $(LIBS) $(MLXFLAGS) -o $(NAME)
 	$(V)echo $(GREEN)"[$(NAME)] Executable created ✅"$(RESET)

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 14:26:48 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef enum e_texture_type
 	EA,
 	TOP,
 	BOT,
+	BOT_BLOOD,
 	MONSTER,
 	DOOR_EA,
 	DOOR_WE,
@@ -44,6 +45,8 @@ typedef struct s_event
 	short			capture_mouse;
 	short			click_right;
 	short			click_left;
+	short			menu_start;
+	short			menu_died;
 }					t_event;
 
 typedef struct s_ray
@@ -110,10 +113,11 @@ typedef struct textures
 	t_texture		ea;
 	t_texture		top;
 	t_texture		bot;
+	t_texture		bot_blood;
 	t_texture		weapon_off;
 	t_texture		weapon_on;
-	t_texture		sprite;
-	t_texture		musk;
+	t_texture		musk[5];
+	t_texture		monster[4];
 	t_texture		door;
 	t_texture		hud_border_map;
 	t_texture		hud_card_id;
@@ -121,6 +125,9 @@ typedef struct textures
 	t_texture		hud_pv_rod;
 	t_texture		hud_stamina;
 	t_texture		hud_stamina_rod;
+	t_texture		hud_bam;
+	t_texture		menu_start;
+	t_texture		menu_end;
 	int				rgb_floor[3];
 	int				rgb_ceiling[3];
 }					t_textures;

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 09:58:36 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 05:53:26 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,44 @@ static short	valid_texures(t_textures *textures)
 		return (1);
 	if (!textures->hud_border_map.value || !textures->hud_card_id.value
 		|| !textures->hud_pv.value || !textures->hud_pv_rod.value
-		|| !textures->hud_stamina.value || !textures->hud_stamina_rod.value)
-		return (ft_printf("HERE\n"), 1);
+		|| !textures->hud_stamina.value || !textures->hud_stamina_rod.value
+		|| !textures->menu_start.value || !textures->menu_end.value
+		|| !textures->hud_bam.value)
+		return (1);
+	if (!textures->monster[0].value || !textures->monster[1].value
+		|| !textures->monster[2].value || !textures->monster[3].value)
+		return (1);
+	if (!textures->musk[0].value || !textures->musk[1].value
+		|| !textures->musk[2].value || !textures->musk[3].value
+		|| !textures->musk[4].value)
+		return (1);
+	return (0);
+}
+
+static short	load_sprite(t_env *env, t_textures *textures)
+{
+	textures->monster[0].value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_MONSTER_00, &textures->monster[0].width,
+			&textures->monster[0].height);
+	textures->monster[1].value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_MONSTER_01, &textures->monster[1].width,
+			&textures->monster[1].height);
+	textures->monster[2].value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_MONSTER_02, &textures->monster[2].width,
+			&textures->monster[2].height);
+	textures->monster[3].value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_MONSTER_03, &textures->monster[3].width,
+			&textures->monster[3].height);
+	textures->musk[0].value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK_00,
+			&textures->musk[0].width, &textures->musk[0].height);
+	textures->musk[1].value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK_01,
+			&textures->musk[1].width, &textures->musk[1].height);
+	textures->musk[2].value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK_02,
+			&textures->musk[2].width, &textures->musk[2].height);
+	textures->musk[3].value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK_03,
+			&textures->musk[3].width, &textures->musk[3].height);
+	textures->musk[4].value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK_04,
+			&textures->musk[4].width, &textures->musk[4].height);
 	return (0);
 }
 
@@ -49,6 +85,12 @@ static short	load_textures_hud(t_env *env, t_textures *textures)
 	textures->hud_stamina_rod.value = mlx_xpm_file_to_image(env->mlx->id,
 			PATH_STAMINA_ROD, &textures->hud_stamina_rod.width,
 			&textures->hud_stamina_rod.height);
+	textures->menu_start.value = mlx_xpm_file_to_image(env->mlx->id, PATH_START,
+			&textures->menu_start.width, &textures->menu_start.height);
+	textures->menu_end.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DIED,
+			&textures->menu_end.width, &textures->menu_end.height);
+	textures->hud_bam.value = mlx_xpm_file_to_image(env->mlx->id, PATH_BAM,
+			&textures->hud_bam.width, &textures->hud_bam.height);
 	return (0);
 }
 
@@ -74,10 +116,8 @@ static short	load_textures(t_env *env, t_textures *textures)
 			&textures->weapon_on.height);
 	textures->door.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_00,
 			&textures->door.width, &textures->door.height);
-	textures->sprite.value = mlx_xpm_file_to_image(env->mlx->id, PATH_SPRITE,
-			&textures->sprite.width, &textures->sprite.height);
-	textures->musk.value = mlx_xpm_file_to_image(env->mlx->id, PATH_MUSK,
-			&textures->musk.width, &textures->musk.height);
+	textures->bot_blood.value = mlx_xpm_file_to_image(env->mlx->id, PATH_BOT_BLOOD,
+			&textures->bot_blood.width, &textures->bot_blood.height);
 	return (0);
 }
 
@@ -86,6 +126,8 @@ short	handler_load_textures(t_env *env, t_textures *textures)
 	if (load_textures(env, textures))
 		return (1);
 	if (load_textures_hud(env, textures))
+		return (1);
+	if (load_sprite(env, textures))
 		return (1);
 	if (valid_texures(textures))
 		return (1);

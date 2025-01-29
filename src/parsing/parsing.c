@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:46:46 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/20 21:49:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/28 23:57:53 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,18 @@
 ** 11111111 1111111 111111111111
 */
 
+static void	welcome_print(void)
+{
+	ft_printf(YELLOW "\nYour mission, if you choose to accept it:\n\n"
+						"Kill the big villain, who was spotted during "
+						"\"Roman\" salutes.\n"
+						"To achieve this, "
+						"you'll need to avoid his armed guards!\n\n" C_RESET);
+}
+
 short	parsing(t_env *env, char *path_map)
 {
+	welcome_print();
 	if (read_map(env, path_map))
 		return (env->err = ERR_PARSE_READ, 1);
 	if (process_map(env))
