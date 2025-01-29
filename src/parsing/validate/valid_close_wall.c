@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:30:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 17:34:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:48:03 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 static short	is_not_wall_adjacent(char **grid, size_t y, size_t x)
 {
-	if (!grid[y + 1][x] || !grid[y - 1][x])
+	size_t	len;
+
+	if (!grid || !grid[y] || y == 0)
 		return (1);
-	else if (!grid[y][x + 1] || !grid[y][x - 1])
+	len = ft_strlen(grid[y]);
+	if (x >= len)
 		return (1);
-	if (grid[y + 1][x] == ' ' || grid[y - 1][x] == ' ')
+	if (!grid[y - 1] || !grid[y + 1])
 		return (1);
-	else if (grid[y][x + 1] == ' ' || grid[y][x - 1] == ' ')
+	if (x == 0 || x >= ft_strlen(grid[y - 1]) || x >= ft_strlen(grid[y + 1]))
+		return (1);
+	if (grid[y - 1][x] == ' ' || grid[y + 1][x] == ' ')
+		return (1);
+	if (grid[y][x - 1] == ' ' || (x + 1 < len && grid[y][x + 1] == ' '))
 		return (1);
 	return (0);
 }

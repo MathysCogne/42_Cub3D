@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 17:10:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:35:42 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->monster[3].value);
 		ft_mlx_destroy_image(env, env->textures->menu_start.value);
 		ft_mlx_destroy_image(env, env->textures->menu_end.value);
+		ft_mlx_destroy_image(env, env->textures->menu_happy_end.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
 	}

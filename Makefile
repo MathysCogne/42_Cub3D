@@ -209,7 +209,7 @@ norme:
 #################################
 test: all norme
 	$(V)echo $(GREEN)"[$(NAME)] Running $(NAME) with valgrind"$(RESET)
-	$(V)valgrind --leak-check=full ./$(NAME) assets/map/map.cub
+	$(V)valgrind --leak-check=full ./$(NAME) assets/map/map_test_parsebonus.cub
 
 
 re: fclean all

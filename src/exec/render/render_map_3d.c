@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 17:05:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:55:47 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ static int	set_pixel_rgb_or_texture(t_render *render, t_textures *textures)
 		return (0);
 }
 
-static void	set_pixel(t_mlx *mlx, t_render *render,
-						t_pos pos, t_textures *textures)
+static void	set_pixel(t_mlx *mlx, t_render *render, t_pos pos,
+		t_textures *textures)
 {
-	int		color;
+	int	color;
 
-	color = ft_get_pixel_color(
-			render->texture,
-			render->offset_x,
-			render->offset_y);
 	if (render->texture == &textures->top || render->texture == &textures->bot)
 		color = set_pixel_rgb_or_texture(render, textures);
+	else
+		color = ft_get_pixel_color(render->texture, render->offset_x,
+				render->offset_y);
 	pos.x *= 2;
 	pos.y *= 2;
 	ft_put_pixel_in_img(mlx, pos, color);

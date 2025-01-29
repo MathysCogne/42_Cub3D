@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 18:33:15 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:49:28 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@
 # define CARAC_MAP " 0123NSEW9"
 # define CARAC_MAP_NO_SPACE "0123NSEW9"
 # define CARAC_PLAYER "NSEW"
-# define CARAC_PLAYER_VOID "0NSEW9"
+# define CARAC_PLAYER_VOID "023NSEW9"
 # define CARAC_DOOR '9'
 # define CARAC_DOOR_OPEN '8'
 # define CARAC_DOOR_CO "98"
