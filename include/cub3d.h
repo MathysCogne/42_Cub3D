@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 11:11:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:33:15 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,9 @@ short		helper_mlx_put_height_start_hud_to_win(t_env *env,
 t_sprite	*get_sprites(t_map *map, t_textures *textures);
 void		sort_sprites(t_sprite *sprites, t_map *map, int (*compare)(int, int));
 t_pos		is_sprites_shot(t_map *map, t_textures *textures);
+t_texture	*get_texture(char c, t_textures *textures, t_map *map);
+int			normalize_width(int img_width);
+int			normalize_height(int img_height);
 
 /*******************************/
 /*            UTILS            */

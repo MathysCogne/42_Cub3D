@@ -53,6 +53,7 @@ SRC = main.c \
 			exec/ray_casting/texture_setter.c \
 \
 			exec/sprites/sprite_get.c \
+			exec/sprites/sprite_get_helper.c \
 			exec/sprites/sprite_sort.c \
 			exec/sprites/sprite_shot.c \
 \
