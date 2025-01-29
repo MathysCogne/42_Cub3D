@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:04:30 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 06:10:10 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:10:25 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	average_color2(int color1, int color2)
 
 	r = (((color1 >> 16) & 0xFF) + ((color2 >> 16) & 0xFF)) / 2;
 	g = (((color1 >> 8) & 0xFF) + ((color2 >> 8) & 0xFF)) / 2;
-	b = (((color1)&0xFF) + ((color2)&0xFF)) / 2;
+	b = (((color1) & 0xFF) + ((color2) & 0xFF)) / 2;
 	return ((r << 16) | (g << 8) | b);
 }
 
@@ -34,8 +34,8 @@ int	average_color4(int color1, int color2, int color3, int color4)
 			+ ((color3 >> 16) & 0xFF) + ((color4 >> 16) & 0xFF)) / 4;
 	g = (((color1 >> 8) & 0xFF) + ((color2 >> 8) & 0xFF)
 			+ ((color3 >> 8) & 0xFF) + ((color4 >> 8) & 0xFF)) / 4;
-	b = (((color1)&0xFF) + ((color2)&0xFF) + ((color3)&0xFF) + ((color4)&0xFF))
-		/ 4;
+	b = (((color1) & 0xFF) + ((color2) & 0xFF)
+			+ ((color3) & 0xFF) + ((color4) & 0xFF)) / 4;
 	return ((r << 16) | (g << 8) | b);
 }
 

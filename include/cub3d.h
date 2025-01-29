@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 06:26:56 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 08:15:05 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,9 +196,9 @@ short		helper_mlx_put_height_start_hud_to_win(t_env *env,
 				t_texture texture, t_pos pos, int height_start);
 
 /* SPRITES */
-t_sprite	*get_sprites(t_map *map, t_texture *texture);
-void		sort_sprites(t_sprite *sprites, t_map *map);
-t_pos		is_sprites_shot(t_map *map, t_texture *texture);
+t_sprite	*get_sprites(t_map *map, t_textures *textures);
+void		sort_sprites(t_sprite *sprites, t_map *map, int (*compare)(int, int));
+t_pos		is_sprites_shot(t_map *map, t_textures *textures);
 
 /*******************************/
 /*            UTILS            */
@@ -218,6 +218,10 @@ int			rgb_to_hex(int *rgb);
 short		player_adjacent_door(char **grid, size_t y, size_t x);
 short		player_adjacent_close_door(char **grid, size_t y, size_t x);
 short		player_adjacent_open_door(char **grid, size_t y, size_t x);
+int			is_superior(int a, int b);
+int			is_inferior(int a, int b);
+double		trigo_get_angle(double sprite_dy, double sprite_dx);
+double		trigo_get_hypotenuse_len(double sprite_dy, double sprite_dx);
 
 /*******************************/
 /*          DEBUG MODE         */

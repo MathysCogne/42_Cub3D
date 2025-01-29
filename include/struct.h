@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:45:09 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,6 @@
 # define STRUCT_H
 
 # include "libft_extra.h"
-
-typedef enum e_texture_type
-{
-	NONE,
-	NO,
-	SO,
-	WE,
-	EA,
-	TOP,
-	BOT,
-	BOT_BLOOD,
-	MONSTER,
-	DOOR_EA,
-	DOOR_WE,
-	DOOR_SN
-}					t_texture_type;
 
 typedef struct s_event
 {
@@ -73,14 +57,6 @@ typedef struct s_raycasting
 	double			side_dist_z;
 }					t_raycasting;
 
-typedef struct s_render
-{
-	double			offset_x;
-	double			offset_y;
-	double			distance;
-	t_texture_type	pole;
-}					t_render;
-
 typedef struct s_mlx
 {
 	void			*id;
@@ -98,6 +74,14 @@ typedef struct texture
 	int				height;
 	void			*value;
 }					t_texture;
+
+typedef struct s_render
+{
+	double			offset_x;
+	double			offset_y;
+	double			distance;
+	t_texture		*texture;
+}					t_render;
 
 typedef struct textures
 {
@@ -156,7 +140,7 @@ typedef struct s_prite
 	double			distance;
 	double			sprite_height;
 	double			sprite_width;
-	int				value;
+	t_texture		*texture;
 }					t_sprite;
 
 typedef struct s_player

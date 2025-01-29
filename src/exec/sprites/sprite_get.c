@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites.c                                          :+:      :+:    :+:   */
+/*   sprite_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 14:27:04 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 08:36:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-double	get_sprite_distance(double sprite_dy, double sprite_dx)
-{
-	return (sqrt(sprite_dx * sprite_dx + sprite_dy * sprite_dy));
-}
-
-double	get_sprite_angle(double sprite_dy, double sprite_dx)
-{
-	return atan2(sprite_dy, sprite_dx);
-}
 
 int	normalize_width(int img_width)
 {
@@ -32,14 +22,14 @@ int	normalize_height(int img_height)
 	return (RESV * img_height / 360);
 }
 
-void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture, char value)
+void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture)
 {
 	double sprite_dx;
 	double sprite_dy;
 	
 	sprite_dy = sprite->pos.y + 0.5 - player->pos.y;
 	sprite_dx = sprite->pos.x + 0.5 - player->pos.x;
-	double angle_diff = get_sprite_angle(sprite_dx, sprite_dy) / (M_PI / 180.0) - normalize_angle_h((player->pos.angle_h - 270));
+	double angle_diff = trigo_get_angle(sprite_dx, sprite_dy) / (M_PI / 180.0) - normalize_angle_h((player->pos.angle_h - 270));
 	if (angle_diff > 180.0)
 		angle_diff -= 360.0;
 	if (angle_diff < -180.0)
@@ -49,8 +39,8 @@ void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture, char val
 	else
 	{
 		sprite->render = 1;
-		sprite->value = value;
-		sprite->distance = get_sprite_distance(sprite_dy, sprite_dx);
+		sprite->texture = texture;
+		sprite->distance = trigo_get_hypotenuse_len(sprite_dy, sprite_dx);
 		sprite->sprite_height =  normalize_height(texture->height) / sprite->distance;
 		sprite->sprite_width = normalize_width(texture->width) / sprite->distance;
 		sprite->offsetx = (RESH / 2) - sprite->sprite_width / 2 + (tan(degree_to_radian(angle_diff))) * (RESH / 2);
@@ -59,7 +49,16 @@ void	set_sprite(t_player *player, t_sprite *sprite, t_texture *texture, char val
 	}
 }
 
-t_sprite	*get_sprites(t_map *map, t_texture *texture)
+t_texture	*get_texture(char c, t_textures *textures)
+{
+	if (c == '2')
+		return (textures->monster);
+	if (c == '3')
+		return (textures->musk);
+	return (0);
+}
+
+t_sprite	*get_sprites(t_map *map, t_textures *textures)
 {
 	t_sprite	*sprites;
 	size_t		y;
@@ -80,7 +79,7 @@ t_sprite	*get_sprites(t_map *map, t_texture *texture)
 			{
 				sprites[k].pos.x = x;
 				sprites[k].pos.y = y;
-				set_sprite(&map->player, &sprites[k], texture, map->grid[y][x]);
+				set_sprite(&map->player, &sprites[k], get_texture(map->grid[y][x], textures));
 				k++;
 			}
 			x++;
