@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 14:36:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:17:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *texture)
 		}
 		y++;
 	}
-	if (map->sprites_size > 0)
-		render_sprites(map, render, mlx, texture);
+	if (map->sprites_size > 0 && !render_sprites(map, render, mlx, texture))
+		return (detroy_render(render), 1);
 	bi_interpolation_decompression(mlx);
 	detroy_render(render);
 	return (0);
