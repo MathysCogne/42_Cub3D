@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:07:10 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:27:01 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void	handle_draw_sprite(t_mlx *mlx, t_sprite *sprite, t_render **render)
 		while (x < sprite->sprite_width)
 		{
 			if (sprite->distance > 0.5
+				&& sprite->offsety + y < RESH
+				&& sprite->offsety + y >= 0
+				&& sprite->offsetx + x >= 0
+				&& sprite->offsetx + x < RESH
 				&& (sprite->offsety + y) * RESH + (sprite->offsetx + x)
 				< RESH * RESV
 				&& sprite->distance

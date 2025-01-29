@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:46:46 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 23:57:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 12:43:33 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@
 
 static void	welcome_print(void)
 {
-	ft_printf(YELLOW "\nYour mission, if you choose to accept it:\n\n"
-						"Kill the big villain, who was spotted during "
-						"\"Roman\" salutes.\n"
+	ft_printf(YELLOW "\nYour mission, should you choose to accept it:\n\n"
+						"Kill the big villain.\n"
 						"To achieve this, "
-						"you'll need to avoid his armed guards!\n\n" C_RESET);
+						"you will have to go through his armed guards!\n\n" C_RESET);
 }
 
 short	parsing(t_env *env, char *path_map)

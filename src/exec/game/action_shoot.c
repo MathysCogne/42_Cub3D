@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:13:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 07:59:48 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:40:50 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static short	action_shot(t_env *env, t_map *map)
 		pos = is_sprites_shot(map, env->textures);
 		if (pos.x != 0 && pos.y != 0)
 		{
-			map->grid[pos.y][pos.x] = '4';
 			map->sprites_size--;
+			map->grid[pos.y][pos.x] = '4';
 		}
 		map->player.bullets--;
 	}
