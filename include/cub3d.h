@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 22:49:28 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:36:47 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@
 # define COLOR_TXT_INFO 0xFFFFFF
 # define COLOR_TXT_RED 0xFF0000
 
-# define TXT_DOOR_OPEN "USE 'SPACE' FOR OPEN A DOOR"
-# define TXT_DOOR_CLOSE "USE 'SPACE' FOR CLOSE A DOOR"
+# define TXT_DOOR_OPEN "USE 'SPACE' TO OPEN A DOOR"
+# define TXT_DOOR_CLOSE "USE 'SPACE' TO CLOSE A DOOR"
 # define TXT_NO_BULLETS "NO AMMUNITION !"
 # define TXT_LOW_PV "LOW LIFE !"
 # define TXT_LOW_STAMINA "LOW STAMINA !"

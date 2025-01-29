@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:02 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:03 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:39:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ static void	string_orientation(t_mlx *mlx, t_pos_player pos)
 {
 	char	*direction;
 
-	if (pos.angle_h >= 22.5 && pos.angle_h < 67.5)
+	if (pos.angle_h >= 337.5 || pos.angle_h < 22.5)
+		direction = "E";
+	else if (pos.angle_h >= 22.5 && pos.angle_h < 67.5)
 		direction = "NE";
 	else if (pos.angle_h >= 67.5 && pos.angle_h < 112.5)
-		direction = "E";
+		direction = "N";
 	else if (pos.angle_h >= 112.5 && pos.angle_h < 157.5)
-		direction = "SE";
+		direction = "NW";
 	else if (pos.angle_h >= 157.5 && pos.angle_h < 202.5)
-		direction = "S";
+		direction = "W";
 	else if (pos.angle_h >= 202.5 && pos.angle_h < 247.5)
 		direction = "SW";
 	else if (pos.angle_h >= 247.5 && pos.angle_h < 292.5)
-		direction = "W";
+		direction = "S";
 	else if (pos.angle_h >= 292.5 && pos.angle_h < 337.5)
-		direction = "NW";
-	else
-		direction = "N";
+		direction = "SE";
 	mlx_string_put(mlx->id, mlx->win, 75, 155, COLOR_TXT_INFO, direction);
 }
 
