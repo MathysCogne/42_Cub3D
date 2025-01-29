@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 09:45:09 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 10:28:36 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_ray
 	double			z;
 	double			angle_h;
 	double			angle_v;
-	int				index;
 }					t_ray;
 
 typedef struct s_raycasting
@@ -91,6 +90,7 @@ typedef struct textures
 	char			*path_ea;
 	char			*path_bot;
 	char			*path_top;
+	// wall
 	t_texture		no;
 	t_texture		so;
 	t_texture		we;
@@ -98,11 +98,14 @@ typedef struct textures
 	t_texture		top;
 	t_texture		bot;
 	t_texture		bot_blood;
+	// door
+	t_texture		door_no;
+	t_texture		door_so;
+	t_texture		door_we;
+	t_texture		door_ea;
+	// hub
 	t_texture		weapon_off;
 	t_texture		weapon_on;
-	t_texture		musk[5];
-	t_texture		monster[4];
-	t_texture		door;
 	t_texture		hud_border_map;
 	t_texture		hud_card_id;
 	t_texture		hud_pv;
@@ -110,6 +113,10 @@ typedef struct textures
 	t_texture		hud_stamina;
 	t_texture		hud_stamina_rod;
 	t_texture		hud_bam;
+	// sprite
+	t_texture		musk[5];
+	t_texture		monster[4];
+	// menu
 	t_texture		menu_start;
 	t_texture		menu_end;
 	int				rgb_floor[3];

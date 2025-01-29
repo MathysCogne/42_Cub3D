@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 05:53:26 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:00:48 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static short	valid_texures(t_textures *textures)
 		|| (textures->rgb_ceiling[0] == -1 && !textures->top.value))
 		return (1);
 	if (!textures->weapon_off.value || !textures->weapon_on.value
-		|| !textures->door.value)
+		|| !textures->door_ea.value)
 		return (1);
 	if (!textures->hud_border_map.value || !textures->hud_card_id.value
 		|| !textures->hud_pv.value || !textures->hud_pv_rod.value
@@ -114,8 +114,14 @@ static short	load_textures(t_env *env, t_textures *textures)
 	textures->weapon_on.value = mlx_xpm_file_to_image(env->mlx->id,
 			PATH_WEAPON_ON, &textures->weapon_on.width,
 			&textures->weapon_on.height);
-	textures->door.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_00,
-			&textures->door.width, &textures->door.height);
+	textures->door_ea.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_EA,
+			&textures->door_ea.width, &textures->door_ea.height);
+	textures->door_we.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_WE,
+			&textures->door_we.width, &textures->door_we.height);
+	textures->door_no.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_NO,
+			&textures->door_no.width, &textures->door_no.height);
+	textures->door_so.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_SO,
+			&textures->door_so.width, &textures->door_so.height);
 	textures->bot_blood.value = mlx_xpm_file_to_image(env->mlx->id, PATH_BOT_BLOOD,
 			&textures->bot_blood.width, &textures->bot_blood.height);
 	return (0);

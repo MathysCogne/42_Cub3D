@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 08:15:05 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 10:56:32 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@
 // PATH TEXTURES BONUS
 # define PATH_WEAPON_ON "./assets/texture/weapon_00.xpm"
 # define PATH_WEAPON_OFF "./assets/texture/weapon_01.xpm"
-# define PATH_DOOR_00 "./assets/texture/door.xpm"
 
 # define PATH_MONSTER_00 "./assets/texture/monster/monster_00.xpm"
 # define PATH_MONSTER_01 "./assets/texture/monster/monster_01.xpm"
@@ -130,6 +129,11 @@
 # define PATH_DIED "./assets/texture/MENU/died.xpm"
 
 # define PATH_BOT_BLOOD "./assets/texture/BOT_BLOOD.xpm"
+# define PATH_DOOR_NO "./assets/texture/doors/NO.xpm"
+# define PATH_DOOR_SO "./assets/texture/doors/SO.xpm"
+# define PATH_DOOR_EA "./assets/texture/doors/EA.xpm"
+# define PATH_DOOR_WE "./assets/texture/doors/WE.xpm"
+
 
 /*******************************/
 /*            PARSING          */

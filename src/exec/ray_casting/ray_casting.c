@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:39:04 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:57:54 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,16 @@ void	set_collision(t_raycasting *rc, char **grid)
 	}
 }
 
-t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid, t_textures *textures)
+t_render	*send_ray(t_pos *pos, t_player *player, char **grid, t_textures *textures)
 {
 	t_raycasting	rc;
 
 	rc.ray.angle_h = normalize_angle_h((player->pos.angle_h - (HFVH / 2)
-				+ HFVH * (ind_h / (((double)RESH) - 1))) * -1);
-	rc.ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (ind_v
+				+ HFVH * (pos->x / (((double)RESH) - 1))) * -1);
+	rc.ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (pos->y
 				/ (((double)RESV) - 1))) * -1;
 	rc.ray.x = player->pos.x;
 	rc.ray.y = player->pos.y;
-	rc.ray.index = ind_v;
 	rc.ray.z = HEIGT_PLAYER;
 	set_collision(&rc, grid);
 	return (get_render(player, &rc, grid, textures));
@@ -90,25 +89,24 @@ t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid, t_textur
 
 t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 {
-	int			x;
-	int			y;
 	t_render	**render;
+	t_pos		pos;
 
 	render = malloc(sizeof(t_render) * RESH * RESV);
 	if (!render)
 		return (0);
-	y = 0;
-	while (y < RESV)
+	pos.y = 0;
+	while (pos.y < RESV)
 	{
-		x = 0;
-		while (x < RESH)
+		pos.x = 0;
+		while (pos.x < RESH)
 		{
-			render[(RESH * y) + x] = send_ray(y, x, player, grid, textures);
-			if (!render[(RESH * y) + x])
+			render[(RESH * pos.y) + pos.x] = send_ray(&pos, player, grid, textures);
+			if (!render[(RESH * pos.y) + pos.x])
 				return (0);
-			x++;
+			pos.x++;
 		}
-		y++;
+		pos.y++;
 	}
 	return (render);
 }

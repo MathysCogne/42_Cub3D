@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 19:11:07 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:03:17 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->ea.value);
 		ft_mlx_destroy_image(env, env->textures->bot.value);
 		ft_mlx_destroy_image(env, env->textures->top.value);
-		ft_mlx_destroy_image(env, env->textures->door.value);
+		ft_mlx_destroy_image(env, env->textures->door_ea.value);
+		ft_mlx_destroy_image(env, env->textures->door_we.value);
+		ft_mlx_destroy_image(env, env->textures->door_so.value);
+		ft_mlx_destroy_image(env, env->textures->door_no.value);
 		ft_mlx_destroy_image(env, env->textures->weapon_off.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
