@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 11:27:01 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:06:45 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	handle_draw_sprite(t_mlx *mlx, t_sprite *sprite, t_render **render)
 				&& (sprite->offsety + y) * RESH + (sprite->offsetx + x)
 				< RESH * RESV
 				&& sprite->distance
-				< render[(sprite->offsety + y) * RESH + (sprite->offsetx + x)]->distance)
+				< render[(sprite->offsety + y) * RESH
+					+ (sprite->offsetx + x)]->distance)
 				put_sprite_pixel(mlx, sprite, x, y);
 			x++;
 		}
@@ -59,7 +60,8 @@ void	handle_draw_sprite(t_mlx *mlx, t_sprite *sprite, t_render **render)
 	}
 }
 
-int	render_sprites(t_map *map, t_render **render, t_mlx *mlx, t_textures *textures)
+int	render_sprites(t_map *map, t_render **render,
+					t_mlx *mlx, t_textures *textures)
 {
 	t_sprite	*sprites;
 	int			i;

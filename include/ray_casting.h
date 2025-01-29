@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:39:22 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:09:39 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,17 @@ t_render	**ray_cast(t_player *player, char **grid, t_textures *textures);
 double		degree_to_radian(double degree);
 double		trigo_get_opposite_len(double angle, double len);
 // ray render
-t_render	*get_render(t_player *player, t_raycasting *rc, char **grid, t_textures *textures);
+t_render	*get_render(t_player *player, t_raycasting *rc,
+				char **grid, t_textures *textures);
 // ray setter
 void		set_next_x(t_raycasting *raycasting);
 void		set_next_y(t_raycasting *raycasting);
 void		set_next_z(t_raycasting *raycasting);
 void		set_ray(t_raycasting *raycasting);
 // texture setter
-void		set_texture_door(t_render *render, t_raycasting *rc, char **grid, t_textures *textures);
-void		set_texture_classic(t_render *render, t_raycasting *rc,	char **grid, t_textures *textures);
+void		set_texture_door(t_render *render, t_raycasting *rc,
+				char **grid, t_textures *textures);
+void		set_texture_classic(t_render *render, t_raycasting *rc,
+				char **grid, t_textures *textures);
 
 #endif

@@ -56,7 +56,7 @@ SRC = main.c \
 			exec/sprites/sprite_sort.c \
 			exec/sprites/sprite_shot.c \
 \
-		utils/various.c \
+		utils/helper.c \
 		utils/cleanup.c \
 		utils/init_env.c \
 		utils/ft_free.c \
@@ -69,6 +69,7 @@ SRC = main.c \
 		utils/normalize_angle.c \
 		utils/rgb_to_hex.c \
 		utils/player_adjacent_door.c \
+		utils/trigonometry.c \
 \
 		debug/debug_parsing.c
 

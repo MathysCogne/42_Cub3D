@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 11:02:28 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:03:49 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	set_offset(t_render *render, t_ray *ray, t_textures *textures)
 		render->offset_y = fabs(ray->y - floor(ray->y));
 }
 
-void	set_texture(t_render *render, t_raycasting *rc, char **grid, t_textures *textures)
+void	set_texture(t_render *render, t_raycasting *rc,
+						char **grid, t_textures *textures)
 {
 	set_texture_classic(render, rc, grid, textures);
 	if (render->texture == 0)
@@ -44,7 +45,8 @@ void	set_distance(t_player *player, t_render *render, t_ray *ray)
 			+ pow(ray->y - player->pos.y, 2));
 }
 
-t_render	*get_render(t_player *player, t_raycasting *rc, char **grid, t_textures *textures)
+t_render	*get_render(t_player *player, t_raycasting *rc,
+							char **grid, t_textures *textures)
 {
 	t_render		*render;
 
