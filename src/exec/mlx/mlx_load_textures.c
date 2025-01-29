@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_load_textures.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:40:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 11:00:48 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:55:39 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 static short	valid_texures(t_textures *textures)
 {
 	if (!textures->ea.value || !textures->no.value || !textures->so.value
-		|| !textures->we.value)
+		|| !textures->we.value || !textures->bot_blood.value)
 		return (1);
 	if ((textures->rgb_floor[0] == -1 && !textures->bot.value)
 		|| (textures->rgb_ceiling[0] == -1 && !textures->top.value))
 		return (1);
 	if (!textures->weapon_off.value || !textures->weapon_on.value
-		|| !textures->door_ea.value)
+		|| !textures->door_ea.value || !textures->door_we.value
+		|| !textures->door_so.value || !textures->door_no.value)
 		return (1);
 	if (!textures->hud_border_map.value || !textures->hud_card_id.value
 		|| !textures->hud_pv.value || !textures->hud_pv_rod.value
@@ -122,8 +123,9 @@ static short	load_textures(t_env *env, t_textures *textures)
 			&textures->door_no.width, &textures->door_no.height);
 	textures->door_so.value = mlx_xpm_file_to_image(env->mlx->id, PATH_DOOR_SO,
 			&textures->door_so.width, &textures->door_so.height);
-	textures->bot_blood.value = mlx_xpm_file_to_image(env->mlx->id, PATH_BOT_BLOOD,
-			&textures->bot_blood.width, &textures->bot_blood.height);
+	textures->bot_blood.value = mlx_xpm_file_to_image(env->mlx->id,
+			PATH_BOT_BLOOD, &textures->bot_blood.width,
+			&textures->bot_blood.height);
 	return (0);
 }
 

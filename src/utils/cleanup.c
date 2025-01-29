@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 11:03:17 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:44:54 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,25 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->door_so.value);
 		ft_mlx_destroy_image(env, env->textures->door_no.value);
 		ft_mlx_destroy_image(env, env->textures->weapon_off.value);
+		ft_mlx_destroy_image(env, env->textures->weapon_on.value);
+		ft_mlx_destroy_image(env, env->textures->hud_border_map.value);
+		ft_mlx_destroy_image(env, env->textures->hud_card_id.value);
+		ft_mlx_destroy_image(env, env->textures->hud_pv.value);
+		ft_mlx_destroy_image(env, env->textures->hud_pv_rod.value);
+		ft_mlx_destroy_image(env, env->textures->hud_stamina.value);
+		ft_mlx_destroy_image(env, env->textures->hud_stamina_rod.value);
+		ft_mlx_destroy_image(env, env->textures->hud_bam.value);
+		ft_mlx_destroy_image(env, env->textures->musk[0].value);
+		ft_mlx_destroy_image(env, env->textures->musk[1].value);
+		ft_mlx_destroy_image(env, env->textures->musk[2].value);
+		ft_mlx_destroy_image(env, env->textures->musk[3].value);
+		ft_mlx_destroy_image(env, env->textures->monster[0].value);
+		ft_mlx_destroy_image(env, env->textures->monster[1].value);
+		ft_mlx_destroy_image(env, env->textures->monster[2].value);
+		ft_mlx_destroy_image(env, env->textures->monster[3].value);
+		ft_mlx_destroy_image(env, env->textures->monster[4].value);
+		ft_mlx_destroy_image(env, env->textures->menu_start.value);
+		ft_mlx_destroy_image(env, env->textures->menu_end.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);
 		ft_free(env->textures);
 	}
