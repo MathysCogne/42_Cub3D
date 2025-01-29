@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 16:44:54 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:06:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,37 @@ static void	ft_mlx_destroy_image(t_env *env, void *ptr)
 		ptr = NULL;
 	}
 }
+
+t_texture	no;
+t_texture	so;
+t_texture	we;
+t_texture	ea;
+t_texture	top;
+t_texture	bot;
+t_texture	bot_blood;
+// door
+t_texture	door_no;
+t_texture	door_so;
+t_texture	door_we;
+t_texture	door_ea;
+// hub
+t_texture	weapon_off;
+t_texture	weapon_on;
+t_texture	hud_border_map;
+t_texture	hud_card_id;
+t_texture	hud_pv;
+t_texture	hud_pv_rod;
+t_texture	hud_stamina;
+t_texture	hud_stamina_rod;
+t_texture	hud_bam;
+// sprite
+t_texture	musk[5];
+t_texture	monster[4];
+// menu
+t_texture	menu_start;
+t_texture	menu_end;
+int			rgb_floor[3];
+int			rgb_ceiling[3];
 
 static void	cleanup_textures(t_env *env)
 {
@@ -36,6 +67,7 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->we.value);
 		ft_mlx_destroy_image(env, env->textures->ea.value);
 		ft_mlx_destroy_image(env, env->textures->bot.value);
+		ft_mlx_destroy_image(env, env->textures->bot_blood.value);
 		ft_mlx_destroy_image(env, env->textures->top.value);
 		ft_mlx_destroy_image(env, env->textures->door_ea.value);
 		ft_mlx_destroy_image(env, env->textures->door_we.value);
@@ -54,11 +86,11 @@ static void	cleanup_textures(t_env *env)
 		ft_mlx_destroy_image(env, env->textures->musk[1].value);
 		ft_mlx_destroy_image(env, env->textures->musk[2].value);
 		ft_mlx_destroy_image(env, env->textures->musk[3].value);
+		ft_mlx_destroy_image(env, env->textures->musk[4].value);
 		ft_mlx_destroy_image(env, env->textures->monster[0].value);
 		ft_mlx_destroy_image(env, env->textures->monster[1].value);
 		ft_mlx_destroy_image(env, env->textures->monster[2].value);
 		ft_mlx_destroy_image(env, env->textures->monster[3].value);
-		ft_mlx_destroy_image(env, env->textures->monster[4].value);
 		ft_mlx_destroy_image(env, env->textures->menu_start.value);
 		ft_mlx_destroy_image(env, env->textures->menu_end.value);
 		ft_mlx_destroy_image(env, env->mlx->render_pixel);

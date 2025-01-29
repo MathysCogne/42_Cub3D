@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:39:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 21:10:50 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:04:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,17 @@ static void	put_card_id(t_env *env)
 {
 	t_pos	pos;
 	char	*ammo;
+	char	*ret_itoa;
 
-	ammo = ft_strjoin("AMMO: ", ft_itoa(env->map->player.bullets));
+	ret_itoa = ft_itoa(env->map->player.bullets);
+	ammo = ft_strjoin("AMMO: ", ret_itoa);
 	pos.x = WIN_WIDTH * 0.02;
 	pos.y = WIN_HEIGHT * 0.98 - env->textures->hud_card_id.height;
 	helper_mlx_put_hud_to_win(env, env->textures->hud_card_id, pos);
 	mlx_string_put(env->mlx->id, env->mlx->win, WIN_WIDTH * 0.043, WIN_HEIGHT
 		* 0.948, COLOR_TXT_INFO, ammo);
 	free(ammo);
+	free(ret_itoa);
 }
 
 short	handler_hud_stats_player(t_env *env)
