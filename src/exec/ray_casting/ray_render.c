@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 08:38:43 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	set_texture(t_render *render, t_raycasting *rc, char **grid)
 void	set_distance(t_player *player, t_render *render, t_ray *ray)
 {
 	render->distance = sqrt(
-		pow(ray->z - HEIGT_PLAYER, 2)
-		+ pow(ray->x - player->pos.x, 2)
-		+ pow(ray->y - player->pos.y, 2));
+			pow(ray->z - HEIGT_PLAYER, 2)
+			+ pow(ray->x - player->pos.x, 2)
+			+ pow(ray->y - player->pos.y, 2));
 }
 
 t_render	*get_render(t_player *player, t_raycasting *rc, char **grid)

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 06:06:02 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 07:51:15 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ typedef struct s_prite
 	double			distance;
 	double			sprite_height;
 	double			sprite_width;
-	int				value;
+	t_texture		*texture;
 }					t_sprite;
 
 typedef struct s_player

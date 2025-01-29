@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/28 07:37:07 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 08:39:23 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ void	detroy_render(t_render **render)
 
 int	is_collision(t_raycasting *rc, char **grid)
 {
-	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x && ft_strchr(WALL_DOOR,
-			grid[(int)rc->ray.y][(int)rc->ray.x]))
+	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x
+		&& ft_strchr(WALL_DOOR, grid[(int)rc->ray.y][(int)rc->ray.x]))
 		return (1);
-	if (rc->ray_dir_y > 0 && round(rc->ray.y) == rc->ray.y && ft_strchr(WALL_DOOR,
-			grid[(int)rc->ray.y][(int)rc->ray.x]))
+	if (rc->ray_dir_y > 0 && round(rc->ray.y) == rc->ray.y
+		&& ft_strchr(WALL_DOOR, grid[(int)rc->ray.y][(int)rc->ray.x]))
 		return (1);
-	if (rc->ray_dir_x < 0 && round(rc->ray.x) == rc->ray.x && ft_strchr(WALL_DOOR,
-			grid[(int)rc->ray.y][(int)rc->ray.x - 1]))
+	if (rc->ray_dir_x < 0 && round(rc->ray.x) == rc->ray.x
+		&& ft_strchr(WALL_DOOR, grid[(int)rc->ray.y][(int)rc->ray.x - 1]))
 		return (1);
-	if (rc->ray_dir_y < 0 && round(rc->ray.y) == rc->ray.y && ft_strchr(WALL_DOOR,
-			grid[(int)rc->ray.y - 1][(int)rc->ray.x]))
+	if (rc->ray_dir_y < 0 && round(rc->ray.y) == rc->ray.y
+		&& ft_strchr(WALL_DOOR, grid[(int)rc->ray.y - 1][(int)rc->ray.x]))
 		return (1);
 	if (rc->ray_dir_z > 0 && rc->ray.z == HEIGHT)
 		return (1);
