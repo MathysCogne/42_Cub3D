@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 08:39:23 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:39:04 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	set_collision(t_raycasting *rc, char **grid)
 	}
 }
 
-t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid)
+t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid, t_textures *textures)
 {
 	t_raycasting	rc;
 
@@ -85,10 +85,10 @@ t_render	*send_ray(int ind_v, int ind_h, t_player *player, char **grid)
 	rc.ray.index = ind_v;
 	rc.ray.z = HEIGT_PLAYER;
 	set_collision(&rc, grid);
-	return (get_render(player, &rc, grid));
+	return (get_render(player, &rc, grid, textures));
 }
 
-t_render	**ray_cast(t_player *player, char **grid)
+t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 {
 	int			x;
 	int			y;
@@ -103,7 +103,7 @@ t_render	**ray_cast(t_player *player, char **grid)
 		x = 0;
 		while (x < RESH)
 		{
-			render[(RESH * y) + x] = send_ray(y, x, player, grid);
+			render[(RESH * y) + x] = send_ray(y, x, player, grid, textures);
 			if (!render[(RESH * y) + x])
 				return (0);
 			x++;

@@ -6,49 +6,49 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 05:11:33 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 08:38:22 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 09:28:58 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_texture_door(t_render *render, t_raycasting *rc, char **grid)
+void	set_texture_door(t_render *render, t_raycasting *rc, char **grid, t_textures *textures)
 {
 	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '9')
-		render->pole = DOOR_EA;
+		render->texture = &textures->door;
 	else if (rc->ray_dir_y > 0 && round(rc->ray.y) == rc->ray.y
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '9')
-		render->pole = DOOR_SN;
+		render->texture = &textures->door;
 	else if (rc->ray_dir_x < 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x - 1] == '9')
-		render->pole = DOOR_WE;
+		render->texture = &textures->door;
 	else if (rc->ray_dir_y < 0 && round(rc->ray.y) == rc->ray.y
 		&& grid[(int)rc->ray.y - 1][(int)rc->ray.x] == '9')
-		render->pole = DOOR_SN;
+		render->texture = &textures->door;
 }
 
-void	set_texture_classic(t_render *render, t_raycasting *rc,	char **grid)
+void	set_texture_classic(t_render *render, t_raycasting *rc,	char **grid, t_textures *textures)
 {
 	if (rc->ray_dir_x > 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '1')
-		render->pole = EA;
+		render->texture = &textures->ea;
 	else if (rc->ray_dir_y > 0 && round(rc->ray.y) == rc->ray.y
 		&& grid[(int)rc->ray.y][(int)rc->ray.x] == '1')
-		render->pole = SO;
+		render->texture = &textures->so;
 	else if (rc->ray_dir_x < 0 && round(rc->ray.x) == rc->ray.x
 		&& grid[(int)rc->ray.y][(int)rc->ray.x - 1] == '1')
-		render->pole = WE;
+		render->texture = &textures->we;
 	else if (rc->ray_dir_y < 0 && round(rc->ray.y) == rc->ray.y
 		&& grid[(int)rc->ray.y - 1][(int)rc->ray.x] == '1')
-		render->pole = NO;
+		render->texture = &textures->no;
 	else if (rc->ray_dir_z > 0 && rc->ray.z == HEIGHT)
-		render->pole = TOP;
+		render->texture = &textures->top;
 	else if (rc->ray_dir_z < 0 && rc->ray.z == 0)
 	{
 		if (grid[(int)rc->ray.y][(int)rc->ray.x] == '4')
-			render->pole = BOT_BLOOD;
+			render->texture = &textures->bot_blood;
 		else
-			render->pole = BOT;
+			render->texture = &textures->bot;
 	}
 }
