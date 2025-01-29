@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 09:43:35 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:02:28 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	set_offset(t_render *render, t_ray *ray, t_textures *textures)
 {
 	if (render->texture != &textures->ea
 		&& render->texture != &textures->we
-		&& render->texture != &textures->door
-		&& render->texture != &textures->door)
+		&& render->texture != &textures->door_ea
+		&& render->texture != &textures->door_we)
 		render->offset_x = fabs(ray->x - floor(ray->x));
 	else
 		render->offset_x = fabs(ray->y - floor(ray->y));
