@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 20:17:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:24:34 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define REGEN_STAMINA 0.05
 # define SPRINT_MIN_COST 0.1
 
-# define TIME_RENDER_ANIM 10
+# define TIME_RENDER_ANIM 40
 # define FRAME_MAX_MONSTERS 4
 # define FRAME_MAX_MUSK 5
 
