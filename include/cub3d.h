@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 17:05:26 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:17:40 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "ray_casting.h"
 # include "struct.h"
 # include <fcntl.h>
-# include <math.h>
 # include <float.h>
+# include <math.h>
 // DEBUG //
 # include <stdio.h>
 
@@ -45,11 +45,11 @@
 # define RESV WIN_HEIGHT / 2
 # define VERTICAL_FIX RESV * 3 / 180
 
-# define TICK_SPEED 200
+# define TICK_SPEED 100
 
 // GAME
-# define MOVE_SPEED 0.05
-# define SPRINT_SPEED 0.09
+# define MOVE_SPEED 0.03
+# define SPRINT_SPEED 0.065
 # define MOVE_COLISION "19"
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
