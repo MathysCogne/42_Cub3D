@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:02 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 23:39:40 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:28:49 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	string_orientation(t_mlx *mlx, t_pos_player pos)
 {
 	char	*direction;
 
+	direction = "";
 	if (pos.angle_h >= 337.5 || pos.angle_h < 22.5)
 		direction = "E";
 	else if (pos.angle_h >= 22.5 && pos.angle_h < 67.5)
