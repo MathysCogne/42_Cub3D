@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:10:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 06:52:58 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:07:10 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ double	degree_to_radian(double degree)
  * len: AC
  * return: BC len
  */
-double trigo_get_opposite_len(double angle, double len) {
-
-	double tan_val;
+double	trigo_get_opposite_len(double angle, double len)
+{
+	double	tan_val;
 
 	tan_val = tan(angle);
-	if (fabs(tan_val) > DBL_MAX / fabs(len)) {  
-		return DBL_MAX;
+	if (fabs(tan_val) > DBL_MAX / fabs(len))
+	{
+		return (DBL_MAX);
 	}
 	return (len * tan_val);
 }
-
 
 double	trigo_get_hypotenuse_len(double sprite_dy, double sprite_dx)
 {
