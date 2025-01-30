@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:51:07 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 11:49:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 05:22:02 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ t_pos	is_sprites_shot(t_map *map, t_textures *textures)
 				degree_to_radian(
 					fabs(sprites[i].angle_diff)), sprites[i].distance)
 			< 0.2)
-			return (sprites[i].pos);
+		{
+			pos = sprites[i].pos;
+			return (free(sprites), pos);
+		}
 		i++;
 	}
 	free(sprites);
