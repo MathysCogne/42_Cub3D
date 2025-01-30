@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 21:22:32 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:06:55 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,9 @@ t_sprite	*get_sprites(t_map *map, t_textures *textures)
 	t_pos		pos;
 	size_t		k;
 
-	sprites = malloc(sizeof(t_sprite) * map->sprites_size);
+	sprites = calloc(sizeof(t_sprite), map->sprites_size);
 	if (!sprites)
 		return (0);
-	ft_memset(sprites, 0, sizeof(t_sprite) * map->sprites_size);
 	k = 0;
 	pos.y = 0;
 	while (pos.y < map->height)
