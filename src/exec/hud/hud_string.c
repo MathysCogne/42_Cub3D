@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:02 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 16:28:49 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:17:08 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static void	string_door(t_mlx *mlx, t_map *map, t_pos_player pos)
 	short	door;
 
 	door = player_adjacent_door(map->grid, (int)pos.y, (int)pos.x);
-	if (door == 8)
+	if (door == CARAC_DOOR_OPEN)
 		mlx_string_put(mlx->id, mlx->win, WIN_WIDTH * 0.8 / 2, WIN_HEIGHT
 			* 0.075, COLOR_TXT_INFO, TXT_DOOR_CLOSE);
-	else if (door == 9)
+	else if (door == CARAC_DOOR)
 		mlx_string_put(mlx->id, mlx->win, WIN_WIDTH * 0.8 / 2, WIN_HEIGHT
 			* 0.075, COLOR_TXT_INFO, TXT_DOOR_OPEN);
 }

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   process_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 10:02:24 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:11:35 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void set_sprites_size(t_map *map, char *line)
+static void	set_sprites_size(t_map *map, char *line)
 {
 	size_t	i;
 
 	i = 0;
 	while (line && line[i])
 	{
-		if (line[i] == '2' || line[i] == '3')
+		if (line[i] == CARAC_MONSTER || line[i] == CARAC_MUSK)
 			map->sprites_size++;
 		i++;
 	}
@@ -39,7 +39,7 @@ static short	find_player_pos(t_player *player, char *line, size_t x)
 	y = 0;
 	while (line && line[y])
 	{
-		if (ft_strchr("NSEW", line[y]))
+		if (ft_strchr(CARAC_PLAYER, line[y]))
 		{
 			player->pos.y = x + 0.5;
 			player->pos.x = y + 0.5;

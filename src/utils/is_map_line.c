@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 18:03:18 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/19 18:05:38 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:04:51 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ short	is_map_line(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (!ft_is_space(line[i]) && !ft_strchr("01NSEW", line[i]))
+		if (!ft_is_space(line[i]) && !ft_strchr(CARAC_MAP_NO_SPACE, line[i]))
 			return (0);
 		i++;
 	}

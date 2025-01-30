@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 14:17:52 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:24:42 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static short	update_player_position(t_env *env, double x, double y)
 		speed = SPRINT_SPEED;
 	new_x = env->map->player.pos.y + x * speed;
 	new_y = env->map->player.pos.x + y * speed;
-	if (!ft_strchr(MOVE_COLISION,
-			env->map->grid[(int)floor(env->map->player.pos.y)][(int)floor(new_y)]))
+	if (!ft_strchr(MOVE_COLISION, env->map->grid
+			[(int)floor(env->map->player.pos.y)][(int)floor(new_y)]))
 		env->map->player.pos.x = new_y;
-	if (!ft_strchr(MOVE_COLISION,
-			env->map->grid[(int)floor(new_x)][(int)floor(env->map->player.pos.x)]))
+	if (!ft_strchr(MOVE_COLISION, env->map->grid
+			[(int)floor(new_x)][(int)floor(env->map->player.pos.x)]))
 		env->map->player.pos.y = new_x;
 	return (0);
 }

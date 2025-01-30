@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 22:06:55 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:13:27 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_sprite	*get_sprites(t_map *map, t_textures *textures)
 	t_pos		pos;
 	size_t		k;
 
-	sprites = calloc(sizeof(t_sprite), map->sprites_size);
+	sprites = ft_calloc(sizeof(t_sprite), map->sprites_size);
 	if (!sprites)
 		return (0);
 	k = 0;
@@ -74,8 +74,8 @@ t_sprite	*get_sprites(t_map *map, t_textures *textures)
 		pos.x = 0;
 		while (map->grid[pos.y][pos.x])
 		{
-			if (map->grid[pos.y][pos.x] == '2'
-				|| map->grid[pos.y][pos.x] == '3')
+			if (map->grid[pos.y][pos.x] == CARAC_MONSTER
+				|| map->grid[pos.y][pos.x] == CARAC_MUSK)
 			{
 				try_set_sprite(&pos, &sprites[k], textures, map);
 				k++;

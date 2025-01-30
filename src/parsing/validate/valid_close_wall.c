@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:30:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 22:48:03 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:10:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static short	is_not_wall_adjacent(char **grid, size_t y, size_t x)
 		return (1);
 	if (x == 0 || x >= ft_strlen(grid[y - 1]) || x >= ft_strlen(grid[y + 1]))
 		return (1);
-	if (grid[y - 1][x] == ' ' || grid[y + 1][x] == ' ')
+	if (grid[y - 1][x] == CARAC_VOID || grid[y + 1][x] == CARAC_VOID)
 		return (1);
-	if (grid[y][x - 1] == ' ' || (x + 1 < len && grid[y][x + 1] == ' '))
+	if (grid[y][x - 1] == CARAC_VOID || (x + 1 < len && grid[y][x
+			+ 1] == CARAC_VOID))
 		return (1);
 	return (0);
 }

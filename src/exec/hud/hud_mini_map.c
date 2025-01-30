@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 23:30:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:17:38 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	get_color_tile(t_map *map, t_pos map_pos)
 			return (MINIMAP_COLOR_DOOR);
 		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR_OPEN)
 			return (MINIMAP_COLOR_DOOR_OPEN);
-		else if (map->grid[map_pos.y][map_pos.x] == ' ')
+		else if (map->grid[map_pos.y][map_pos.x] == CARAC_VOID)
 			return (MINIMAP_COLOR_WALL);
 		else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
 			return (MINIMAP_COLOR_VOID);

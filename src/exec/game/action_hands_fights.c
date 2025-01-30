@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:08:11 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 21:01:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:20:00 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static short	player_adjacent_ennemy(char **grid, size_t y, size_t x)
 	else if (!grid[y][x + 1] || !grid[y][x - 1])
 		return (0);
 	if (ft_strchr(CARAC_ENNEMY, grid[y - 1][x]))
-		return (grid[y - 1][x] = '4', 1);
+		return (grid[y - 1][x] = CARAC_BOT_BLOOD, 1);
 	else if (ft_strchr(CARAC_ENNEMY, grid[y + 1][x]))
-		return (grid[y + 1][x] = '4', 1);
+		return (grid[y + 1][x] = CARAC_BOT_BLOOD, 1);
 	else if (ft_strchr(CARAC_ENNEMY, grid[y][x + 1]))
-		return (grid[y][x + 1] = '4', 1);
+		return (grid[y][x + 1] = CARAC_BOT_BLOOD, 1);
 	else if (ft_strchr(CARAC_ENNEMY, grid[y][x - 1]))
-		return (grid[y][x - 1] = '4', 1);
+		return (grid[y][x - 1] = CARAC_BOT_BLOOD, 1);
 	return (0);
 }
 
