@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action_shoot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:13:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 11:40:50 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:19:37 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static short	action_shot(t_env *env, t_map *map)
 		if (pos.x != 0 && pos.y != 0)
 		{
 			map->sprites_size--;
-			map->grid[pos.y][pos.x] = '4';
+			map->grid[pos.y][pos.x] = CARAC_BOT_BLOOD;
 		}
 		map->player.bullets--;
 	}

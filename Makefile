@@ -31,6 +31,7 @@ SRC = main.c \
 			exec/mlx/ft_put_pixel_in_img.c \
 			exec/mlx/ft_get_pixel_color.c \
 			exec/mlx/mlx_load_textures.c \
+			exec/mlx/valid_textures.c \
 \
 			exec/game/move_player.c \
 			exec/game/action_door.c \
@@ -71,6 +72,7 @@ SRC = main.c \
 		utils/rgb_to_hex.c \
 		utils/player_adjacent_door.c \
 		utils/trigonometry.c \
+		utils/ft_mlx_destroy_image.c \
 \
 		debug/debug_parsing.c
 

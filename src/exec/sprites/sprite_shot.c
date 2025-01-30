@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_shot.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:51:07 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 21:20:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:26:58 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_pos	is_sprites_shot(t_map *map, t_textures *textures)
 		i = 0;
 		while (i < map->sprites_size)
 		{
-			if (trigo_get_opposite_len(
-					degree_to_radian(
-						fabs(sprites[i].angle_diff)), sprites[i].distance)
-				< 0.2 && sprites[i].distance < 10.0 && sprites[i].render == 1)
+			if (trigo_get_opposite_len(degree_to_radian(
+						fabs(sprites[i].angle_diff)),
+					sprites[i].distance) < 0.2 && sprites[i].distance < 10.0
+				&& sprites[i].render == 1)
 			{
 				pos = sprites[i].pos;
 				return (free(sprites), pos);
@@ -37,7 +37,5 @@ t_pos	is_sprites_shot(t_map *map, t_textures *textures)
 		}
 		free(sprites);
 	}
-	pos.x = 0;
-	pos.y = 0;
-	return (pos);
+	return (pos.x = 0, pos.y = 0, pos);
 }

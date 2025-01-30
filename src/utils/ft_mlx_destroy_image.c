@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_door.c                                      :+:      :+:    :+:   */
+/*   ft_mlx_destroy_image.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 17:58:22 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:24:58 by mcogne--         ###   ########.fr       */
+/*   Created: 2025/01/30 22:31:39 by mcogne--          #+#    #+#             */
+/*   Updated: 2025/01/30 22:32:28 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	handler_door(t_env *env)
+void	ft_mlx_destroy_image(t_env *env, void *ptr)
 {
-	t_map	*map;
-
-	map = env->map;
-	if (player_adjacent_close_door(map->grid, (int)map->player.pos.y,
-			(int)map->player.pos.x))
-		ft_printf(MINT_GREEN NAME TXT_ACTION_DOOR_OPEN);
-	else if (player_adjacent_open_door(map->grid, (int)map->player.pos.y,
-			(int)map->player.pos.x))
-		ft_printf(MINT_GREEN NAME TXT_ACTION_DOOR_CLOSE);
-	return (0);
+	if (ptr)
+	{
+		mlx_destroy_image(env->mlx->id, ptr);
+		ptr = NULL;
+	}
 }

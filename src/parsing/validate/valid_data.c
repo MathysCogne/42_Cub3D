@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:33:03 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/26 15:50:09 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:09:36 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static short	valid_rgb(t_textures *textures, int *rgb_floor,
 	i = 0;
 	while (i < 3)
 	{
-		if ((rgb_floor[i] == -1 && !textures->path_bot) || (rgb_ceiling[i] == -1
-				&& !textures->path_top))
+		if ((rgb_floor[i] == NULL_RGB && !textures->path_bot)
+			|| (rgb_ceiling[i] == NULL_RGB && !textures->path_top))
 			return (1);
-		if (rgb_floor[i] < -1 || rgb_floor[i] > 255)
+		if (rgb_floor[i] < MIN_RGB || rgb_floor[i] > MAX_RGB)
 			return (1);
-		if (rgb_ceiling[i] < -1 || rgb_ceiling[i] > 255)
+		if (rgb_ceiling[i] < MIN_RGB || rgb_ceiling[i] > MAX_RGB)
 			return (1);
 		i++;
 	}
@@ -37,7 +37,7 @@ static short	is_null_path_rgb(t_textures *textures)
 	if (!textures->path_ea || !textures->path_no || !textures->path_so
 		|| !textures->path_we || !*textures->rgb_ceiling
 		|| !*textures->rgb_floor)
-		return (ft_printf("heyre"), 1);
+		return (1);
 	return (0);
 }
 
