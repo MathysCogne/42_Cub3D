@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 06:50:52 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:05:26 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@
 # define NAME "[cub3D] "
 
 # define WIN_TITLE "Cub3D - @UserCrixus & @MathysCogne"
-# define WIN_WIDTH 1080
+# define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
-# define RESH 1080 / 2
-# define RESV 720 / 2
+# define RESH WIN_WIDTH / 2
+# define RESV WIN_HEIGHT / 2
 # define VERTICAL_FIX RESV * 3 / 180
 
 # define TICK_SPEED 200

@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:08:38 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 15:59:43 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:20:58 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include "struct.h"
 
-# define FOVH 90.0
+# define FOVH 100.0
 # define FOVV 60.0
 # define HEIGHT 1.0
 # define HEIGT_PLAYER 0.5
