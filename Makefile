@@ -94,7 +94,7 @@ LIBS = $(MLX) $(LIBFT)
 
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/X11 -I$(LIBFT_INCLUDE)
+CFLAGS = -O3 -march=native -Wall -Werror -Wextra -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/X11 -I$(LIBFT_INCLUDE)
 AR = ar
 ARFLAGS = rcs
 
