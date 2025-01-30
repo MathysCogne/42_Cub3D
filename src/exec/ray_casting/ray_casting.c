@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 17:03:21 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:00:31 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	detroy_render(t_render **render)
 		x = 0;
 		while (x < RESH)
 		{
-			free(render[(RESH * y) + x]);
+			if (render[(RESH * y) + x])
+				free(render[(RESH * y) + x]);
 			x++;
 		}
 		y++;
@@ -77,9 +78,9 @@ t_render	*send_ray(t_pos *pos, t_player *player,
 {
 	t_raycasting	rc;
 
-	rc.ray.angle_h = normalize_angle_h((player->pos.angle_h - (HFVH / 2)
-				+ HFVH * (pos->x / (((double)RESH) - 1))) * -1);
-	rc.ray.angle_v = (player->pos.angle_v - (HFVV / 2) + HFVV * (pos->y
+	rc.ray.angle_h = normalize_angle_h((player->pos.angle_h - (FOVH / 2)
+				+ FOVH * (pos->x / (((double)RESH) - 1))) * -1);
+	rc.ray.angle_v = (player->pos.angle_v - (FOVV / 2) + FOVV * (pos->y
 				/ (((double)RESV) - 1))) * -1;
 	rc.ray.x = player->pos.x;
 	rc.ray.y = player->pos.y;
@@ -93,7 +94,7 @@ t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 	t_render	**render;
 	t_pos		pos;
 
-	render = malloc(sizeof(t_render) * RESH * RESV);
+	render = calloc(sizeof(t_render), RESH * RESV);
 	if (!render)
 		return (0);
 	pos.y = 0;
@@ -105,7 +106,7 @@ t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 			render[(RESH * pos.y) + pos.x]
 				= send_ray(&pos, player, grid, textures);
 			if (!render[(RESH * pos.y) + pos.x])
-				return (0);
+				return (detroy_render(render), NULL);
 			pos.x++;
 		}
 		pos.y++;

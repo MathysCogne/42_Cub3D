@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 03:01:24 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 18:47:57 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:58:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	try_set_sprite(t_pos *pos, t_sprite *sprite,
 		angle_diff -= 360.0;
 	if (angle_diff < -180.0)
 		angle_diff += 360.0;
-	if (fabs(angle_diff) > HFVH / 1.90)
+	if (fabs(angle_diff) > FOVH / 1.90)
 		sprite->render = 0;
 	else
 		set_sprite(sprite, map, angle_diff, textures);
