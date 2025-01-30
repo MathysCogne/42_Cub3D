@@ -94,7 +94,7 @@ LIBS = $(MLX) $(LIBFT)
 
 
 CC = cc
-COPTI = -O3 -march=native -mtune=native -flto -funroll-loops -ffp-contract=fast -falign-functions=32 -fno-plt -fstack-protector-strong -D_FORTIFY_SOURCE=2 -pipe
+COPTI =
 CFLAGS = $(COPTI) -Wall -Werror -Wextra -I$(INCDIR) -g3 -I$(MINILIBX_DIR) -I/usr/include/X11 -I$(LIBFT_INCLUDE)
 AR = ar
 ARFLAGS = rcs

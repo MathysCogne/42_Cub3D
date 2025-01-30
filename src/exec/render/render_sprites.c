@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_sprites.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:32:31 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 17:06:45 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:08:57 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	render_sprites(t_map *map, t_render **render,
 	int			i;
 
 	sprites = get_sprites(map, textures);
-	sort_sprites(sprites, map, is_inferior);
 	if (!sprites)
 		return (0);
+	sort_sprites(sprites, map, is_inferior);
 	i = 0;
 	while (i < map->sprites_size)
 	{
