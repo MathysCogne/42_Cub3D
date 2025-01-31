@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:43:29 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 11:45:15 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:23:05 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ short	read_map(t_env *env, char *path_map)
 	if (errno)
 		return (close(fd), 1);
 	close(fd);
+	ft_free(line);
 	return (0);
 }

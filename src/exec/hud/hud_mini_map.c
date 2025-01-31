@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_mini_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 09:54:24 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:23:26 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,24 @@ static short	render_background_minimap(t_env *env)
 
 static int	get_color_tile(t_map *map, t_pos map_pos)
 {
-	if (map_pos.y < map->height && map->grid[map_pos.y][map_pos.x])
-	{
-		if (map->grid[map_pos.y][map_pos.x] == '1')
-			return (MINIMAP_COLOR_WALL);
-		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR)
-			return (MINIMAP_COLOR_DOOR);
-		else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR_OPEN)
-			return (MINIMAP_COLOR_DOOR_OPEN);
-		else if (map->grid[map_pos.y][map_pos.x] == CARAC_VOID)
-			return (MINIMAP_COLOR_WALL);
-		else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
-			return (MINIMAP_COLOR_VOID);
-		else if (ft_strchr(CARAC_ENNEMY, map->grid[map_pos.y][map_pos.x]))
-			return (MINIMAP_COLOR_ENNEMY);
-		else
-			return (MINIMAP_COLOR_VOID);
-	}
-	return (MINIMAP_COLOR_WALL);
+	if (!map || !map->grid || map_pos.y >= map->height)
+		return (MINIMAP_COLOR_WALL);
+	if (!map->grid[map_pos.y] || map_pos.x >= ft_strlen(map->grid[map_pos.y]))
+		return (MINIMAP_COLOR_WALL);
+	if (map->grid[map_pos.y][map_pos.x] == CARAC_WALL)
+		return (MINIMAP_COLOR_WALL);
+	else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR)
+		return (MINIMAP_COLOR_DOOR);
+	else if (map->grid[map_pos.y][map_pos.x] == CARAC_DOOR_OPEN)
+		return (MINIMAP_COLOR_DOOR_OPEN);
+	else if (map->grid[map_pos.y][map_pos.x] == CARAC_VOID)
+		return (MINIMAP_COLOR_WALL);
+	else if (ft_strchr(CARAC_PLAYER_VOID, map->grid[map_pos.y][map_pos.x]))
+		return (MINIMAP_COLOR_VOID);
+	else if (ft_strchr(CARAC_ENNEMY, map->grid[map_pos.y][map_pos.x]))
+		return (MINIMAP_COLOR_ENNEMY);
+	else
+		return (MINIMAP_COLOR_VOID);
 }
 
 static short	render_minimap(t_mlx *mlx, t_map *map)
