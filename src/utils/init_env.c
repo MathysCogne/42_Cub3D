@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:36:10 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 10:00:13 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:50:45 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ static void	set_rgb_err(t_textures *textures)
 
 short	init_env(t_env *env)
 {
-	env->gc = NULL;
-	env->map = NULL;
-	env->mlx = NULL;
-	env->textures = NULL;
+	ft_memset(env, 0, sizeof(t_env));
 	env->gc = gc_init();
 	if (!env->gc)
 		return (1);
