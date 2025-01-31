@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:45:34 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 17:03:49 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:00:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_render	*get_render(t_player *player, t_raycasting *rc,
 {
 	t_render		*render;
 
-	render = calloc(sizeof(t_render), 1);
+	render = ft_calloc(sizeof(t_render), 1);
 	if (!render)
 		return (0);
 	set_texture(render, rc, grid, textures);

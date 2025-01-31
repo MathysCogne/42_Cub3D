@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:11:35 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:54:31 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int	parse_map_line(char *line, t_env *env, t_map *map)
 	if (!map->grid[map->height])
 		return (1);
 	gc_add(env->gc, map->grid[map->height]);
-	if (map->width < ft_strclen(line, '\n'))
-		map->width = ft_strclen(line, '\n');
 	find_player_pos(&map->player, line, map->height);
 	init_player_stats(map);
 	set_sprites_size(map, line);

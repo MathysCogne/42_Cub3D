@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_mini_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:17:38 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:54:24 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ static short	render_background_minimap(t_env *env)
 
 static int	get_color_tile(t_map *map, t_pos map_pos)
 {
-	if (map_pos.y < map->height && map_pos.x < map->width
-		&& map->grid[map_pos.y][map_pos.x])
+	if (map_pos.y < map->height && map->grid[map_pos.y][map_pos.x])
 	{
 		if (map->grid[map_pos.y][map_pos.x] == '1')
 			return (MINIMAP_COLOR_WALL);
