@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:35:50 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 16:00:31 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:00:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_render	**ray_cast(t_player *player, char **grid, t_textures *textures)
 	t_render	**render;
 	t_pos		pos;
 
-	render = calloc(sizeof(t_render), RESH * RESV);
+	render = ft_calloc(sizeof(t_render), RESH * RESV);
 	if (!render)
 		return (0);
 	pos.y = 0;

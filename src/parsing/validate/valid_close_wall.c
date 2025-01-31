@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_close_wall.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:30:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:10:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:54:54 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ short	valid_close_wall(t_map *map, char **grid)
 		while (grid[y][x])
 		{
 			if (ft_strchr(CARAC_PLAYER_VOID, grid[y][x]) && (x == 0 || y == 0
-					|| x == map->width - 1 || y == map->height - 1))
+					|| y == map->height - 1))
 				return (1);
 			if (ft_strchr(CARAC_PLAYER_VOID, grid[y][x])
 				&& is_not_wall_adjacent(grid, y, x))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 22:36:10 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/24 16:28:09 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:00:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,18 @@ short	init_env(t_env *env)
 	env->gc = gc_init();
 	if (!env->gc)
 		return (1);
-	env->map = malloc(sizeof(t_map));
+	env->map = ft_calloc(sizeof(t_map), 1);
 	if (!env->map)
 		return (1);
-	ft_memset(env->map, 0, sizeof(t_map));
-	env->mlx = malloc(sizeof(t_mlx));
+	env->mlx = ft_calloc(sizeof(t_mlx), 1);
 	if (!env->mlx)
 		return (1);
-	ft_memset(env->mlx, 0, sizeof(t_mlx));
-	env->textures = malloc(sizeof(t_textures));
+	env->textures = ft_calloc(sizeof(t_textures), 1);
 	if (!env->textures)
 		return (1);
-	ft_memset(env->textures, 0, sizeof(t_textures));
 	set_rgb_err(env->textures);
-	env->event = malloc(sizeof(t_event));
+	env->event = ft_calloc(sizeof(t_event), 1);
 	if (!env->event)
 		return (1);
-	ft_memset(env->event, 0, sizeof(t_event));
 	return (0);
 }
