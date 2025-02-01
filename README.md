@@ -138,7 +138,6 @@ sin(angle_h) | y_len
 
 
 Case 2: Moving y_len on the Y-axis, how much do we move in X?  
-we are moving ours ray y_len on y. from how much we are moving x (x_len) ?
 x_len = cos(angle_h) * y_len / sin(angle_h)
 or more classic cross factor view :  
 cos(angle_h) | x_len  
@@ -147,56 +146,32 @@ sin(angle_h) | y_len
 These formulas allow us to step through the grid along the ray's direction.
 - 3/ Wall Detection (Grid Intersection Check)
 
-We need to determine where the ray first intersects a wall (represented by 1 in the grid).
-Step 1: Initialize the Ray
+Remember, we are looking for a wall (1 on our map).  
+We start at the player's position, here x(4.5), y(3.5).  
+You can see the ray angle (something like 30°, though it's not important).  
+The first two intersections with rounded x and y values are shown in green.  
+The y-axis intersection is at y(4.0).  
+The x-axis intersection is at x(3.0).  
 
-    Start at player's position (x = 4.5, y = 3.5)
-    Determine the first intersections with the vertical and horizontal grid lines.
+Which one is the closest?  
+dist_x = (3.0 - 4.5) / cos(angle_h)  
+dist_y = (4 - 3.5) / sin(angle_h)  
 
-Step 2: Compute Next Grid Intersections
+Compare dist_x and dist_y. Choose the smaller value as the next ray step.  
+if it is dist_x, cross factor the y value.  
+if it is dist_y, cross factor the x value.  
 
-The first horizontal and vertical intersections can be calculated as:
+Then, verify if a wall is hit:  
+grid[(int)y−1][(int)x−1]==1  
+grid[(int)y−1][(int)x−1]==1  
 
-    Horizontal intersection (y-grid line)
-    disty=ynext−ysin⁡(angleh)
-    disty​=sin(angleh​)ynext​−y​
+Repeat until this condition is met.  
 
-    Vertical intersection (x-grid line)
-    distx=xnext−xcos⁡(angleh)
-    distx​=cos(angleh​)xnext​−x​
+As a result, we obtain the pixel offset of the image as a percentage—a value x (between 0 and 1) and a value y (between 0 and 1).
 
-Where:
+The result is mapped as a pixel offset (x %, y %) between 0 and 1, determining how the final scene is drawn.
 
-    ynextynext​ is the closest integer y-grid line
-    xnextxnext​ is the closest integer x-grid line
-
-Step 3: Select the Closest Intersection
-
-Compare dist_x and dist_y:
-
-    If dist_x < dist_y, move in the X direction
-    Otherwise, move in the Y direction
-
-Step 4: Check for Wall Collision
-
-After moving to the new grid cell, check:
-grid[(int)y−1][(int)x−1]==1
-grid[(int)y−1][(int)x−1]==1
-
-    If true → Wall hit detected, stop the ray.
-    If false → Continue stepping forward until a wall is found.
-
-- 4/ Rendering the Ray on the Image
-
-Once we have the distance to the wall, we can determine the height of the projected wall on the screen.
-
-    The shorter the distance, the taller the wall appears.
-    The farther the distance, the shorter the wall appears.
-
-The result is mapped as a pixel offset (x %, y %) between 0 and 1 to determine how to draw the final scene.
 - 5/ Draw the Image and Enjoy Your 3D View!
-
-Once all rays have been processed and wall distances calculated, render the walls on the screen using perspective projection.
 
 ## Disclaimer
 > At 42 School, most projects must comply with the [Norm](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf).
