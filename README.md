@@ -116,27 +116,25 @@ Each ray is traced independently to detect walls and compute the depth of field.
 To compute the movement vector for each ray, use trigonometry:
 
     X displacement:
-    dx=cos⁡(angleh)
     dx=cos(angleh​)
     Y displacement:
-    dy=sin⁡(angleh)
     dy=sin(angleh​)
 
 For example, if the player is looking straight north (90°), then:
 
-    dx=cos⁡(90°)=0dx=cos(90°)=0
-    dy=sin⁡(90°)=1dy=sin(90°)=1
+    dx=cos⁡(90°)=0
+    dy=sin⁡(90°)=1
 
 This means the ray moves vertically upwards on the 2D grid.
 Proportionality Calculations
 
-To find the movement needed to reach the next X or Y intersection, use the cross-multiplication rule:
-Case 1: Moving x_len on the X-axis, how much do we move in Y?
-ylen=sin⁡(angleh)×xlencos⁡(angleh)
-ylen​=cos(angleh​)sin(angleh​)×xlen​​
-Case 2: Moving y_len on the Y-axis, how much do we move in X?
-xlen=cos⁡(angleh)×ylensin⁡(angleh)
-xlen​=sin(angleh​)cos(angleh​)×ylen​​
+To find the movement needed to reach the next X or Y intersection, use the cross-multiplication rule:  
+Case 1: Moving x_len on the X-axis, how much do we move in Y?  
+ylen=sin⁡(angleh)×xlencos⁡(angleh)  
+ylen​=cos(angleh​)sin(angleh​)×xlen​​  
+Case 2: Moving y_len on the Y-axis, how much do we move in X?  
+xlen=cos⁡(angleh)×ylensin⁡(angleh)  
+xlen​=sin(angleh​)cos(angleh​)×ylen​​  
 
 These formulas allow us to step through the grid along the ray's direction.
 - 3/ Wall Detection (Grid Intersection Check)
