@@ -146,7 +146,7 @@ sin(angle_h) | y_len
 These formulas allow us to step through the grid along the ray's direction.
 - 3/ Wall Detection (Grid Intersection Check)
 
-<img src="subject/output_compressed.gif" alt="GIF Cub3d" width="650" />
+<img src="subject/raycast_illustration.png" alt="GIF Cub3d" width="650" />
 
 Remember, we are looking for a wall (1 on our map).  
 We start at the player's position, here x(4.5), y(3.5).  
