@@ -126,7 +126,7 @@ For example, if the player is looking straight north (90°), then, for the mid r
     dx=cos⁡(90°)=0
     dy=sin⁡(90°)=1
 
-This means the ray moves vertically upwards on the 2D grid (y += 1, x += 0).  
+This means the ray moves vertically upwards on the 2D grid (y -= 1, x += 0).  
 
 Proportionality Calculations:
 
@@ -149,7 +149,7 @@ These formulas allow us to step through the grid along the ray's direction.
 
 <img src="subject/raycast_illustration.png" alt="GIF Cub3d" width="650" />
 
-Remember, we are looking for a walls (1 on our map).  
+Remember, we are looking for a wall (1 on our map).  
 We start at the player's position, here x(4.5), y(3.5).  
 You can see the ray angle (something like 30°, though it's not important).  
 The first two intersections with rounded x and y values are shown in green.  
@@ -170,10 +170,8 @@ grid[(int)y−1][(int)x−1]==1
 
 Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
 
-As a result, we obtain the pixel offset of the image as a percentage. A value x (between 0 and 1) and a value y (between 0 and 1).
-
-The result is mapped as a pixel offset, a value between 0 and 1, determining the pixel (column of pixel) to print for this ray.  
-On the map, the offset is something like 0.50. This if your img is 200*200, it is the column 100 that you will have to render.
+As a result, we obtain the pixel offset of the image as a percentage. A value x (between 0 and 1) corresponding to the img column offset.  
+On the map, the offset is something like 0.50. If your img is 200*200, so it is the column 100 that you will have to render (200*0.5).
 
 - 5/ You still can't understand... look at the code
 So far, you can only get a column offset, you can't get a single one pixel. You have 2 choice. The first one is to create a function to render the column. The other one is to continue on this logic and introduce a z axis. This is our choice, computing each pixel using raycasting.  
@@ -182,7 +180,8 @@ Helper: z vector correction: sin(ray.angle_v);
 
 - 6/ I'm still lost
 You should use:  
-cos, sin, ceil, floor, round, pi. You should understand that cos, and sin create a vector (https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html), you should do your (very simple) math. Even if it is very simple. It took me 4 days. Don't panic.
+cos, sin, ceil, floor, round, pi. You should understand that cos, and sin create a vector (https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html), you should do your (very simple) math. Even if it is very simple. It took me 4 days. Don't panic.  
+Code entry for raycasting : /src/exec/ray_casting/ray_casting.c
 
 ## Disclaimer
 > At 42 School, most projects must comply with the [Norm](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf).
