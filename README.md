@@ -171,18 +171,18 @@ grid[(int)y−1][(int)x−1]==1
 Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
 
 As a result, we obtain the pixel offset of the image as a percentage. A value x (between 0 and 1) corresponding to the img column offset.  
-On the map, the offset is something like 0.50. If your img is 200*200, so it is the column 100 that you will have to render (200*0.5).
+On the map, the offset is something like 0.50. If your img is 200\*200, so it is the column 100 that you will have to render (200\*0.5).
 
 - 5/ You still can't understand... look at the code
 
 So far, you can only get a column offset, you can't get a single one pixel. You have 2 choice. The first one is to create a function to render the column. The other one is to continue on this logic and introduce a z axis. This is our choice, computing each pixel using raycasting.  
 So, this demonstration is a simplified version of the algo, to make it work, you should introduce the z axis (height). We want to keep this text simple. Please look at the code to understand how to introduce the z axis.  
-Helper: z vector correction: sin(ray.angle_v);
+Helper: z vector correction: sin(angle_v);
 
 - 6/ I'm still lost
 
 You should use:  
-cos, sin, ceil, floor, round, pi. You should understand that cos, and sin create a vector (https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html), you should do your (very simple) math. Even if it is very simple. It took me 4 days. Don't panic.  
+cos, sin, ceil, floor, round, pi. You should understand that cos and sin create a vector (https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html), you should do your (very simple) math. Even if it is very simple. It took me 4 days. Don't panic.  
 Code entry for raycasting : /src/exec/ray_casting/ray_casting.c
 
 ## Disclaimer
