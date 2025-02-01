@@ -156,16 +156,20 @@ The y-axis intersection is at y(4.0).
 The x-axis intersection is at x(3.0).  
 
 Which one is the closest?  
+```
 dist_x = (3.0 - 4.5) / cos(angle_h)  
 dist_y = (4 - 3.5) / sin(angle_h)  
+```
 
 Compare dist_x and dist_y. Choose the smaller value as the next ray step.  
 if it is dist_x, cross factor the y value.  
 if it is dist_y, cross factor the x value.  
 
 Then, verify if a wall is hit:  
+```
 grid[(int)y−1][(int)x−1]==1  
 grid[(int)y−1][(int)x−1]==1  
+```
 
 Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
 
