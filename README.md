@@ -1,8 +1,4 @@
 <div align="center">
-<img src="subject/cover.png" alt="Covers" width="650" />
-
-</br>
-</br>
 
 <strong>Cub3D 🎮</strong>
 
@@ -54,30 +50,33 @@
 
 </br>
 
-## Map  `(.cub formar)`
+## Map  `(.cub format)`
 
-** NO ./path_to_the_north_texture
-** SO ./path_to_the_south_texture
-** WE ./path_to_the_west_texture
-** EA ./path_to_the_east_texture
-**
-** F 220,100,0
-** C 225,30,0
-**
-**         1111111111111111111111111
-**         1000000000110000000000001
-**         1011000001110000000000001
-**         1001000000000000000000001
-** 111111111011000001110000000000001
-** 100000000011000001110111111111111
-** 11110111111111011100000010001
-** 11110111111111011101010010001
-** 11000000110101011100000010001
-** 10000000000000001100000010001
-** 10000000000000001101010010001
-** 11000001110101011111011110N0111
-** 11110111 1110101 101111010001
-** 11111111 1111111 111111111111
+```
+NO ./assets/texture/NO.xpm
+SO ./assets/texture/SO.xpm
+WE ./assets/texture/WE.xpm
+EA ./assets/texture/EA.xpm
+
+F ./assets/texture/BOT.xpm
+C ./assets/texture/TOP.xpm
+
+11111111111111111111111111
+1E000000020000000000900001
+19111111191111111110111191
+10000000001000000010001001
+11121110111011119111001021
+10001000000010000000201001
+10191101110101111191111221
+10002001000100000000200001
+11111101111101111111111111
+11111111111191111111111111
+     10000000000001
+     10000200020001
+     10000003000001
+     10000000000001
+11111111111111111111111111
+```
 
 
 ## Compilation and Usage
@@ -157,16 +156,20 @@ The y-axis intersection is at y(4.0).
 The x-axis intersection is at x(3.0).  
 
 Which one is the closest?  
+```
 dist_x = (3.0 - 4.5) / cos(angle_h)  
 dist_y = (4 - 3.5) / sin(angle_h)  
+```
 
 Compare dist_x and dist_y. Choose the smaller value as the next ray step.  
 if it is dist_x, cross factor the y value.  
 if it is dist_y, cross factor the x value.  
 
 Then, verify if a wall is hit:  
+```
 grid[(int)y−1][(int)x−1]==1  
 grid[(int)y−1][(int)x−1]==1  
+```
 
 Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
 
