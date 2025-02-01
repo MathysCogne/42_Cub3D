@@ -152,13 +152,13 @@ Remember, we are looking for a wall (1 on our map).
 We start at the player's position, here x(4.5), y(3.5).  
 You can see the ray angle (something like 30°, though it's not important).  
 The first two intersections with rounded x and y values are shown in green.  
-The y-axis intersection is at y(4.0).  
-The x-axis intersection is at x(3.0).  
+The y-axis intersection is at x(4.0).  
+The x-axis intersection is at y(3.0).  
 
 Which one is the closest?  
 ```
-dist_x = (3.0 - 4.5) / cos(angle_h)  
-dist_y = (4 - 3.5) / sin(angle_h)  
+dist_x = (4.0 - 4.5) / cos(angle_h)  
+dist_y = (3 - 3.5) / sin(angle_h)  
 ```
 
 Compare dist_x and dist_y. Choose the smaller value as the next ray step.  
@@ -167,7 +167,6 @@ if it is dist_y, cross factor the x value.
 
 Then, verify if a wall is hit:  
 ```
-grid[(int)y−1][(int)x−1]==1  
 grid[(int)y−1][(int)x−1]==1  
 ```
 
