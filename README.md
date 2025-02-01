@@ -165,9 +165,12 @@ Compare dist_x and dist_y. Choose the smaller value as the next ray step.
 if it is dist_x, cross factor the y value.  
 if it is dist_y, cross factor the x value.  
 
-Then, verify if a wall is hit:  
+Then, verify if a wall is hit: 
 ```
-grid[(int)y−1][(int)x−1]==1  
+case1 if the rounded value is x:   
+grid[(int)y][(int)x−1]==1  
+case2 if the rounded value is y:   
+grid[(int)y - 1][(int)x]==1  
 ```
 
 Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
