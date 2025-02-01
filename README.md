@@ -131,11 +131,20 @@ Proportionality Calculations:
 
 To find the movement needed to reach the next X or Y intersection, use the cross-multiplication rule:  
 Case 1: Moving x_len on the X-axis, how much do we move in Y?  
-ylen=sin⁡(angleh)×xlencos⁡(angleh)  
-ylen​=cos(angleh​)sin(angleh​)×xlen​​  
+y_len = sin(angle_h) * x_len / cos(angle_h)
+or more classic cross factor view :
+cos(angle_h) | x_len
+------------------------
+sin(angle_h) | y_len
+
+
 Case 2: Moving y_len on the Y-axis, how much do we move in X?  
-xlen=cos⁡(angleh)×ylensin⁡(angleh)  
-xlen​=sin(angleh​)cos(angleh​)×ylen​​  
+we are moving ours ray y_len on y. from how much we are moving x (x_len) ?
+x_len = cos(angle_h) * y_len / sin(angle_h)
+or more classic cross factor view :
+cos(angle_h) | x_len
+------------------------
+sin(angle_h) | y_len
 
 These formulas allow us to step through the grid along the ray's direction.
 - 3/ Wall Detection (Grid Intersection Check)
