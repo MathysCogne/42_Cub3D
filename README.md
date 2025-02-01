@@ -173,6 +173,10 @@ The result is mapped as a pixel offset (x %, y %) between 0 and 1, determining h
 
 - 5/ Draw the Image and Enjoy Your 3D View!
 
+- 6/ I'm still lost
+You should use:  
+cos, sin, ceil, floor, round, pi. You should understand that cos, and sin create a vector (https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html), you should do your (very simple) math. Even if it is very simple. It took me 4 days. Don't panic.
+
 ## Disclaimer
 > At 42 School, most projects must comply with the [Norm](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf).
 
