@@ -175,7 +175,7 @@ On the map, the offset is something like 0.50. If your img is 200\*200, so it is
 
 - 5/ You still can't understand... look at the code
 
-So far, you can only get a column offset, you can't get a single one pixel. You have 2 choice. The first one is to create a function to render the column. The other one is to continue on this logic and introduce a z axis. This is our choice, computing each pixel using raycasting.  
+So far, you can only get a column offset, you can't get a single one pixel. You have 2 choices. The first one is to create a function to render the column. The other one is to continue on this logic and introduce a z axis. This is our choice, computing each pixel using raycasting.  
 So, this demonstration is a simplified version of the algo, to make it work, you should introduce the z axis (height). We want to keep this text simple. Please look at the code to understand how to introduce the z axis.  
 Helper: z vector correction: sin(angle_v);
 
