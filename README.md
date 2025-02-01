@@ -134,7 +134,7 @@ Case 1: Moving x_len on the X-axis, how much do we move in Y?
 y_len = sin(angle_h) * x_len / cos(angle_h)
 or more classic cross factor view :
 cos(angle_h) | x_len
-------------------------
+______________________
 sin(angle_h) | y_len
 
 
@@ -143,7 +143,7 @@ we are moving ours ray y_len on y. from how much we are moving x (x_len) ?
 x_len = cos(angle_h) * y_len / sin(angle_h)
 or more classic cross factor view :
 cos(angle_h) | x_len
-------------------------
+____________________
 sin(angle_h) | y_len
 
 These formulas allow us to step through the grid along the ray's direction.
