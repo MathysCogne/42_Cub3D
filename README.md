@@ -125,8 +125,9 @@ For example, if the player is looking straight north (90°), then:
     dx=cos⁡(90°)=0
     dy=sin⁡(90°)=1
 
-This means the ray moves vertically upwards on the 2D grid.
-Proportionality Calculations
+This means the ray moves vertically upwards on the 2D grid.  
+
+Proportionality Calculations:
 
 To find the movement needed to reach the next X or Y intersection, use the cross-multiplication rule:  
 Case 1: Moving x_len on the X-axis, how much do we move in Y?  
