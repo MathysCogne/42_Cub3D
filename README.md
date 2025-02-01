@@ -100,7 +100,6 @@ make
 </br>
 
 ## RayCasting
-Ray Casting Solution</br>
 This guide explains the logic behind ray casting for rendering a 3D-like environment using a 2D map.</br>
 
 - 1/ Rays & Field of View (FOV)
@@ -110,22 +109,24 @@ If the player has a 90° field of view (FOV) and is looking straight north (90°
 If you cast 90 rays, each one corresponds to a specific angle in this range:
 Angles: 45°, 46°, 47°, ..., 134°, 135°
 
-Each ray is traced independently to detect walls and compute the depth of field.
+Each ray is traced independently to detect walls and compute a color.
 - 2/ Calculating Ray Vectors
 
 To compute the movement vector for each ray, use trigonometry:
 
     X displacement:
-    dx=cos(angleh​)
+    dx=cos(angle_h​)
     Y displacement:
-    dy=sin(angleh​)
+    dy=sin(angle_h​)
 
-For example, if the player is looking straight north (90°), then:
+with angle_h the angle of the ray.
+
+For example, if the player is looking straight north (90°), then, for the mid ray:
 
     dx=cos⁡(90°)=0
     dy=sin⁡(90°)=1
 
-This means the ray moves vertically upwards on the 2D grid.  
+This means the ray moves vertically upwards on the 2D grid (y += 1, x += 0).  
 
 Proportionality Calculations:
 
@@ -148,7 +149,7 @@ These formulas allow us to step through the grid along the ray's direction.
 
 <img src="subject/raycast_illustration.png" alt="GIF Cub3d" width="650" />
 
-Remember, we are looking for a wall (1 on our map).  
+Remember, we are looking for a walls (1 on our map).  
 We start at the player's position, here x(4.5), y(3.5).  
 You can see the ray angle (something like 30°, though it's not important).  
 The first two intersections with rounded x and y values are shown in green.  
@@ -167,13 +168,17 @@ Then, verify if a wall is hit:
 grid[(int)y−1][(int)x−1]==1  
 grid[(int)y−1][(int)x−1]==1  
 
-Repeat until this condition is met.  
+Repeat until this condition is met. I demonstrated the algo for the step1, i'm sure you can expend it yourself for each step  
 
-As a result, we obtain the pixel offset of the image as a percentage—a value x (between 0 and 1) and a value y (between 0 and 1).
+As a result, we obtain the pixel offset of the image as a percentage. A value x (between 0 and 1) and a value y (between 0 and 1).
 
-The result is mapped as a pixel offset (x %, y %) between 0 and 1, determining how the final scene is drawn.
+The result is mapped as a pixel offset, a value between 0 and 1, determining the pixel (column of pixel) to print for this ray.  
+On the map, the offset is something like 0.50. This if your img is 200*200, it is the column 100 that you will have to render.
 
-- 5/ Draw the Image and Enjoy Your 3D View!
+- 5/ You still can't understand... look at the code
+So far, you can only get a column offset, you can't get a single one pixel. You have 2 choice. The first one is to create a function to render the column. The other one is to continue on this logic and introduce a z axis. This is our choice, computing each pixel using raycasting.  
+So, this demonstration is a simplified version of the algo, to make it work, you should introduce the z axis (height). We want to keep this text simple. Please look at the code to understand how to introduce the z axis.  
+Helper: z vector correction: sin(ray.angle_v);
 
 - 6/ I'm still lost
 You should use:  
