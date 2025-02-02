@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_loop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:36:53 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 20:49:16 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:01:03 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	action_player_render(t_env *env)
 {
+	pthread_mutex_lock(&env->map->mutex_sprite);
 	handler_action_hands_fights(env);
+	pthread_mutex_unlock(&env->map->mutex_sprite);
 	regen_stamina(env);
 	handler_move_player(env);
 }

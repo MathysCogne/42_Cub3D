@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 11:16:23 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:29:58 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <errno.h>
+# include <pthread.h> 
 
 /*******************************/
 /*          ENV - MAIN         */

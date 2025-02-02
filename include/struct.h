@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:34:09 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 09:54:12 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:59:32 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ typedef struct s_map
 	size_t			height;
 	t_player		player;
 	int				sprites_size;
+	pthread_mutex_t mutex_sprite;
 }					t_map;
 
 typedef struct s_env

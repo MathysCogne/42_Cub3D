@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 22:55:40 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:40:16 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:17:45 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 /*******************************/
 /*            GAME             */
 /*******************************/
-# define MOVE_SPEED 0.02
-# define SPRINT_SPEED 0.04
+# define MOVE_SPEED 0.02 * 3
+# define SPRINT_SPEED 0.04 * 3
 # define MOVE_COLISION "19"
 # define ANGLE_SPEED 4
 # define MOUSE_SPEED 0.02
