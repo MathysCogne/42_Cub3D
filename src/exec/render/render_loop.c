@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:36:53 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/02/02 10:37:43 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 18:25:17 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int	loop_render(t_env *env)
 	if (tick_count > TICK_SPEED)
 	{
 		action_player_render(env);
-		render_map_3d(env->map, env->mlx, env->textures);
+		if (render_map_3d(env->map, env->mlx, env->textures))
+		{
+			env->err = ERR_GAME;
+			exit_user(env);
+		}
 		mlx_put_image_to_window(env->mlx->id, env->mlx->win,
 			env->mlx->render_pixel, 0, 0);
 		handler_hud(env);
