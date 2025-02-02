@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 00:43:29 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 16:12:12 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:50:19 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ short	read_map(t_env *env, char *path_map)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	ft_free(line);
 	return (0);
 }
