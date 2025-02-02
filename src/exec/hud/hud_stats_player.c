@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_stats_player.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:39:16 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/29 17:43:13 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:14:49 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ static void	put_card_id(t_env *env)
 	free(ret_itoa);
 }
 
-short	handler_hud_stats_player(t_env *env)
+void	handler_hud_stats_player(t_env *env)
 {
 	check_status_game(env, env->map);
 	put_card_id(env);
 	put_pv(env, env->map->player);
 	put_stamina(env, env->map->player);
-	return (0);
 }

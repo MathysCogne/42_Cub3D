@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:13:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/02/02 09:02:22 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:03:53 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static short	action_shot(t_env *env, t_map *map)
 	return (0);
 }
 
-short	handler_action_weapon(t_env *env)
+void	handler_action_weapon(t_env *env)
 {
 	if (env->event->click_left)
 	{
@@ -42,5 +42,4 @@ short	handler_action_weapon(t_env *env)
 		action_shot(env, env->map);
 		pthread_mutex_unlock(&env->map->mutex_sprite);
 	}
-	return (0);
 }

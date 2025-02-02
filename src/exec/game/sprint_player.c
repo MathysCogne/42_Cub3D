@@ -6,17 +6,16 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 22:05:59 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 14:17:52 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:02:07 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	regen_stamina(t_env *env)
+void	regen_stamina(t_env *env)
 {
 	if (!env->event->move_sprint && env->map->player.stamina < START_STAMINA)
 		env->map->player.stamina += REGEN_STAMINA;
-	return (0);
 }
 
 short	action_sprint(t_map *map, double x, double y)

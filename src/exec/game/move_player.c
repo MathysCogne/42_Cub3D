@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:25 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 22:24:42 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:03:37 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	update_player_angle(t_map *map, double angle_h, double angle_v)
+void	update_player_angle(t_map *map, double angle_h, double angle_v)
 {
 	map->player.pos.angle_h += angle_h * ANGLE_SPEED;
 	map->player.pos.angle_v += angle_v * ANGLE_SPEED;
 	map->player.pos.angle_h = normalize_angle_h(map->player.pos.angle_h);
 	map->player.pos.angle_v = normalize_angle_v(map->player.pos.angle_v);
-	return (0);
 }
 
 static short	update_player_position(t_env *env, double x, double y)
@@ -41,7 +40,7 @@ static short	update_player_position(t_env *env, double x, double y)
 	return (0);
 }
 
-short	handler_move_player(t_env *env)
+void	handler_move_player(t_env *env)
 {
 	if (env->event->move_forward)
 		update_player_position(env, -sin(env->map->player.pos.angle_h * M_PI
@@ -63,5 +62,4 @@ short	handler_move_player(t_env *env)
 		update_player_angle(env->map, 0, -1);
 	if (env->event->angle_h_down)
 		update_player_angle(env->map, 0, 1);
-	return (0);
 }

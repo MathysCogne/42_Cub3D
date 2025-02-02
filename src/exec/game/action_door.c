@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   action_door.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 17:58:22 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:24:58 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:14:00 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	handler_door(t_env *env)
+void	handler_door(t_env *env)
 {
 	t_map	*map;
 
@@ -23,5 +23,4 @@ short	handler_door(t_env *env)
 	else if (player_adjacent_open_door(map->grid, (int)map->player.pos.y,
 			(int)map->player.pos.x))
 		ft_printf(MINT_GREEN NAME TXT_ACTION_DOOR_CLOSE);
-	return (0);
 }

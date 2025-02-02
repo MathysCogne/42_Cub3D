@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   hud_weapon.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:57:05 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/27 23:02:44 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:05:39 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	handler_waepon(t_env *env)
+void	handler_waepon(t_env *env)
 {
 	t_pos	pos;
 
@@ -22,5 +22,4 @@ short	handler_waepon(t_env *env)
 		helper_mlx_put_hud_to_win(env, env->textures->weapon_on, pos);
 	else
 		helper_mlx_put_hud_to_win(env, env->textures->weapon_off, pos);
-	return (0);
 }
