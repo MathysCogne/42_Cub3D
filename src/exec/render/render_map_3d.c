@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/02/02 09:12:46 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:52:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ static void	set_pixel(t_mlx *mlx, t_render *render, t_pos pos,
 	pos.y *= 2;
 	ft_put_pixel_in_img(mlx, pos, color);
 }
-int	try_render_sprite(t_map *map, t_mlx *mlx, t_textures *textures, t_render **render)
+
+int	try_render_sprite(t_map *map, t_mlx *mlx,
+						t_textures *textures, t_render **render)
 {
 	pthread_mutex_lock(&map->mutex_sprite);
 	if (!render_sprites(map, render, mlx, textures))
