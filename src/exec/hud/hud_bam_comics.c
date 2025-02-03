@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_bam_comics.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:46:50 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/28 20:50:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 07:51:09 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	hud_bam_comics(t_env *env, short state_check)
 	static short	state;
 	t_pos			pos;
 
-	if (!render_count)
-		render_count = 0;
 	if (state_check)
 		state = 1;
 	if (state)

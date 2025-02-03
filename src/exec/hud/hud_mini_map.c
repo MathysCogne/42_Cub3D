@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_mini_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 19:04:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 15:23:26 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:14:34 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static short	render_minimap(t_mlx *mlx, t_map *map)
 	return (0);
 }
 
-short	handler_mini_map(t_env *env)
+void	handler_mini_map(t_env *env)
 {
 	t_pos	center;
 	t_pos	pos_border;
@@ -121,5 +121,4 @@ short	handler_mini_map(t_env *env)
 	pos_border.x = 10;
 	pos_border.y = 10;
 	helper_mlx_put_hud_to_win(env, env->textures->hud_border_map, pos_border);
-	return (0);
 }

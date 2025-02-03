@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action_shoot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:13:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:19:37 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:03:53 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ static short	action_shot(t_env *env, t_map *map)
 	return (0);
 }
 
-short	handler_action_weapon(t_env *env)
+void	handler_action_weapon(t_env *env)
 {
 	if (env->event->click_left)
+	{
+		pthread_mutex_lock(&env->map->mutex_sprite);
 		action_shot(env, env->map);
-	return (0);
+		pthread_mutex_unlock(&env->map->mutex_sprite);
+	}
 }

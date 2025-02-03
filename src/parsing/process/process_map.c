@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:57:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 09:54:31 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:52:39 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	parse_map_line(char *line, t_env *env, t_map *map)
 	find_player_pos(&map->player, line, map->height);
 	init_player_stats(map);
 	set_sprites_size(map, line);
+	if (pthread_mutex_init(&map->mutex_sprite, NULL) != 0)
+		return (1);
 	map->height++;
 	return (0);
 }

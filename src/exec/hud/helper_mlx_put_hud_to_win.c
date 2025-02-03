@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   helper_mlx_put_hud_to_win.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:01:44 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:18:47 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:15:57 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-short	helper_mlx_put_height_start_hud_to_win(t_env *env, t_texture texture,
+void	helper_mlx_put_height_start_hud_to_win(t_env *env, t_texture texture,
 		t_pos pos, int height_start)
 {
 	int		x;
@@ -37,10 +37,9 @@ short	helper_mlx_put_height_start_hud_to_win(t_env *env, t_texture texture,
 		}
 		y++;
 	}
-	return (0);
 }
 
-short	helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
+void	helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
 		t_pos pos, int width_max)
 {
 	int		x;
@@ -65,10 +64,9 @@ short	helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
 		}
 		y++;
 	}
-	return (0);
 }
 
-short	helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos)
+void	helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos)
 {
 	int		x;
 	int		y;
@@ -92,5 +90,4 @@ short	helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos)
 		}
 		y++;
 	}
-	return (0);
 }

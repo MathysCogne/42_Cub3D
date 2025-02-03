@@ -6,7 +6,7 @@
 /*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:14:34 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/31 11:16:23 by achaisne         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:13:23 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <errno.h>
+# include <pthread.h> 
 
 /*******************************/
 /*          ENV - MAIN         */
@@ -76,28 +77,28 @@ short		valid_textures(t_textures *textures);
 /*******************************/
 /*             GAME            */
 /*******************************/
-short		update_player_angle(t_map *map, double angle_h, double angle_v);
-short		handler_move_player(t_env *env);
-short		handler_action_weapon(t_env *env);
+void		update_player_angle(t_map *map, double angle_h, double angle_v);
+void		handler_move_player(t_env *env);
+void		handler_action_weapon(t_env *env);
 short		action_sprint(t_map *map, double x, double y);
-short		regen_stamina(t_env *env);
-short		handler_action_hands_fights(t_env *env);
+void		regen_stamina(t_env *env);
+void		handler_action_hands_fights(t_env *env);
 
 /*******************************/
 /*             HUD             */
 /*******************************/
-short		handler_mini_map(t_env *env);
-short		handler_hud(t_env *env);
-short		handler_door(t_env *env);
-short		handler_waepon(t_env *env);
-short		handler_put_strings(t_env *env);
-short		handler_hud_stats_player(t_env *env);
-short		handler_menu(t_env *env);
-short		helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos);
+void		handler_mini_map(t_env *env);
+void		handler_hud(t_env *env);
+void		handler_door(t_env *env);
+void		handler_waepon(t_env *env);
+void		handler_put_strings(t_env *env);
+void		handler_hud_stats_player(t_env *env);
+void		handler_menu(t_env *env);
+void		helper_mlx_put_hud_to_win(t_env *env, t_texture texture, t_pos pos);
 void		hud_bam_comics(t_env *env, short state_check);
-short		helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
+void		helper_mlx_put_width_max_hud_to_win(t_env *env, t_texture texture,
 				t_pos pos, int width_max);
-short		helper_mlx_put_height_start_hud_to_win(t_env *env,
+void		helper_mlx_put_height_start_hud_to_win(t_env *env,
 				t_texture texture, t_pos pos, int height_start);
 
 /*******************************/

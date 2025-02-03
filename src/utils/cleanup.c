@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 23:06:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 22:35:03 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:53:02 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	cleanup(t_env *env)
 {
 	if (env->gc)
 		gc_clean(env->gc);
+	pthread_mutex_destroy(&env->map->mutex_sprite);
 	cleanup_map(env);
 	cleanup_textures(env);
 	cleanup_mlx(env);

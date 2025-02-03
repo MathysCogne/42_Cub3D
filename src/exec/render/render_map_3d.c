@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map_3d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:31:51 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/29 22:55:47 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 09:52:13 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ static void	set_pixel(t_mlx *mlx, t_render *render, t_pos pos,
 	ft_put_pixel_in_img(mlx, pos, color);
 }
 
+int	try_render_sprite(t_map *map, t_mlx *mlx,
+						t_textures *textures, t_render **render)
+{
+	pthread_mutex_lock(&map->mutex_sprite);
+	if (!render_sprites(map, render, mlx, textures))
+		return (pthread_mutex_unlock(&map->mutex_sprite), 0);
+	pthread_mutex_unlock(&map->mutex_sprite);
+	return (1);
+}
+
 short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *textures)
 {
 	t_pos		pos;
@@ -68,7 +78,8 @@ short	render_map_3d(t_map *map, t_mlx *mlx, t_textures *textures)
 		}
 		pos.y++;
 	}
-	if (map->sprites_size > 0 && !render_sprites(map, render, mlx, textures))
+	if (map->sprites_size > 0
+		&& !try_render_sprite(map, mlx, textures, render))
 		return (detroy_render(render), 1);
 	bi_interpolation_decompression(mlx);
 	detroy_render(render);

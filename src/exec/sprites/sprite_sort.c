@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:37:08 by achaisne          #+#    #+#             */
-/*   Updated: 2025/01/30 21:34:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:47:52 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	sort_sprites(t_sprite *sprites, t_map *map, int (*compare)(int, int))
 		trigger = 1;
 		while (i < map->sprites_size - 1)
 		{
-			if (sprites[i + 1].distance && compare(sprites[i].distance,
-					sprites[i + 1].distance))
+			if (compare(sprites[i].distance, sprites[i + 1].distance))
 			{
 				buffer = sprites[i];
 				sprites[i] = sprites[i + 1];

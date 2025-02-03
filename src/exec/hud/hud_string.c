@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hud_string.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achaisne <achaisne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:02 by mcogne--          #+#    #+#             */
-/*   Updated: 2025/01/30 23:17:08 by mcogne--         ###   ########.fr       */
+/*   Updated: 2025/02/02 13:05:53 by achaisne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,9 @@ static void	string_door(t_mlx *mlx, t_map *map, t_pos_player pos)
 			* 0.075, COLOR_TXT_INFO, TXT_DOOR_OPEN);
 }
 
-short	handler_put_strings(t_env *env)
+void	handler_put_strings(t_env *env)
 {
 	string_door(env->mlx, env->map, env->map->player.pos);
 	string_orientation(env->mlx, env->map->player.pos);
 	string_stats_player(env->mlx, env->map->player);
-	return (0);
 }
